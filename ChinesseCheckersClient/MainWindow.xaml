@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChinesseCheckersClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1366" Width="768">
+        Title="ChinesseCheckers" Height="720" Width="1280"
+        FontSize="32" 
+        WindowStyle="None"
+        >
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Rectangle Fill="Green" MouseLeftButtonDown="window_MouseLeftButtonDown"/>
+        <Button x:Name="btClose" HorizontalAlignment="Right"  Width="50" Content="C" Click="btClose_Click"/>
+        <ContentControl Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Contenido" Background="Red"></ContentControl>
+        <Button HorizontalAlignment="Left" Grid.Row="2" Width="50" Content="B" ></Button>
+        <Button HorizontalAlignment="Right" Grid.Row="2" Width="50" Content="F" />
         
+
     </Grid>
 </Window>

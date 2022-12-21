@@ -24,5 +24,15 @@ namespace ChinesseCheckersClient
         {
             InitializeComponent();
         }
+
+        private void window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void btClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
