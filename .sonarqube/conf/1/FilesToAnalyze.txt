@@ -1,0 +1,6 @@
+﻿C:\Users\Acer\source\repos\ChinesseCheckersClient\ChinesseCheckersClient\App.xaml.cs
+C:\Users\Acer\source\repos\ChinesseCheckersClient\ChinesseCheckersClient\MainWindow.xaml.cs
+C:\Users\Acer\source\repos\ChinesseCheckersClient\ChinesseCheckersClient\Properties\AssemblyInfo.cs
+C:\Users\Acer\source\repos\ChinesseCheckersClient\ChinesseCheckersClient\Properties\Resources.resx
+C:\Users\Acer\source\repos\ChinesseCheckersClient\ChinesseCheckersClient\Properties\Settings.settings
+C:\Users\Acer\source\repos\ChinesseCheckersClient\ChinesseCheckersClient\App.config
