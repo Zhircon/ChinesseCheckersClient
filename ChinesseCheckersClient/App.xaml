@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:ChinesseCheckersClient"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source= "Styles\ButtonCloseStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonMinimizeStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonRestoreStateStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

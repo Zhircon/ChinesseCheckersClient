@@ -8,19 +8,26 @@
         Title="ChinesseCheckers" Height="720" Width="1280"
         FontSize="32" 
         WindowStyle="None"
+        AllowsTransparency="True"
         >
+    <Window.Background >
+        <SolidColorBrush Opacity="0.5" Color="White"/>
+    </Window.Background>
     <Grid>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <Rectangle Fill="Green" MouseLeftButtonDown="window_MouseLeftButtonDown"/>
-        <Button x:Name="btClose" HorizontalAlignment="Right"  Width="50" Content="C" Click="btClose_Click"/>
-        <ContentControl Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Contenido" Background="Red"></ContentControl>
-        <Button HorizontalAlignment="Left" Grid.Row="2" Width="50" Content="B" ></Button>
-        <Button HorizontalAlignment="Right" Grid.Row="2" Width="50" Content="F" />
+        <Rectangle Fill="Green" MouseLeftButtonDown="window_MouseLeftButtonDown" Grid.ColumnSpan="2"/>
+        <Button Style="{DynamicResource ButtonCloseStyle}" x:Name="btClose" HorizontalAlignment="Right"  Width="40" Click="btClose_Click" Grid.Column="1" />
+        <ContentControl x:Name="ccDisplay" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" Grid.ColumnSpan="2">
+
+        </ContentControl>
         
+        <Button  HorizontalAlignment="Left" Width="40" Content="B" />
+        <Button Style="{DynamicResource ButtonRestoreStateStyle}" x:Name="btChangeState" HorizontalAlignment="Right"  Width="40"  Click="btChangeState_Click" Margin="0,0,55,0" Grid.Column="1"/>
+        <Button Style="{DynamicResource ButtonMinimizeStyle}" x:Name="btMinimize" HorizontalAlignment="Right"  Width="40"  Click="btMinimize_Click" Margin="0,0,110,0" Grid.Column="1"/>
 
     </Grid>
 </Window>
