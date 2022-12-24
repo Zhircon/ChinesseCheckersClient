@@ -27,6 +27,8 @@ namespace ChinesseCheckersClient
 
         private void window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var loginPage = new LoginPage();
+            frame.Source = new Uri("/LoginPage.xaml", UriKind.Relative);
             this.DragMove();
         }
 

@@ -11,8 +11,9 @@
         AllowsTransparency="True"
         >
     <Window.Background >
-        <SolidColorBrush Opacity="0.5" Color="White"/>
+        <SolidColorBrush Opacity="0.2" Color="Black"/>
     </Window.Background>
+
     <Grid>
 
         <Grid.RowDefinitions>
@@ -21,13 +22,12 @@
         </Grid.RowDefinitions>
         <Rectangle Fill="Green" MouseLeftButtonDown="window_MouseLeftButtonDown" Grid.ColumnSpan="2"/>
         <Button Style="{DynamicResource ButtonCloseStyle}" x:Name="btClose" HorizontalAlignment="Right"  Width="40" Click="btClose_Click" Grid.Column="1" />
-        <ContentControl x:Name="ccDisplay" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" Grid.ColumnSpan="2">
+        <Frame x:Name="frame" Source="/LoginPage.xaml" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2">
 
-        </ContentControl>
+        </Frame>
         
         <Button  HorizontalAlignment="Left" Width="40" Content="B" />
         <Button Style="{DynamicResource ButtonRestoreStateStyle}" x:Name="btChangeState" HorizontalAlignment="Right"  Width="40"  Click="btChangeState_Click" Margin="0,0,55,0" Grid.Column="1"/>
         <Button Style="{DynamicResource ButtonMinimizeStyle}" x:Name="btMinimize" HorizontalAlignment="Right"  Width="40"  Click="btMinimize_Click" Margin="0,0,110,0" Grid.Column="1"/>
-
     </Grid>
 </Window>
