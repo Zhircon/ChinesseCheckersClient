@@ -20,7 +20,7 @@ namespace ChinesseCheckersClient
             
             String[] emailPartsAfterDot = emailParts[1].Split('.');
             if (emailPartsAfterDot[0].Length == 0) { isValid = false; }
-            if (emailPartsAfterDot[1].Length == 0) { isValid = false; };
+            if (emailPartsAfterDot[1].Length == 0) { isValid = false; }
 
             return isValid;
         }
