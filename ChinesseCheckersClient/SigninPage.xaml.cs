@@ -20,9 +20,11 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class SigninPage : Page
     {
+       
         public SigninPage()
         {
             InitializeComponent();
+           
         }
     }
 }

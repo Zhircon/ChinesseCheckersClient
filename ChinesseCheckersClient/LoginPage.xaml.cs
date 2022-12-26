@@ -15,23 +15,19 @@ using System.Windows.Shapes;
 
 namespace ChinesseCheckersClient
 {
-    /// <summary>
-    /// Lógica de interacción para LoginPage.xaml
-    /// </summary>
+
     public partial class LoginPage : Page
     {
+        ImageBrush correctLogoSprite;
+        ImageBrush incorrectLogoSprite; 
+        ImageBrush infoLogoSprite = new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/InfoLogo.png")));
         public LoginPage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
+            rCheckEmail.Fill = infoLogoSprite;
+            rCheckNickname.Fill = infoLogoSprite;
+            rCheckPassword.Fill = infoLogoSprite;
+            rCheckValidatePassword.Fill = infoLogoSprite;
 
         }
     }
