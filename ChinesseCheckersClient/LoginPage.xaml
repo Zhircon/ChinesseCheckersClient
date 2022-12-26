@@ -14,16 +14,16 @@
         <Canvas  Height="680" Width="1280">
             <Rectangle Fill="#FFF4F4F5" Height="606" Canvas.Left="42" RadiusY="16.875" RadiusX="16.875" Stroke="Black" Canvas.Top="44" Width="388"/>
             <Label FontSize="32" Content="Iniciar Sesion" Canvas.Left="132" Canvas.Top="78" Width="211"/>
-            <TextBox Height="41" Canvas.Left="110" TextWrapping="Wrap" Text="TextBox" Canvas.Top="374" Width="259"/>
+            <TextBox Height="41" Canvas.Left="110" TextWrapping="Wrap"  Canvas.Top="374" Width="259"/>
             <Button Content="Iniciar Sesion" Canvas.Left="155" Canvas.Top="478" Width="161"/>
             <Rectangle Fill="#FFF4F4F5" Height="606" Canvas.Left="706" RadiusY="16.875" RadiusX="16.875" Stroke="Black" Canvas.Top="44" Width="504"/>
             <Rectangle Fill="#FFF4F4F5" Height="271" Canvas.Left="432" RadiusY="315.5" RadiusX="315.5" Stroke="Black" Canvas.Top="199" Width="271"/>
             <Label FontSize="32" Content="Registrarse" Canvas.Left="764" Canvas.Top="80" Width="174"/>
-            <TextBox Height="37" Canvas.Left="110" TextWrapping="Wrap" Text="TextBox" Canvas.Top="241" Width="259" TextChanged="TextBox_TextChanged"/>
-            <TextBox Height="37" Canvas.Left="790" TextWrapping="Wrap" Text="TextBox" Canvas.Top="206" Width="264"/>
-            <TextBox Height="37" Canvas.Left="790" TextWrapping="Wrap" Text="TextBox" Canvas.Top="296" Width="264"/>
-            <TextBox Height="37" Canvas.Left="788" TextWrapping="Wrap" Text="TextBox" Canvas.Top="397" Width="264"/>
-            <TextBox Height="37" Canvas.Left="790" TextWrapping="Wrap" Text="TextBox" Canvas.Top="485" Width="264"/>
+            <TextBox Height="37" Canvas.Left="110" TextWrapping="Wrap"  Canvas.Top="241" Width="259" TextChanged="TextBox_TextChanged"/>
+            <TextBox Height="37" Canvas.Left="790" TextWrapping="Wrap"  Canvas.Top="206" Width="264"/>
+            <TextBox Height="37" Canvas.Left="790" TextWrapping="Wrap"  Canvas.Top="296" Width="264"/>
+            <TextBox Height="37" Canvas.Left="788" TextWrapping="Wrap"  Canvas.Top="397" Width="264"/>
+            <TextBox Height="37" Canvas.Left="790" TextWrapping="Wrap"  Canvas.Top="485" Width="264"/>
             <Label Content="Email" Canvas.Left="110" Canvas.Top="199"/>
             <Label Content="Contraseña" Canvas.Left="110" Canvas.Top="332"/>
             <Label Content="Email" Canvas.Left="790" Canvas.Top="159"/>

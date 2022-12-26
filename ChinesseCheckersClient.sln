@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.33027.164
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChinesseCheckersClient", "ChinesseCheckersClient\ChinesseCheckersClient.csproj", "{08240A2C-479A-477E-841F-5FA417EE7DE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{FAE6CDDB-727C-4916-8083-2C2839035FB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{08240A2C-479A-477E-841F-5FA417EE7DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08240A2C-479A-477E-841F-5FA417EE7DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08240A2C-479A-477E-841F-5FA417EE7DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAE6CDDB-727C-4916-8083-2C2839035FB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAE6CDDB-727C-4916-8083-2C2839035FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAE6CDDB-727C-4916-8083-2C2839035FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAE6CDDB-727C-4916-8083-2C2839035FB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
