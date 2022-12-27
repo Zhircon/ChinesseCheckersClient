@@ -38,6 +38,10 @@ namespace ChinesseCheckersClient
             if (!_password.Any(c => char.IsNumber(c))) { isValid = false; } //if not contains Numbers is invalid 
             return isValid;
         }
+        public static bool isValidPasswordDuplicate(string _passwordDuplicate,string _password)
+        {
+            return _password.Equals(_passwordDuplicate);   
+        }
 
     }
 }
