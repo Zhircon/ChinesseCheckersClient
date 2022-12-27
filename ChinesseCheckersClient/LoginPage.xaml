@@ -20,7 +20,7 @@
             <Label Content="Error de inicio de sesion" Canvas.Left="106" Canvas.Top="550"/>
             <TextBox x:Name="tbLoginPassword" Height="41" Canvas.Left="110" TextWrapping="Wrap"  Canvas.Top="374" Width="259" BorderBrush="{x:Null}"/>
             <TextBox x:Name="tbLoginEmail" Height="37" Canvas.Left="110" TextWrapping="Wrap"  Canvas.Top="241" Width="259" BorderBrush="{x:Null}"/>
-            <Button Content="Iniciar Sesion" Canvas.Left="162" Canvas.Top="486" Width="162" BorderBrush="{x:Null}" Click="Button_Click"/>
+            <Button Content="Iniciar Sesion" Canvas.Left="162" Canvas.Top="486" Width="162" BorderBrush="{x:Null}" />
             <!--#LoginEnd-->
             <Rectangle Fill="#FFF4F4F5" Height="271" Canvas.Left="432" RadiusY="315.5" RadiusX="315.5" Canvas.Top="199" Width="271"/>
             <!--#SigninBegin-->

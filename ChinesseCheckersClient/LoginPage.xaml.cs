@@ -18,9 +18,9 @@ namespace ChinesseCheckersClient
 
     public partial class LoginPage : Page
     {
-        private ImageBrush correctLogoSprite= new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/CorrectLogo.png")));
-        private ImageBrush incorrectLogoSprite= new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/IncorrectLogo.png"))); 
-        private ImageBrush infoLogoSprite = new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/InfoLogo.png")));
+        private readonly ImageBrush correctLogoSprite= new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/CorrectLogo.png")));
+        private readonly ImageBrush incorrectLogoSprite= new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/IncorrectLogo.png"))); 
+        private readonly ImageBrush infoLogoSprite = new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/InfoLogo.png")));
         public LoginPage()
         {
             InitializeComponent();
@@ -30,9 +30,5 @@ namespace ChinesseCheckersClient
             rCheckValidatePassword.Fill = infoLogoSprite;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
