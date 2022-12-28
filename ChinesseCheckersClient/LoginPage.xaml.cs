@@ -166,7 +166,7 @@ namespace ChinesseCheckersClient
             throw new NotImplementedException();
         }
 
-        private void RegisterPlayer()
+        private async void RegisterPlayer()
         {
 
             string email = tbSigninEmail.Text;
@@ -175,27 +175,27 @@ namespace ChinesseCheckersClient
             btSignin.IsEnabled = false;
             btLogin.IsEnabled = false;
             rCheckOperation.Visibility = Visibility.Visible;
-            TryRegister(nickname, password, email);
-            rCheckOperation.Visibility = Visibility.Hidden;
-            btSignin.IsEnabled = true;
-            btLogin.IsEnabled = true;
-            tbSigninEmail.Text = "";
-            tbSigninNickname.Text = "";
-            tbSigninPassword.Text = "";
-            tbSigninDuplicatedPassword.Text = "";
-        }
-        private async void TryRegister(string _nickname,string _password,string _email)
-        {
             try
             {
                 GameService.PlayerMgtClient playerMgt = new GameService.PlayerMgtClient();
-                await playerMgt.RegisterPlayerAsync(_nickname, _password, _email);
+                await playerMgt.RegisterPlayerAsync(nickname, password, email);
+                rCheckOperation.Visibility = Visibility.Hidden;
+                btSignin.IsEnabled = true;
+                btLogin.IsEnabled = true;
+                tbSigninEmail.Text = "";
+                tbSigninNickname.Text = "";
+                tbSigninPassword.Text = "";
+                tbSigninDuplicatedPassword.Text = "";
             }
             catch (EndpointNotFoundException)
             {
                 NavigationCommands.GoToConnectionLostPage();
             }
 
+
         }
+
+
+
     }
 }
