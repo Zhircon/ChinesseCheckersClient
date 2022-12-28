@@ -32,6 +32,160 @@ namespace ChinesseCheckersClient.GameService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Session", Namespace="http://schemas.datacontract.org/2004/07/Logic")]
+    [System.SerializableAttribute()]
+    public partial class Session : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ChinesseCheckersClient.GameService.Configuration PlayerConfigurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ChinesseCheckersClient.GameService.Player PlayerLogedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ChinesseCheckersClient.GameService.Configuration PlayerConfiguration {
+            get {
+                return this.PlayerConfigurationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayerConfigurationField, value) != true)) {
+                    this.PlayerConfigurationField = value;
+                    this.RaisePropertyChanged("PlayerConfiguration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ChinesseCheckersClient.GameService.Player PlayerLoged {
+            get {
+                return this.PlayerLogedField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayerLogedField, value) != true)) {
+                    this.PlayerLogedField = value;
+                    this.RaisePropertyChanged("PlayerLoged");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Configuration", Namespace="http://schemas.datacontract.org/2004/07/DataAccess")]
+    [System.SerializableAttribute()]
+    public partial class Configuration : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdConfigurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string languageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int volMusicField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int volSFXField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdConfiguration {
+            get {
+                return this.IdConfigurationField;
+            }
+            set {
+                if ((this.IdConfigurationField.Equals(value) != true)) {
+                    this.IdConfigurationField = value;
+                    this.RaisePropertyChanged("IdConfiguration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string language {
+            get {
+                return this.languageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.languageField, value) != true)) {
+                    this.languageField = value;
+                    this.RaisePropertyChanged("language");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int volMusic {
+            get {
+                return this.volMusicField;
+            }
+            set {
+                if ((this.volMusicField.Equals(value) != true)) {
+                    this.volMusicField = value;
+                    this.RaisePropertyChanged("volMusic");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int volSFX {
+            get {
+                return this.volSFXField;
+            }
+            set {
+                if ((this.volSFXField.Equals(value) != true)) {
+                    this.volSFXField = value;
+                    this.RaisePropertyChanged("volSFX");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/DataAccess")]
     [System.SerializableAttribute()]
     public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -134,10 +288,10 @@ namespace ChinesseCheckersClient.GameService {
         System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> RegisterPlayerAsync(string _nickname, string _password, string _email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/Login", ReplyAction="http://tempuri.org/IPlayerMgt/LoginResponse")]
-        ChinesseCheckersClient.GameService.Player Login(string _email, string _password);
+        ChinesseCheckersClient.GameService.Session Login(string _email, string _password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/Login", ReplyAction="http://tempuri.org/IPlayerMgt/LoginResponse")]
-        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Player> LoginAsync(string _email, string _password);
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Session> LoginAsync(string _email, string _password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/DeletePlayer", ReplyAction="http://tempuri.org/IPlayerMgt/DeletePlayerResponse")]
         ChinesseCheckersClient.GameService.OperationResult DeletePlayer(int _idPlayer);
@@ -181,11 +335,11 @@ namespace ChinesseCheckersClient.GameService {
             return base.Channel.RegisterPlayerAsync(_nickname, _password, _email);
         }
         
-        public ChinesseCheckersClient.GameService.Player Login(string _email, string _password) {
+        public ChinesseCheckersClient.GameService.Session Login(string _email, string _password) {
             return base.Channel.Login(_email, _password);
         }
         
-        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Player> LoginAsync(string _email, string _password) {
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Session> LoginAsync(string _email, string _password) {
             return base.Channel.LoginAsync(_email, _password);
         }
         
@@ -195,6 +349,53 @@ namespace ChinesseCheckersClient.GameService {
         
         public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> DeletePlayerAsync(int _idPlayer) {
             return base.Channel.DeletePlayerAsync(_idPlayer);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GameService.IConnectionTestMgt")]
+    public interface IConnectionTestMgt {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConnectionTestMgt/IsConnectionUp", ReplyAction="http://tempuri.org/IConnectionTestMgt/IsConnectionUpResponse")]
+        bool IsConnectionUp();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConnectionTestMgt/IsConnectionUp", ReplyAction="http://tempuri.org/IConnectionTestMgt/IsConnectionUpResponse")]
+        System.Threading.Tasks.Task<bool> IsConnectionUpAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IConnectionTestMgtChannel : ChinesseCheckersClient.GameService.IConnectionTestMgt, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ConnectionTestMgtClient : System.ServiceModel.ClientBase<ChinesseCheckersClient.GameService.IConnectionTestMgt>, ChinesseCheckersClient.GameService.IConnectionTestMgt {
+        
+        public ConnectionTestMgtClient() {
+        }
+        
+        public ConnectionTestMgtClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ConnectionTestMgtClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ConnectionTestMgtClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ConnectionTestMgtClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool IsConnectionUp() {
+            return base.Channel.IsConnectionUp();
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsConnectionUpAsync() {
+            return base.Channel.IsConnectionUpAsync();
         }
     }
 }

@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <Rectangle Fill="Green" MouseLeftButtonDown="window_MouseLeftButtonDown" Grid.ColumnSpan="2"/>
         <Button Style="{DynamicResource ButtonCloseStyle}" x:Name="btClose" HorizontalAlignment="Right"  Width="40" Click="btClose_Click" Grid.Column="1" />
-        <Frame  x:Name="frame" Source="/LoginPage.xaml" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2">
+        <Frame   x:Name="frame" Source="/LoginPage.xaml" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden">
 
         </Frame>
         

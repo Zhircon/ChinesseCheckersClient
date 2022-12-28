@@ -29,6 +29,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IConnectionTestMgt_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -55,6 +84,12 @@
   <wsdl:message name="IPlayerMgt_DeletePlayer_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeletePlayerResponse" />
   </wsdl:message>
+  <wsdl:message name="IConnectionTestMgt_IsConnectionUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsConnectionUp" />
+  </wsdl:message>
+  <wsdl:message name="IConnectionTestMgt_IsConnectionUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsConnectionUpResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPlayerMgt">
     <wsdl:operation name="RegisterPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayerMgt/RegisterPlayer" message="tns:IPlayerMgt_RegisterPlayer_InputMessage" />
@@ -67,6 +102,12 @@
     <wsdl:operation name="DeletePlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayerMgt/DeletePlayer" message="tns:IPlayerMgt_DeletePlayer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlayerMgt/DeletePlayerResponse" message="tns:IPlayerMgt_DeletePlayer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IConnectionTestMgt">
+    <wsdl:operation name="IsConnectionUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConnectionTestMgt/IsConnectionUp" message="tns:IConnectionTestMgt_IsConnectionUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConnectionTestMgt/IsConnectionUpResponse" message="tns:IConnectionTestMgt_IsConnectionUp_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IPlayerMgt" type="tns:IPlayerMgt">
@@ -100,11 +141,33 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IConnectionTestMgt" type="tns:IConnectionTestMgt">
+    <wsp:PolicyReference URI="#NetTcpBinding_IConnectionTestMgt_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="IsConnectionUp">
+      <soap12:operation soapAction="http://tempuri.org/IConnectionTestMgt/IsConnectionUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="GameService">
     <wsdl:port name="NetTcpBinding_IPlayerMgt" binding="tns:NetTcpBinding_IPlayerMgt">
-      <soap12:address location="net.tcp://localhost:8081/MineSweeperService" />
+      <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8081/MineSweeperService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IConnectionTestMgt" binding="tns:NetTcpBinding_IConnectionTestMgt">
+      <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
         </Identity>

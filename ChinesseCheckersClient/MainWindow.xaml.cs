@@ -20,10 +20,15 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Uri lastPage;
+        public Uri LastPage
+        {
+            get { return lastPage; }
+            set { lastPage = value; }
+        }
+       
         private void window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var loginPage = new LoginPage();
-            frame.Source = new Uri("/LoginPage.xaml", UriKind.Relative);
             this.DragMove();
         }
 
