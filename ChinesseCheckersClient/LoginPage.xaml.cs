@@ -25,14 +25,15 @@ namespace ChinesseCheckersClient
         private readonly ImageBrush infoLogoSprite = new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/InfoLogo.png")));
         private readonly ImageBrush loadingLogoSprite = new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/LoadingLogo.png")));
         
-        private bool isSigninEmailValid = false;
-        private bool isSigninNicknameValid = false;
-        private bool isSigninPasswordValid = false;
-        private bool isSigninDuplicatedPasswordValid = false;
+        //By default everthing bool is false
+        private bool isSigninEmailValid;
+        private bool isSigninNicknameValid;
+        private bool isSigninPasswordValid;
+        private bool isSigninDuplicatedPasswordValid;
 
-        private int angle = 0;
+        private int angle;
 
-        private DispatcherTimer gameTimer = new DispatcherTimer();
+        private readonly DispatcherTimer gameTimer = new DispatcherTimer();
         public LoginPage()
         {
             InitializeComponent();
@@ -69,7 +70,6 @@ namespace ChinesseCheckersClient
             if (inputTextBox.Name == "tbSigninPassword") { updateSigninPasswordStatus(inputTextBox); }
             if (inputTextBox.Name == "tbSigninDuplicatedPassword") { updateSigninDuplicatedPasswordStatus(inputTextBox); }
             btSignin.IsEnabled = isDataInputValid() ? true : false;
-            //if (isDataInputValid()) { btSignin.IsEnabled = true; } else { btSignin.IsEnabled = false; }
         }
 
         private void updateSigninDuplicatedPasswordStatus(TextBox _inputTextBox)

@@ -22,8 +22,8 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class ConnectionLostPage : Page
     {
-        private int angle = 0;
-        private DispatcherTimer gameTimer = new DispatcherTimer();
+        private int angle;
+        private readonly DispatcherTimer gameTimer = new DispatcherTimer();
         public ConnectionLostPage()
         {
             InitializeComponent();
