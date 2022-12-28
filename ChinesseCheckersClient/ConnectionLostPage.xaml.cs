@@ -22,8 +22,9 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class ConnectionLostPage : Page
     {
-        private int angle;
+        
         private readonly DispatcherTimer gameTimer = new DispatcherTimer();
+        private int angle;
         public ConnectionLostPage()
         {
             InitializeComponent();
@@ -41,7 +42,8 @@ namespace ChinesseCheckersClient
         private void GameLoop(object sender, EventArgs e)
         {
             if (angle == 360) { angle = 0; }
-            rLoadingLogo.RenderTransform = new RotateTransform(angle += 1);
+            rLoadingLogo.RenderTransform = new RotateTransform(angle);
+            angle++;
         }
 
         private async Task tryToConnectToServerAsync()

@@ -24,7 +24,8 @@ namespace ChinesseCheckersClient
         private readonly ImageBrush incorrectLogoSprite= new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/IncorrectLogo.png"))); 
         private readonly ImageBrush infoLogoSprite = new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/InfoLogo.png")));
         private readonly ImageBrush loadingLogoSprite = new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/LoadingLogo.png")));
-        
+        private readonly DispatcherTimer gameTimer = new DispatcherTimer();
+
         //By default everthing bool is false
         private bool isSigninEmailValid;
         private bool isSigninNicknameValid;
@@ -33,13 +34,10 @@ namespace ChinesseCheckersClient
 
         private int angle;
 
-        private readonly DispatcherTimer gameTimer = new DispatcherTimer();
         public LoginPage()
         {
             InitializeComponent();
             SetUp();
-
-            
         }
 
         public void SetUp()
@@ -59,20 +57,21 @@ namespace ChinesseCheckersClient
         private void GameLoop(object sender, EventArgs e)
         {
             if (angle == 360) { angle = 0; }
-            rCheckOperation.RenderTransform = new RotateTransform(angle+=1);
+            rCheckOperation.RenderTransform = new RotateTransform(angle);
+            angle++;
         }
 
         private void Textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox inputTextBox = (TextBox)sender;
-            if (inputTextBox.Name == "tbSigninEmail") { updateSigninEmailStatus(inputTextBox); }
-            if (inputTextBox.Name == "tbSigninNickname") { updateSigninNicknameStatus(inputTextBox); }
-            if (inputTextBox.Name == "tbSigninPassword") { updateSigninPasswordStatus(inputTextBox); }
-            if (inputTextBox.Name == "tbSigninDuplicatedPassword") { updateSigninDuplicatedPasswordStatus(inputTextBox); }
-            btSignin.IsEnabled = isDataInputValid() ? true : false;
+            if (inputTextBox.Name == "tbSigninEmail") { UpdateSigninEmailStatus(inputTextBox); }
+            if (inputTextBox.Name == "tbSigninNickname") { UpdateSigninNicknameStatus(inputTextBox); }
+            if (inputTextBox.Name == "tbSigninPassword") { UpdateSigninPasswordStatus(inputTextBox); }
+            if (inputTextBox.Name == "tbSigninDuplicatedPassword") { UpdateSigninDuplicatedPasswordStatus(inputTextBox); }
+            btSignin.IsEnabled = IsDataInputValid() ? true : false;
         }
 
-        private void updateSigninDuplicatedPasswordStatus(TextBox _inputTextBox)
+        private void UpdateSigninDuplicatedPasswordStatus(TextBox _inputTextBox)
         {
             if (_inputTextBox.Text.Length == 0) { 
                 rCheckDuplicatedPassword.Fill = infoLogoSprite;
@@ -90,7 +89,7 @@ namespace ChinesseCheckersClient
             }
         }
 
-        private void updateSigninPasswordStatus(TextBox _inputTextBox)
+        private void UpdateSigninPasswordStatus(TextBox _inputTextBox)
         {
             if (_inputTextBox.Text.Length == 0) 
             { 
@@ -109,7 +108,7 @@ namespace ChinesseCheckersClient
             }
         }
 
-        private void updateSigninNicknameStatus(TextBox _inputTextBox)
+        private void UpdateSigninNicknameStatus(TextBox _inputTextBox)
         {
             if (_inputTextBox.Text.Length == 0) 
             { 
@@ -129,7 +128,7 @@ namespace ChinesseCheckersClient
             
         }
 
-        private void updateSigninEmailStatus(TextBox _inputTextBox)
+        private void UpdateSigninEmailStatus(TextBox _inputTextBox)
         {
             if (_inputTextBox.Text.Length == 0) 
             { 
@@ -147,7 +146,7 @@ namespace ChinesseCheckersClient
                 isSigninEmailValid = false;
             }
         }
-        private bool isDataInputValid()
+        private bool IsDataInputValid()
         {
             if (!isSigninEmailValid) { return false; }
             if (!isSigninNicknameValid) { return false; }
@@ -158,26 +157,25 @@ namespace ChinesseCheckersClient
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button buttonClicked = (Button) sender;
-            if (buttonClicked.Name == "btSignin") { registerPlayer(); }
-            if (buttonClicked.Name == "btLogin") { loginPlayer(); }
+            if (buttonClicked.Name == "btSignin") { RegisterPlayer(); }
+            if (buttonClicked.Name == "btLogin") { LoginPlayer(); }
         }
 
-        private void loginPlayer()
+        private void LoginPlayer()
         {
             throw new NotImplementedException();
         }
 
-        private async void registerPlayer()
+        private void RegisterPlayer()
         {
-            
+
             string email = tbSigninEmail.Text;
             string nickname = tbSigninNickname.Text;
             string password = tbSigninPassword.Text;
-            
             btSignin.IsEnabled = false;
             btLogin.IsEnabled = false;
             rCheckOperation.Visibility = Visibility.Visible;
-            tryRegister(nickname, password, email);
+            TryRegister(nickname, password, email);
             rCheckOperation.Visibility = Visibility.Hidden;
             btSignin.IsEnabled = true;
             btLogin.IsEnabled = true;
@@ -186,7 +184,7 @@ namespace ChinesseCheckersClient
             tbSigninPassword.Text = "";
             tbSigninDuplicatedPassword.Text = "";
         }
-        private async void tryRegister(string _nickname,string _password,string _email)
+        private async void TryRegister(string _nickname,string _password,string _email)
         {
             try
             {
