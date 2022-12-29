@@ -1,0 +1,22 @@
+﻿<Window x:Class="ChinesseCheckersClient.VerificationCodePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChinesseCheckersClient"
+        mc:Ignorable="d"
+        Title="VerificationCodePage" Height="250" Width="400"
+        FontSize="16"
+        WindowStyle="ToolWindow"
+        >
+    <Grid >
+        <Label  Content="Introduce el código de verificación que se &#xA;ha enviado a tu correo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="372" Height="79"/>
+        <TextBox FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="10,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
+        <TextBox FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="112,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
+        <TextBox FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="207,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
+        <TextBox FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="307,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
+        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="293,184,0,0" VerticalAlignment="Top" Width="75"/>
+
+
+    </Grid>
+</Window>

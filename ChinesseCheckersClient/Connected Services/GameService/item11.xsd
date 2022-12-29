@@ -6,17 +6,11 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="Sucessfull" />
       <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Failed" />
       <xs:enumeration value="ConnectionLost">
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">100</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="OperationNoValid">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">200</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>

@@ -24,10 +24,10 @@ namespace ChinesseCheckersClient.GameService {
         Unknown = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ConnectionLost = 100,
+        Failed = 2,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        OperationNoValid = 200,
+        ConnectionLost = 100,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

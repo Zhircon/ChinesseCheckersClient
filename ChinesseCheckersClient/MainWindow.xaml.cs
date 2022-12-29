@@ -21,10 +21,15 @@ namespace ChinesseCheckersClient
     public partial class MainWindow : Window
     {
         private Uri lastPage;
+        private GameService.Session session;
         public Uri LastPage
         {
             get { return lastPage; }
             set { lastPage = value; }
+        }
+        public GameService.Session Session {
+            get { return session; }
+            set { session = value; }
         }
        
         private void window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -46,7 +51,5 @@ namespace ChinesseCheckersClient
         {
             Commands.MinimizateWindow();
         }
-
-
     }
 }

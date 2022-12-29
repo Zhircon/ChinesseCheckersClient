@@ -67,6 +67,9 @@
       <DependentUpon>ConnectionLostPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="NavigationCommands.cs" />
+    <Compile Include="PoliciesPanel.xaml.cs">
+      <DependentUpon>PoliciesPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Validator.cs" />
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -74,7 +77,14 @@
     <Compile Include="Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VerificationCodePage.xaml.cs">
+      <DependentUpon>VerificationCodePage.xaml</DependentUpon>
+    </Compile>
     <Page Include="ConnectionLostPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PoliciesPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,6 +117,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\ButtonMinimizeStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VerificationCodePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

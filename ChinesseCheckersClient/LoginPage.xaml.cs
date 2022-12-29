@@ -51,6 +51,7 @@ namespace ChinesseCheckersClient
             rCheckPassword.Fill = infoLogoSprite;
             rCheckDuplicatedPassword.Fill = infoLogoSprite;
             rCheckOperation.Fill = loadingLogoSprite;
+            rCheckOperation.Visibility = Visibility.Hidden;
             rCheckOperation.RenderTransformOrigin = new Point(0.5f, 0.5f);
         }
 
@@ -68,13 +69,15 @@ namespace ChinesseCheckersClient
             if (inputTextBox.Name == "tbSigninNickname") { UpdateSigninNicknameStatus(inputTextBox); }
             if (inputTextBox.Name == "tbSigninPassword") { UpdateSigninPasswordStatus(inputTextBox); }
             if (inputTextBox.Name == "tbSigninDuplicatedPassword") { UpdateSigninDuplicatedPasswordStatus(inputTextBox); }
-            btSignin.IsEnabled = IsDataInputValid() ? true : false;
+            if (IsDataInputLoginValid()) { btLogin.IsEnabled = true; } else { btLogin.IsEnabled = false; }
+            btSignin.IsEnabled = IsDataInputSigninValid() ? true : false;
         }
 
         private void UpdateSigninDuplicatedPasswordStatus(TextBox _inputTextBox)
         {
             if (_inputTextBox.Text.Length == 0) { 
                 rCheckDuplicatedPassword.Fill = infoLogoSprite;
+                isSigninDuplicatedPasswordValid = false;
                 return;
             }
             if (Validator.IsDuplicatePasswordValid(_inputTextBox.Text, tbSigninPassword.Text))
@@ -94,6 +97,7 @@ namespace ChinesseCheckersClient
             if (_inputTextBox.Text.Length == 0) 
             { 
                 rCheckPassword.Fill = infoLogoSprite;
+                isSigninPasswordValid = false;
                 return;
             }
             if (Validator.IsPasswordValid(_inputTextBox.Text))
@@ -113,6 +117,7 @@ namespace ChinesseCheckersClient
             if (_inputTextBox.Text.Length == 0) 
             { 
                 rCheckNickname.Fill = infoLogoSprite;
+                isSigninNicknameValid = false;
                 return;
             }
             if (Validator.IsNicknameValid(_inputTextBox.Text))
@@ -133,6 +138,7 @@ namespace ChinesseCheckersClient
             if (_inputTextBox.Text.Length == 0) 
             { 
                 rCheckEmail.Fill = infoLogoSprite;
+                isSigninEmailValid = false;
                 return;            
             }
             if (Validator.IsEmailValid(_inputTextBox.Text))
@@ -146,12 +152,18 @@ namespace ChinesseCheckersClient
                 isSigninEmailValid = false;
             }
         }
-        private bool IsDataInputValid()
+        private bool IsDataInputSigninValid()
         {
             if (!isSigninEmailValid) { return false; }
             if (!isSigninNicknameValid) { return false; }
             if (!isSigninPasswordValid) { return false; }
             if (!isSigninDuplicatedPasswordValid) { return false; }
+            return true;
+        }
+        private bool IsDataInputLoginValid()
+        {
+            if (tbLoginEmail.Text.Length == 0) { return false; }
+            if (tbLoginPassword.Text.Length == 0) { return false; }
             return true;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -161,9 +173,36 @@ namespace ChinesseCheckersClient
             if (buttonClicked.Name == "btLogin") { LoginPlayer(); }
         }
 
-        private void LoginPlayer()
+        private async void LoginPlayer()
         {
-            throw new NotImplementedException();
+            string email = tbLoginEmail.Text;
+            string password = tbLoginPassword.Text;
+            DisableAllInput();
+            lbStatus.Content = "Ejecutando";
+            rCheckOperation.Visibility = Visibility.Visible;
+            try
+            {
+                GameService.PlayerMgtClient playerMgt = new GameService.PlayerMgtClient();
+                GameService.Session session = await playerMgt.LoginAsync(email, password);
+                EnableAllInput();
+                if (session != null)
+                {
+                    MainWindow mainWindow= (MainWindow)Application.Current.MainWindow;
+                    mainWindow.Session = session;
+                    lbStatus.Content = "Logeo exitoso";
+                    rCheckOperation.Visibility = Visibility.Hidden;
+                    ClearTextBoxes();
+                }
+                else
+                {
+                    lbStatus.Content = "Credenciales no encontradas";
+                    rCheckOperation.Visibility = Visibility.Hidden;
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                NavigationCommands.GoToConnectionLostPage();
+            }
         }
 
         private async void RegisterPlayer()
@@ -172,30 +211,74 @@ namespace ChinesseCheckersClient
             string email = tbSigninEmail.Text;
             string nickname = tbSigninNickname.Text;
             string password = tbSigninPassword.Text;
-            btSignin.IsEnabled = false;
-            btLogin.IsEnabled = false;
+            DisableAllInput();
+            lbStatus.Content = "Ejecutando";
             rCheckOperation.Visibility = Visibility.Visible;
+
             try
             {
                 GameService.PlayerMgtClient playerMgt = new GameService.PlayerMgtClient();
-                await playerMgt.RegisterPlayerAsync(nickname, password, email);
-                rCheckOperation.Visibility = Visibility.Hidden;
-                btSignin.IsEnabled = true;
-                btLogin.IsEnabled = true;
-                tbSigninEmail.Text = "";
-                tbSigninNickname.Text = "";
-                tbSigninPassword.Text = "";
-                tbSigninDuplicatedPassword.Text = "";
+                GameService.OperationResult operationResult = await playerMgt.RegisterPlayerAsync(nickname, password, email);
+                EnableAllInput();
+                if (operationResult == GameService.OperationResult.Sucessfull)
+                {
+                    lbStatus.Content = "Registro exitoso";
+                    rCheckOperation.Visibility = Visibility.Hidden;
+                    ClearTextBoxes();
+                }
+                else
+                {
+                    lbStatus.Content = "Error de base de datos";
+                    rCheckOperation.Visibility = Visibility.Hidden;
+                }
+
             }
             catch (EndpointNotFoundException)
             {
                 NavigationCommands.GoToConnectionLostPage();
             }
-
-
+        }
+        private void DisableAllInput()
+        {
+            tbLoginEmail.IsEnabled = false;
+            tbLoginPassword.IsEnabled = false;
+            tbSigninEmail.IsEnabled = false;
+            tbSigninNickname.IsEnabled = false;
+            tbSigninPassword.IsEnabled = false;
+            tbSigninDuplicatedPassword.IsEnabled = false;
+            btSignin.IsEnabled = false;
+            btLogin.IsEnabled = false;
+        }
+        private void EnableAllInput()
+        {
+            tbLoginEmail.IsEnabled = true;
+            tbLoginPassword.IsEnabled = true;
+            tbSigninEmail.IsEnabled = true;
+            tbSigninNickname.IsEnabled = true;
+            tbSigninPassword.IsEnabled = true;
+            tbSigninDuplicatedPassword.IsEnabled = true;
+            btSignin.IsEnabled = true;
+            btLogin.IsEnabled = true;
+        }
+        private void ClearTextBoxes()
+        {
+            tbLoginEmail.Text = "";
+            tbLoginPassword.Text = "";
+            tbSigninEmail.Text = "";
+            tbSigninNickname.Text = "";
+            tbSigninPassword.Text = "";
+            tbSigninDuplicatedPassword.Text = "";
+            btSignin.IsEnabled = false;
         }
 
+        private void rPolicies_MouseEnter(object sender, MouseEventArgs e)
+        {
+            policiesPanel.Visibility = Visibility.Visible;
+        }
 
-
+        private void rPolicies_MouseLeave(object sender, MouseEventArgs e)
+        {
+            policiesPanel.Visibility = Visibility.Hidden;
+        }
     }
 }
