@@ -67,20 +67,19 @@ namespace ChinesseCheckersClient
             TextBox inputTextBox = (TextBox)sender;
             if (inputTextBox.Name == "tbSigninEmail") { UpdateSigninEmailStatus(inputTextBox); }
             if (inputTextBox.Name == "tbSigninNickname") { UpdateSigninNicknameStatus(inputTextBox); }
-            if (inputTextBox.Name == "tbSigninPassword") { UpdateSigninPasswordStatus(inputTextBox); }
-            if (inputTextBox.Name == "tbSigninDuplicatedPassword") { UpdateSigninDuplicatedPasswordStatus(inputTextBox); }
-            if (IsDataInputLoginValid()) { btLogin.IsEnabled = true; } else { btLogin.IsEnabled = false; }
+
+            btLogin.IsEnabled = IsDataInputLoginValid() ? true : false; 
             btSignin.IsEnabled = IsDataInputSigninValid() ? true : false;
         }
 
-        private void UpdateSigninDuplicatedPasswordStatus(TextBox _inputTextBox)
+        private void UpdateSigninDuplicatedPasswordStatus(PasswordBox _inputTextBox)
         {
-            if (_inputTextBox.Text.Length == 0) { 
+            if (_inputTextBox.Password.Length == 0) { 
                 rCheckDuplicatedPassword.Fill = infoLogoSprite;
                 isSigninDuplicatedPasswordValid = false;
                 return;
             }
-            if (Validator.IsDuplicatePasswordValid(_inputTextBox.Text, tbSigninPassword.Text))
+            if (Validator.IsDuplicatePasswordValid(_inputTextBox.Password, pbSigninPassword.Password))
             {
                 rCheckDuplicatedPassword.Fill = correctLogoSprite;
                 isSigninDuplicatedPasswordValid = true;
@@ -92,15 +91,15 @@ namespace ChinesseCheckersClient
             }
         }
 
-        private void UpdateSigninPasswordStatus(TextBox _inputTextBox)
+        private void UpdateSigninPasswordStatus(PasswordBox _inputTextBox)
         {
-            if (_inputTextBox.Text.Length == 0) 
+            if (_inputTextBox.Password.Length == 0) 
             { 
                 rCheckPassword.Fill = infoLogoSprite;
                 isSigninPasswordValid = false;
                 return;
             }
-            if (Validator.IsPasswordValid(_inputTextBox.Text))
+            if (Validator.IsPasswordValid(_inputTextBox.Password))
             {
                 rCheckPassword.Fill = correctLogoSprite;
                 isSigninPasswordValid = true;
@@ -163,7 +162,7 @@ namespace ChinesseCheckersClient
         private bool IsDataInputLoginValid()
         {
             if (tbLoginEmail.Text.Length == 0) { return false; }
-            if (tbLoginPassword.Text.Length == 0) { return false; }
+            if (pbLoginPassword.Password.Length == 0) { return false; }
             return true;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -176,9 +175,9 @@ namespace ChinesseCheckersClient
         private async void LoginPlayer()
         {
             string email = tbLoginEmail.Text;
-            string password = tbLoginPassword.Text;
+            string password = pbLoginPassword.Password;
             DisableAllInput();
-            lbStatus.Content = "Ejecutando";
+            lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_Executing;
             rCheckOperation.Visibility = Visibility.Visible;
             try
             {
@@ -189,13 +188,14 @@ namespace ChinesseCheckersClient
                 {
                     MainWindow mainWindow= (MainWindow)Application.Current.MainWindow;
                     mainWindow.Session = session;
-                    lbStatus.Content = "Logeo exitoso";
+                    lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_OperationSuccessful;
                     rCheckOperation.Visibility = Visibility.Hidden;
                     ClearTextBoxes();
+                    NavigationCommands.GoToMainMenu();
                 }
                 else
                 {
-                    lbStatus.Content = "Credenciales no encontradas";
+                    lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_NotFoundCredential;
                     rCheckOperation.Visibility = Visibility.Hidden;
                 }
             }
@@ -210,9 +210,9 @@ namespace ChinesseCheckersClient
 
             string email = tbSigninEmail.Text;
             string nickname = tbSigninNickname.Text;
-            string password = tbSigninPassword.Text;
+            string password = pbSigninPassword.Password;
             DisableAllInput();
-            lbStatus.Content = "Ejecutando";
+            lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_Executing;
             rCheckOperation.Visibility = Visibility.Visible;
 
             try
@@ -222,13 +222,13 @@ namespace ChinesseCheckersClient
                 EnableAllInput();
                 if (operationResult == GameService.OperationResult.Sucessfull)
                 {
-                    lbStatus.Content = "Registro exitoso";
+                    lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_OperationSuccessful;
                     rCheckOperation.Visibility = Visibility.Hidden;
                     ClearTextBoxes();
                 }
                 else
                 {
-                    lbStatus.Content = "Error de base de datos";
+                    lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_ErrorDatabase;
                     rCheckOperation.Visibility = Visibility.Hidden;
                 }
 
@@ -241,33 +241,34 @@ namespace ChinesseCheckersClient
         private void DisableAllInput()
         {
             tbLoginEmail.IsEnabled = false;
-            tbLoginPassword.IsEnabled = false;
+            pbLoginPassword.IsEnabled = false;
+
             tbSigninEmail.IsEnabled = false;
             tbSigninNickname.IsEnabled = false;
-            tbSigninPassword.IsEnabled = false;
-            tbSigninDuplicatedPassword.IsEnabled = false;
+            pbSigninPassword.IsEnabled = false;
+            pbSigninDuplicatedPassword.IsEnabled = false;
             btSignin.IsEnabled = false;
             btLogin.IsEnabled = false;
         }
         private void EnableAllInput()
         {
             tbLoginEmail.IsEnabled = true;
-            tbLoginPassword.IsEnabled = true;
+            pbLoginPassword.IsEnabled = true;
             tbSigninEmail.IsEnabled = true;
             tbSigninNickname.IsEnabled = true;
-            tbSigninPassword.IsEnabled = true;
-            tbSigninDuplicatedPassword.IsEnabled = true;
+            pbSigninPassword.IsEnabled = true;
+            pbSigninDuplicatedPassword.IsEnabled = true;
             btSignin.IsEnabled = true;
             btLogin.IsEnabled = true;
         }
         private void ClearTextBoxes()
         {
             tbLoginEmail.Text = "";
-            tbLoginPassword.Text = "";
+            pbLoginPassword.Password = "";
             tbSigninEmail.Text = "";
             tbSigninNickname.Text = "";
-            tbSigninPassword.Text = "";
-            tbSigninDuplicatedPassword.Text = "";
+            pbSigninPassword.Password = "";
+            pbSigninDuplicatedPassword.Password= "";
             btSignin.IsEnabled = false;
         }
 
@@ -279,6 +280,15 @@ namespace ChinesseCheckersClient
         private void rPolicies_MouseLeave(object sender, MouseEventArgs e)
         {
             policiesPanel.Visibility = Visibility.Hidden;
+        }
+
+        private void PasswordBox_TextChanged(object sender, RoutedEventArgs e)
+        {
+            PasswordBox inputTextBox = (PasswordBox)sender;
+            if (inputTextBox.Name == "pbSigninPassword") { UpdateSigninPasswordStatus(inputTextBox); }
+            if (inputTextBox.Name == "pbSigninDuplicatedPassword") { UpdateSigninDuplicatedPasswordStatus(inputTextBox); }
+            btLogin.IsEnabled = IsDataInputLoginValid() ? true : false;
+            btSignin.IsEnabled = IsDataInputSigninValid() ? true : false;
         }
     }
 }

@@ -132,8 +132,8 @@
   <data name="Common_Email" xml:space="preserve">
     <value>Email</value>
   </data>
-  <data name="Common_DuplicatedPassword" xml:space="preserve">
-    <value>Confirm password</value>
+  <data name="Common_ValidatePassword" xml:space="preserve">
+    <value>Validate password</value>
   </data>
   <data name="Common_Minimize" xml:space="preserve">
     <value>Minimize</value>
@@ -150,10 +150,69 @@
   <data name="Common_ConnectionDown" xml:space="preserve">
     <value>Connextion Down</value>
   </data>
-  <data name="Coomon_Retry" xml:space="preserve">
+  <data name="Common_Retry" xml:space="preserve">
     <value>Retry</value>
   </data>
-  <data name="Coomon_WaitingForServerReply" xml:space="preserve">
+  <data name="Common_WaitingForServerReply" xml:space="preserve">
     <value>Waiting for server reply</value>
+  </data>
+  <data name="Common_VolSfx" xml:space="preserve">
+    <value>VolSfx</value>
+  </data>
+  <data name="Common_VolMusic" xml:space="preserve">
+    <value>VolMusic</value>
+  </data>
+  <data name="Common_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Common_Spanish" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="Common_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Common_Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Common_Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="Common_Policies" xml:space="preserve">
+    <value>Policies</value>
+  </data>
+  <data name="Common_PasswordPolicie" xml:space="preserve">
+    <value>Must contain Upper
+Must contain lower
+Must contain digits</value>
+  </data>
+  <data name="Common_EmailPolicie" xml:space="preserve">
+    <value>Must be active</value>
+  </data>
+  <data name="Common_NicknamePolicie" xml:space="preserve">
+    <value>Length &lt;= 12</value>
+  </data>
+  <data name="Common_ValidatePasswordPolicie" xml:space="preserve">
+    <value>Must be the same than password</value>
+  </data>
+  <data name="Common_Executing" xml:space="preserve">
+    <value>Executing</value>
+  </data>
+  <data name="Common_Welcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="Common_OperationSuccessful" xml:space="preserve">
+    <value>Operation Successful</value>
+  </data>
+  <data name="Common_ErrorDatabase" xml:space="preserve">
+    <value>Error in database</value>
+  </data>
+  <data name="Common_NotFoundCredential" xml:space="preserve">
+    <value>Not found credentials</value>
+  </data>
+  <data name="Common_Try" xml:space="preserve">
+    <value>Try</value>
+  </data>
+  <data name="Common_Profile" xml:space="preserve">
+    <value>Profile</value>
   </data>
 </root>

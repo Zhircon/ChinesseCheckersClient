@@ -54,11 +54,11 @@ namespace ChinesseCheckersClient
             {
                 rLoadingLogo.Visibility = Visibility.Visible;
                 canvas.Background = new SolidColorBrush(Colors.Yellow);
-                btTry.Content = "Waiting server reply";
+                btTry.Content = ChinesseCheckersClient.Properties.Resources.Common_WaitingForServerReply;
                 btTry.IsEnabled = false;
                 await connectionTestMgt.IsConnectionUpAsync();  // if this failed then go to exception 
                 rLoadingLogo.Visibility = Visibility.Hidden;    
-                btTry.Content = "Connection up";
+                btTry.Content = ChinesseCheckersClient.Properties.Resources.Common_ConnectionUp;
                 canvas.Background = new SolidColorBrush(Colors.Green);
                 NavigationCommands.GoToLastPage();
 
@@ -67,7 +67,7 @@ namespace ChinesseCheckersClient
             {
                 rLoadingLogo.Visibility = Visibility.Hidden;
                 canvas.Background = new SolidColorBrush(Color.FromArgb(0xFF,0x95,0x10,0x10));
-                btTry.Content = "retry";
+                btTry.Content = ChinesseCheckersClient.Properties.Resources.Common_Retry;
                 btTry.IsEnabled = true;
             }
         }

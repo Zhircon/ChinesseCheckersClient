@@ -1,0 +1,30 @@
+﻿<Page x:Class="ChinesseCheckersClient.MainMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChinesseCheckersClient"
+      mc:Ignorable="d" 
+      d:DesignHeight="680" d:DesignWidth="1280"
+      Title="MainMenuPage"
+      FontSize="16"
+      >
+    <Viewbox Stretch="Fill" StretchDirection="Both">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="387*"/>
+                <ColumnDefinition Width="253*"/>
+            </Grid.ColumnDefinitions>
+            <local:UpdateProfilePanel Margin="0,84,540,196" />
+            <local:ConfigurationPanel Height="480" Width="150" Margin="346,85,10,115" Grid.Column="1" ></local:ConfigurationPanel>
+            <Button Content="Create Match" HorizontalAlignment="Left" Margin="536,172,0,0" VerticalAlignment="Top" Width="238" Height="48"/>
+            <Button Content="Join Match" HorizontalAlignment="Left" VerticalAlignment="Top" Width="238" Margin="536,272,0,0" Height="50"/>
+            <Button Content="FriendList" HorizontalAlignment="Left" VerticalAlignment="Top" Width="238" Margin="536,381,0,0" Height="50"/>
+            <Button Content="Credits" HorizontalAlignment="Left" VerticalAlignment="Top" Width="238" Margin="536,471,0,0" Height="49"/>
+            <Button Style="{DynamicResource ButtonProfileStyle}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+            <Button Style="{DynamicResource ButtonConfigurationStyle}" HorizontalAlignment="Left" Margin="426,10,0,0" VerticalAlignment="Top" Width="70" Height="70" Grid.Column="1"/>
+            <Label FontSize="32" Content="Main Menu" HorizontalAlignment="Left" Margin="582,85,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="284"/>
+
+        </Grid>
+    </Viewbox>
+</Page>

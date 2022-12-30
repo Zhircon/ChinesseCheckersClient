@@ -22,6 +22,7 @@ namespace ChinesseCheckersClient
     {
         private Uri lastPage;
         private GameService.Session session;
+        private MediaPlayer mediaPlayer = new MediaPlayer();
         public Uri LastPage
         {
             get { return lastPage; }
@@ -31,7 +32,14 @@ namespace ChinesseCheckersClient
             get { return session; }
             set { session = value; }
         }
-       
+        public MediaPlayer MediaPlayer
+        {
+            get { return mediaPlayer; }
+        }
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
         private void window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -45,6 +53,7 @@ namespace ChinesseCheckersClient
         private void btChangeState_Click(object sender, RoutedEventArgs e)
         {
             Commands.ChangeWindowState();
+
         }
 
         private void btMinimize_Click(object sender, RoutedEventArgs e)

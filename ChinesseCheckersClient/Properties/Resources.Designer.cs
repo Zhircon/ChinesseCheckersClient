@@ -61,11 +61,101 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Accept.
+        /// </summary>
+        public static string Common_Accept {
+            get {
+                return ResourceManager.GetString("Common_Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Apply.
+        /// </summary>
+        public static string Common_Apply {
+            get {
+                return ResourceManager.GetString("Common_Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Close.
         /// </summary>
         public static string Common_Close {
             get {
                 return ResourceManager.GetString("Common_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Connextion Down.
+        /// </summary>
+        public static string Common_ConnectionDown {
+            get {
+                return ResourceManager.GetString("Common_ConnectionDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Connection Up.
+        /// </summary>
+        public static string Common_ConnectionUp {
+            get {
+                return ResourceManager.GetString("Common_ConnectionUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email.
+        /// </summary>
+        public static string Common_Email {
+            get {
+                return ResourceManager.GetString("Common_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Must be active.
+        /// </summary>
+        public static string Common_EmailPolicie {
+            get {
+                return ResourceManager.GetString("Common_EmailPolicie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a English.
+        /// </summary>
+        public static string Common_English {
+            get {
+                return ResourceManager.GetString("Common_English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error in database.
+        /// </summary>
+        public static string Common_ErrorDatabase {
+            get {
+                return ResourceManager.GetString("Common_ErrorDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Executing.
+        /// </summary>
+        public static string Common_Executing {
+            get {
+                return ResourceManager.GetString("Common_Executing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Language.
+        /// </summary>
+        public static string Common_Language {
+            get {
+                return ResourceManager.GetString("Common_Language", resourceCulture);
             }
         }
         
@@ -79,11 +169,193 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Maximize.
+        /// </summary>
+        public static string Common_Maximize {
+            get {
+                return ResourceManager.GetString("Common_Maximize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Minimize.
+        /// </summary>
+        public static string Common_Minimize {
+            get {
+                return ResourceManager.GetString("Common_Minimize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nickname.
+        /// </summary>
+        public static string Common_Nickname {
+            get {
+                return ResourceManager.GetString("Common_Nickname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Length &lt;= 12.
+        /// </summary>
+        public static string Common_NicknamePolicie {
+            get {
+                return ResourceManager.GetString("Common_NicknamePolicie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Not found credentials.
+        /// </summary>
+        public static string Common_NotFoundCredential {
+            get {
+                return ResourceManager.GetString("Common_NotFoundCredential", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Operation Successful.
+        /// </summary>
+        public static string Common_OperationSuccessful {
+            get {
+                return ResourceManager.GetString("Common_OperationSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Password.
+        /// </summary>
+        public static string Common_Password {
+            get {
+                return ResourceManager.GetString("Common_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Must contain Upper
+        ///Must contain lower
+        ///Must contain digits.
+        /// </summary>
+        public static string Common_PasswordPolicie {
+            get {
+                return ResourceManager.GetString("Common_PasswordPolicie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Policies.
+        /// </summary>
+        public static string Common_Policies {
+            get {
+                return ResourceManager.GetString("Common_Policies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Profile.
+        /// </summary>
+        public static string Common_Profile {
+            get {
+                return ResourceManager.GetString("Common_Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Restore.
+        /// </summary>
+        public static string Common_Restore {
+            get {
+                return ResourceManager.GetString("Common_Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Retry.
+        /// </summary>
+        public static string Common_Retry {
+            get {
+                return ResourceManager.GetString("Common_Retry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Signin.
         /// </summary>
         public static string Common_Signin {
             get {
                 return ResourceManager.GetString("Common_Signin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Spanish.
+        /// </summary>
+        public static string Common_Spanish {
+            get {
+                return ResourceManager.GetString("Common_Spanish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Try.
+        /// </summary>
+        public static string Common_Try {
+            get {
+                return ResourceManager.GetString("Common_Try", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Validate password.
+        /// </summary>
+        public static string Common_ValidatePassword {
+            get {
+                return ResourceManager.GetString("Common_ValidatePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Must be the same than password.
+        /// </summary>
+        public static string Common_ValidatePasswordPolicie {
+            get {
+                return ResourceManager.GetString("Common_ValidatePasswordPolicie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a VolMusic.
+        /// </summary>
+        public static string Common_VolMusic {
+            get {
+                return ResourceManager.GetString("Common_VolMusic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a VolSfx.
+        /// </summary>
+        public static string Common_VolSfx {
+            get {
+                return ResourceManager.GetString("Common_VolSfx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Waiting for server reply.
+        /// </summary>
+        public static string Common_WaitingForServerReply {
+            get {
+                return ResourceManager.GetString("Common_WaitingForServerReply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Welcome.
+        /// </summary>
+        public static string Common_Welcome {
+            get {
+                return ResourceManager.GetString("Common_Welcome", resourceCulture);
             }
         }
     }

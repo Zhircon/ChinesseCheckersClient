@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="ChinesseCheckersClient.UpdateProfilePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChinesseCheckersClient"
+             xmlns:properties = "clr-namespace:ChinesseCheckersClient.Properties"
+             mc:Ignorable="d" Width="234.072"
+             FontSize="16" Height="400">
+    <Grid Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--#LabelsBegins-->
+        <Label x:Name="lbProfileTitle" Content="{x:Static properties:Resources.Common_Profile}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"  HorizontalAlignment="Left"   Width="224"/>
+        <Label x:Name="lbEmail" Content="{x:Static properties:Resources.Common_Email}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"  Width="164" />
+        <Label x:Name="lbNickname" Content="{x:Static properties:Resources.Common_Nickname}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left"  Width="164" />
+        <Label x:Name="lbPassword" Content="{x:Static properties:Resources.Common_Password}" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"  Width="164" />
+        <Label x:Name="lbValidatePassword" Content="{x:Static properties:Resources.Common_ValidatePassword}" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left"  Width="164" />
+        <!--#LabelsEnd-->
+        <!--#InputsBegins-->
+        <TextBox x:Name="tbEmail" Grid.Row="2" HorizontalAlignment="Left" Width="164" />
+        <TextBox x:Name="tbNickname" Grid.Row="4" HorizontalAlignment="Left" Width="164" />
+        <PasswordBox x:Name="pbPassword" Grid.Row="6" HorizontalAlignment="Left" Width="164" />
+        <PasswordBox x:Name="pbValidatePassword" Grid.Row="8" HorizontalAlignment="Left" Width="164" />
+        <Button x:Name="btAccept" HorizontalAlignment="Center" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Content="Accept" Width="185" Margin="10,0,0,0"/>
+        <!--#InputsEnd-->
+        <Rectangle Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
+        <Rectangle Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
+        <Rectangle Grid.Column="1" Grid.Row="5" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
+        <Rectangle Grid.Column="1" Grid.Row="7" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
+       
+    </Grid>
+</UserControl>

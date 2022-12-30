@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChinesseCheckersClient"
+      xmlns:properties="clr-namespace:ChinesseCheckersClient.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="680" d:DesignWidth="1280"
       Title="ConnectionLostPaage"
@@ -22,7 +23,7 @@
                     <ImageBrush ImageSource="Assets/Images/ServerLogo.png"></ImageBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Button x:Name="btTry" Click="btTry_Click" Content="Intentar" Height="65" Canvas.Left="444" Canvas.Top="549" Width="395" Background="#FFDDDDDD" BorderBrush="{x:Null}"/>
+            <Button x:Name="btTry" Click="btTry_Click" Content="{x:Static properties:Resources.Common_Try}" Height="65" Canvas.Left="328" Canvas.Top="545" Width="635" Background="#FFDDDDDD" BorderBrush="{x:Null}"/>
         </Canvas>
     </Viewbox>
 </Page>

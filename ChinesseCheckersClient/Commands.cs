@@ -28,5 +28,13 @@ namespace ChinesseCheckersClient
         {
             Application.Current.MainWindow.Close();
         }
+        public static void PlayMusicMenu()
+        {
+            MainWindow mainWindow =(MainWindow) Application.Current.MainWindow;
+            mainWindow.MediaPlayer.Open(new Uri("pack://siteoforigin:,,,/Assets/Music/UnoOst.mp3"));
+            mainWindow.MediaPlayer.Volume = mainWindow.Session.PlayerConfiguration.volMusic/100;
+            Console.WriteLine(mainWindow.MediaPlayer.Volume);
+            mainWindow.MediaPlayer.Play();
+        }
     }
 }

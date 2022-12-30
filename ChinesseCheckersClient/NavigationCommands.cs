@@ -26,5 +26,11 @@ namespace ChinesseCheckersClient
             mainWindow.LastPage = mainWindow.frame.Source;
             mainWindow.frame.Source = new Uri("/ConnectionLostPage.xaml", UriKind.Relative);
         }
+        public static void GoToMainMenu()
+        {
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.LastPage = mainWindow.frame.Source;
+            mainWindow.frame.Source = new Uri("/MainMenuPage.xaml", UriKind.Relative);
+        }
     }
 }

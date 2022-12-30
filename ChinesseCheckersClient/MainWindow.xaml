@@ -25,8 +25,6 @@
         <Frame   x:Name="frame" Source="/LoginPage.xaml" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden">
 
         </Frame>
-        
-        <Button  HorizontalAlignment="Left" Width="40" Content="B" />
         <Button Style="{DynamicResource ButtonRestoreStateStyle}" x:Name="btChangeState" HorizontalAlignment="Right"  Width="40"  Click="btChangeState_Click" Margin="0,0,55,0" Grid.Column="1"/>
         <Button Style="{DynamicResource ButtonMinimizeStyle}" x:Name="btMinimize" HorizontalAlignment="Right"  Width="40"  Click="btMinimize_Click" Margin="0,0,110,0" Grid.Column="1"/>
     </Grid>

@@ -37,8 +37,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,6 +60,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands.cs" />
+    <Compile Include="ConfigurationPanel.xaml.cs">
+      <DependentUpon>ConfigurationPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\GameService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -66,9 +71,20 @@
     <Compile Include="ConnectionLostPage.xaml.cs">
       <DependentUpon>ConnectionLostPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainMenuPage.xaml.cs">
+      <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NavigationCommands.cs" />
     <Compile Include="PoliciesPanel.xaml.cs">
       <DependentUpon>PoliciesPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProfilePanel.xaml.cs">
+      <DependentUpon>UpdateProfilePanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validator.cs" />
     <Compile Include="LoginPage.xaml.cs">
@@ -80,13 +96,29 @@
     <Compile Include="VerificationCodePage.xaml.cs">
       <DependentUpon>VerificationCodePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="ConfigurationPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ConnectionLostPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PoliciesPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ButtonProfileStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonConfigurationStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\ButtonRestoreStateStyle.xaml">
       <SubType>Designer</SubType>
@@ -120,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UpdateProfilePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VerificationCodePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,7 +175,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.es-MX.resx" />
+    <EmbeddedResource Include="Properties\Resources.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -229,6 +268,17 @@
   <ItemGroup>
     <Resource Include="Assets\Images\ConnectionLostLoading.png" />
     <Resource Include="Assets\Images\ServerLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Music\UnoOst.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Styles\Hover\ButtonConfigurationHover.png" />
+    <Resource Include="Styles\Hover\ButtonProfileHover.png" />
+    <Resource Include="Styles\Pressed\ButtonConfigurationPressed.png" />
+    <Resource Include="Styles\Pressed\ButtonProfilePressed.png" />
+    <Resource Include="Styles\Static\ButtonConfigurationStatic.png" />
+    <Resource Include="Styles\Static\ButtonProfileStatic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

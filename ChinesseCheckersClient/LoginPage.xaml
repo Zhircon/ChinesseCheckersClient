@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChinesseCheckersClient"
+      xmlns:properties="clr-namespace:ChinesseCheckersClient.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="680" d:DesignWidth="1280"
       Title="LoginPage"
@@ -15,43 +16,43 @@
             <!--#LoginBegin-->
             <Rectangle Fill="White" Height="680" Stroke="Black" Width="576" Opacity="0.8" StrokeThickness="0"/>
 
-            <Label FontSize="32" Content="Iniciar Sesion" Canvas.Left="132" Canvas.Top="78" Width="211"/>
-            <Label Content="Email" Canvas.Left="110" Canvas.Top="199"/>
-            <Label Content="Contraseña" Canvas.Left="110" Canvas.Top="332"/>
+            <Label Content="{x:Static properties:Resources.Common_Login}" FontSize="32"  Canvas.Left="132" Canvas.Top="78" Width="211"/>
+            <Label Content="{x:Static properties:Resources.Common_Email}" Canvas.Left="110" Canvas.Top="199"/>
+            <Label Content="{x:Static properties:Resources.Common_Password}" Canvas.Left="110" Canvas.Top="332"/>
 
 
             <TextBox x:Name="tbLoginEmail" TextChanged="Textbox_TextChanged" Height="37" Canvas.Left="110" TextWrapping="Wrap"  Canvas.Top="241" Width="259" BorderBrush="{x:Null}"/>
-            <TextBox x:Name="tbLoginPassword" TextChanged="Textbox_TextChanged" Height="41" Canvas.Left="110" TextWrapping="Wrap"  Canvas.Top="374" Width="259" BorderBrush="{x:Null}"/>
+            <PasswordBox x:Name="pbLoginPassword" PasswordChanged="PasswordBox_TextChanged" Height="41" Canvas.Left="110"  Canvas.Top="374" Width="259" BorderBrush="{x:Null}"/>
 
-            <Button x:Name="btLogin" Click="Button_Click" IsEnabled="False" Content="Iniciar Sesion" Canvas.Left="162" Canvas.Top="486" Width="162" BorderBrush="{x:Null}" />
+            <Button x:Name="btLogin" Content="{x:Static properties:Resources.Common_Login}" Click="Button_Click" IsEnabled="False"  Canvas.Left="162" Canvas.Top="486" Width="162" BorderBrush="{x:Null}" />
             <!--#LoginEnd-->
             <!--#SigninBegin-->
             <Rectangle Fill="#FFFEFFE7" Height="680" Canvas.Left="576" Stroke="Black" Width="704" StrokeThickness="0" Opacity="0.8"/>
 
-            <Label FontSize="32" Content="Registrarse" Canvas.Left="764" Canvas.Top="80" Width="174"/>
-            <Label Content="Email" Canvas.Left="790" Canvas.Top="159"/>
-            <Label Content="Nickname" Canvas.Left="790" Canvas.Top="254"/>
-            <Label Content="Contraseña" Canvas.Left="790" Canvas.Top="344"/>
-            <Label Content="Verificar contraseña" Canvas.Left="790" Canvas.Top="443"/>
+            <Label Content="{x:Static properties:Resources.Common_Signin}" FontSize="32"  Canvas.Left="764" Canvas.Top="80" Width="174"/>
+            <Label Content="{x:Static properties:Resources.Common_Email}" Canvas.Left="790" Canvas.Top="159"/>
+            <Label Content="{x:Static properties:Resources.Common_Nickname}" Canvas.Left="790" Canvas.Top="254"/>
+            <Label Content="{x:Static properties:Resources.Common_Password}" Canvas.Left="790" Canvas.Top="344"/>
+            <Label Content="{x:Static properties:Resources.Common_ValidatePassword}" Canvas.Left="790" Canvas.Top="443"/>
 
             <TextBox x:Name="tbSigninEmail" TextChanged="Textbox_TextChanged" Height="37" Canvas.Left="790" TextWrapping="Wrap"  Canvas.Top="206" Width="264" BorderBrush="{x:Null}"/>
             <TextBox x:Name="tbSigninNickname" TextChanged="Textbox_TextChanged" Height="37" Canvas.Left="790" TextWrapping="Wrap"  Canvas.Top="296" Width="264" BorderBrush="{x:Null}"/>
-            <TextBox x:Name="tbSigninPassword" TextChanged="Textbox_TextChanged" Height="37" Canvas.Left="788" TextWrapping="Wrap"  Canvas.Top="397" Width="264" BorderBrush="{x:Null}"/>
-            <TextBox x:Name="tbSigninDuplicatedPassword" TextChanged="Textbox_TextChanged" Height="37" Canvas.Left="790" TextWrapping="Wrap"  Canvas.Top="485" Width="264" BorderBrush="{x:Null}"/>
+            <PasswordBox x:Name="pbSigninPassword" PasswordChanged="PasswordBox_TextChanged" Height="37" Canvas.Left="788"  Canvas.Top="397" Width="264" BorderBrush="{x:Null}"/>
+            <PasswordBox x:Name="pbSigninDuplicatedPassword" PasswordChanged="PasswordBox_TextChanged" Height="37" Canvas.Left="790"  Canvas.Top="485" Width="264" BorderBrush="{x:Null}"/>
 
             <Rectangle x:Name="rCheckEmail" Fill="#FFF4F4F5" Height="44" Canvas.Left="1074" Canvas.Top="201" Width="44" RadiusY="8.5" RadiusX="8.5"/>
             <Rectangle x:Name="rCheckNickname" Fill="#FFF4F4F5" Height="44" Canvas.Left="1074" Canvas.Top="296" Width="44" RadiusY="8.5" RadiusX="8.5"/>
             <Rectangle x:Name="rCheckPassword" Fill="#FFF4F4F5" Height="44" Canvas.Left="1074" Canvas.Top="386" Width="44" RadiusY="8.5" RadiusX="8.5"/>
             <Rectangle x:Name="rCheckDuplicatedPassword" Fill="#FFF4F4F5" Height="44" Canvas.Left="1074" Canvas.Top="478" Width="44" RadiusY="8.5" RadiusX="8.5"/>
 
-            <Button x:Name="btSignin" Click="Button_Click" IsEnabled="False"  Content="Registrarse" Canvas.Left="858" Canvas.Top="556" Width="162" BorderBrush="{x:Null}"/>
+            <Button x:Name="btSignin" Content="{x:Static properties:Resources.Common_Signin}" Click="Button_Click" IsEnabled="False"   Canvas.Left="858" Canvas.Top="556" Width="162" BorderBrush="{x:Null}"/>
             <Rectangle x:Name="rPolicies" MouseEnter="rPolicies_MouseEnter" MouseLeave="rPolicies_MouseLeave" Height="44" Canvas.Left="1150" Canvas.Top="584" Width="42" RadiusY="8.5" RadiusX="8.5" Fill="Black"/>
             <!--#SigninEnd-->
             <!--#StatusBegin-->
             <Rectangle Visibility="Visible" x:Name="rCheckOperation" Fill="#FFF4F4F5" Height="271" Canvas.Left="432" RadiusY="315.5" RadiusX="315.5" Canvas.Top="199" Width="271"/>
 
-            <Label x:Name="lbStatus" HorizontalContentAlignment="Center" Content="Welcome" Canvas.Left="382" Canvas.Top="313" Width="381"/>
-            <local:PoliciesPanel x:Name="policiesPanel" Canvas.Left="992" Canvas.Top="279" Visibility="Hidden" ></local:PoliciesPanel>
+            <Label x:Name="lbStatus" Content="{x:Static properties:Resources.Common_Welcome}" HorizontalContentAlignment="Center"  Canvas.Left="378" Canvas.Top="313" Width="381"/>
+            <local:PoliciesPanel x:Name="policiesPanel" Canvas.Left="945" Canvas.Top="296" Visibility="Hidden" ></local:PoliciesPanel>
             <!--#StatusEnd-->
         </Canvas>
     </Viewbox>

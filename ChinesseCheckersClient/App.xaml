@@ -9,6 +9,8 @@
                 <ResourceDictionary Source= "Styles\ButtonCloseStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonMinimizeStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonRestoreStateStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonConfigurationStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonProfileStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

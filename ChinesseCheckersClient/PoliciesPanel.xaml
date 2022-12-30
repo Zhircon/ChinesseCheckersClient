@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ChinesseCheckersClient"
+             xmlns:properties="clr-namespace:ChinesseCheckersClient.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="440" d:DesignWidth="200"
              FontSize="12">
@@ -19,28 +20,14 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Politicas</Label>
-        <Label Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="center">Nickname</Label>
-        <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            Menor a 12 caracteres
-        </TextBlock>
-        <Label Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="center">Email</Label>
-        <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-            Debe ser un correo activo
-        </TextBlock>
-        <Label Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="center">Contraseña</Label>
-        <TextBlock Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="32,5,38,47" Grid.RowSpan="2" Width="130">
-            Debe tener numeros
-            <LineBreak/>
-            Debe tener mayusculas
-            <LineBreak/>
-            Debe tener minusculas
-        </TextBlock>
-        <Label Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="center">Verificar Contraseña</Label>
-        <TextBlock Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="52,10,42,10" Width="106" Height="30">
-           Debe ser lo mismo
-            <LineBreak/>
-            que la contraseña
-        </TextBlock>
+        <Label Content="{x:Static properties:Resources.Common_Policies}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="{x:Static properties:Resources.Common_Email}" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="center"/>
+        <Label Content="{x:Static properties:Resources.Common_EmailPolicie}" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Label Content="{x:Static properties:Resources.Common_Nickname}" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="center"/>
+        <Label Content="{x:Static properties:Resources.Common_NicknamePolicie}" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50"/>
+        <Label Content="{x:Static properties:Resources.Common_Password}" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="center"/>
+        <Label Content="{x:Static properties:Resources.Common_PasswordPolicie}" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,2" Width="200"/>
+        <Label Content="{x:Static properties:Resources.Common_ValidatePassword}" Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="center"/>
+        <Label Content="{x:Static properties:Resources.Common_ValidatePasswordPolicie}" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50"/>
     </Grid>
 </UserControl>
