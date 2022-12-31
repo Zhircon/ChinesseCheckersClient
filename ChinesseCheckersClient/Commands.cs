@@ -46,6 +46,7 @@ namespace ChinesseCheckersClient
             mainWindowNew.WindowState = mainWindow.WindowState;
             mainWindowNew.WindowStyle = mainWindow.WindowStyle;
             mainWindowNew.LastPage = mainWindow.LastPage;
+            mainWindowNew.MediaPlayer.Volume = mainWindow.MediaPlayer.Volume;
             mainWindow.MediaPlayer.Stop();
             mainWindowNew.frame.Source = new Uri("/MainMenuPage.xaml", UriKind.Relative);
             mainWindowNew.Show();

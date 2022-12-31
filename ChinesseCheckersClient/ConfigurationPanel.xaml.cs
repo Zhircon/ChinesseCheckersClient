@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,34 +21,22 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class ConfigurationPanel : UserControl
     {
-        private bool isMusicVolEditable;
         public ConfigurationPanel()
         {
             InitializeComponent();
             LoadLanguage();
-            //LoadVolMusicValue();
         }
 
         private void volMusic_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Console.WriteLine(isMusicVolEditable);
-            if (isMusicVolEditable) { UpdateVolMusicValue(); }
-            isMusicVolEditable = true;
+            UpdateVolMusicValue();
         }
-        private void LoadVolMusicValue()
-        {
-            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-            mainWindow.MediaPlayer.Volume = mainWindow.Session.PlayerConfiguration.volMusic;
-            volMusic.Value = mainWindow.Session.PlayerConfiguration.volMusic ;
-        }
+
         private void UpdateVolMusicValue()
         {
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow.MediaPlayer.Volume = volMusic.Value * volMusic.Value;
-            mainWindow.Session.PlayerConfiguration.volMusic = mainWindow.MediaPlayer.Volume;
-            Console.WriteLine("config:"+mainWindow.Session.PlayerConfiguration.volMusic);
-            Console.WriteLine("Media:" + mainWindow.MediaPlayer.Volume);
-            Console.WriteLine("slice:" + volMusic.Value);
+            mainWindow.Session.PlayerConfiguration.volMusic = volMusic.Value;
             lbVolMusic.Content = Properties.Resources.Common_VolMusic + ": " + (int)(mainWindow.MediaPlayer.Volume * 100);
         }
 
@@ -58,9 +47,32 @@ namespace ChinesseCheckersClient
             if (buttonInput.Name == "btAccept") { SaveConfiguration(); }
         }
 
-        private void SaveConfiguration()
+        private async void SaveConfiguration()
         {
-            throw new NotImplementedException();
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            var playerMgtClient =new  GameService.PlayerMgtClient();
+            try
+            {
+                btAccept.IsEnabled = false;
+                btAccept.Content = "Saving";
+                GameService.OperationResult operationResult= await playerMgtClient.UpdateConfigurationAsync(mainWindow.Session.PlayerConfiguration);
+                if (operationResult == GameService.OperationResult.Sucessfull)
+                {
+                    btAccept.IsEnabled = true;
+                    btAccept.Content = "Save";
+                }
+                else
+                {
+                    btAccept.IsEnabled = true;
+                    btAccept.Content = "Fail";
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                NavigationCommands.GoToConnectionLostPage();
+            }
+            
+
         }
         private void LoadLanguage()
         {

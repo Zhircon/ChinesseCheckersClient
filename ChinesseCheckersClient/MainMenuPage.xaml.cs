@@ -24,8 +24,8 @@ namespace ChinesseCheckersClient
         {
             InitializeComponent();
             Commands.PlayMusicMenu();
-            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-            configurationPanel.volMusic.Value = mainWindow.Session.PlayerConfiguration.volMusic / 100;
+            LoadVolMusicValue();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,7 +34,12 @@ namespace ChinesseCheckersClient
             if (buttonClicked.Name == "btProfile") { UpdateVisibilityProfilePanel(); }
             if (buttonClicked.Name == "btConfiguration") { UpdateVisibilityConfigurationPanel(); }
         }
-
+        private void LoadVolMusicValue()
+        {
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            configurationPanel.volMusic.Value = mainWindow.Session.PlayerConfiguration.volMusic;
+            mainWindow.MediaPlayer.Volume = configurationPanel.volMusic.Value* configurationPanel.volMusic.Value;
+        }
         private void UpdateVisibilityConfigurationPanel()
         {
             if (configurationPanel.Visibility == Visibility.Hidden)
