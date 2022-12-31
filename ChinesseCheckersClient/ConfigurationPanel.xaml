@@ -19,10 +19,10 @@
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
         </Grid.RowDefinitions>
-        <Slider Grid.Row="0" x:Name="volMusic" HorizontalAlignment="Center" TickFrequency="0.1" ValueChanged="volMusic_ValueChanged" VerticalAlignment="Center" Width="36" Orientation="Vertical" Height="293" TickPlacement="Both" Maximum="1" />
+        <Slider  Grid.Row="0" x:Name="volMusic" HorizontalAlignment="Center" TickFrequency="0.1" ValueChanged="volMusic_ValueChanged" VerticalAlignment="Center" Width="36" Orientation="Vertical" Height="293" TickPlacement="Both" Maximum="1" />
         <Label x:Name="lbVolMusic" Content="{x:Static properties:Resources.Common_VolMusic}" Grid.Row="1"  HorizontalAlignment="Center"  VerticalAlignment="Center"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="35"/>
         <Label Content="{x:Static properties:Resources.Common_Language}" Grid.Row="2"  HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-        <Button Content="Change language" Grid.Row="3"  x:Name="btLanguage" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" Height="35"/>
-        <Button Content="{x:Static properties:Resources.Common_Accept}" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="118"/>
+        <Button x:Name="btChangeLanguage" Click="Button_Click" Content="{x:Static properties:Resources.Common_ChangeLanguage}" Grid.Row="3"   HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" Height="35"/>
+        <Button x:Name="btAccept" Click="Button_Click" Content="{x:Static properties:Resources.Common_Accept}" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="118"/>
     </Grid>
 </UserControl>

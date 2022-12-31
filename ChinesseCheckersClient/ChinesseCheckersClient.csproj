@@ -112,6 +112,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ButtonChangeLanguageUsaStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonChangeLanguageMxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonFriendListStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonCreditsStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonJoinMatchStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\ButtonProfileStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -270,9 +290,25 @@
     <Resource Include="Assets\Images\ServerLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Styles\Pressed\ButtonChangeLanguagePressed.png" />
+    <Resource Include="Styles\Hover\ButtonChangeLanguageHover.png" />
+    <Resource Include="Styles\Static\MXFlag.png" />
+    <Resource Include="Styles\Static\USAFlag.png" />
     <Content Include="Assets\Music\UnoOst.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Styles\Hover\ButtonCreditsHover.png" />
+    <Resource Include="Styles\Hover\ButtonFriendListHover.png" />
+    <Resource Include="Styles\Hover\ButtonJoinMatchHover.png" />
+    <Resource Include="Styles\Hover\ButtonSendmessageHover.png" />
+    <Resource Include="Styles\Pressed\ButtonCreditsPressed.png" />
+    <Resource Include="Styles\Pressed\ButtonFriendListpressed.png" />
+    <Resource Include="Styles\Pressed\ButtonJoinMatchPressed.png" />
+    <Resource Include="Styles\Pressed\ButtonSendmessagePressed.png" />
+    <Resource Include="Styles\Static\ButtonCreditsStatic.png" />
+    <Resource Include="Styles\Static\ButtonFriendListStatic.png" />
+    <Resource Include="Styles\Static\ButtonJoinMatchStatic.png" />
+    <Resource Include="Styles\Static\ButtonSendmessageStatic.png" />
     <Resource Include="Styles\Hover\ButtonConfigurationHover.png" />
     <Resource Include="Styles\Hover\ButtonProfileHover.png" />
     <Resource Include="Styles\Pressed\ButtonConfigurationPressed.png" />

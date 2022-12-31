@@ -84,6 +84,12 @@
   <wsdl:message name="IPlayerMgt_DeletePlayer_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeletePlayerResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlayerMgt_UpdateConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerMgt_UpdateConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConfigurationResponse" />
+  </wsdl:message>
   <wsdl:message name="IConnectionTestMgt_IsConnectionUp_InputMessage">
     <wsdl:part name="parameters" element="tns:IsConnectionUp" />
   </wsdl:message>
@@ -102,6 +108,10 @@
     <wsdl:operation name="DeletePlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayerMgt/DeletePlayer" message="tns:IPlayerMgt_DeletePlayer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlayerMgt/DeletePlayerResponse" message="tns:IPlayerMgt_DeletePlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerMgt/UpdateConfiguration" message="tns:IPlayerMgt_UpdateConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerMgt/UpdateConfigurationResponse" message="tns:IPlayerMgt_UpdateConfiguration_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IConnectionTestMgt">
@@ -133,6 +143,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeletePlayer">
       <soap12:operation soapAction="http://tempuri.org/IPlayerMgt/DeletePlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IPlayerMgt/UpdateConfiguration" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

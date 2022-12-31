@@ -215,4 +215,7 @@ Must contain digits</value>
   <data name="Common_Profile" xml:space="preserve">
     <value>Profile</value>
   </data>
+  <data name="Common_ChangeLanguage" xml:space="preserve">
+    <value>Change language</value>
+  </data>
 </root>

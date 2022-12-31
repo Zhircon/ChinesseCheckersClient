@@ -79,6 +79,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Change language.
+        /// </summary>
+        public static string Common_ChangeLanguage {
+            get {
+                return ResourceManager.GetString("Common_ChangeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Close.
         /// </summary>
         public static string Common_Close {

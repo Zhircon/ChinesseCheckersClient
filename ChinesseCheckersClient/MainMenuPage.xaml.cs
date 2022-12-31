@@ -24,6 +24,39 @@ namespace ChinesseCheckersClient
         {
             InitializeComponent();
             Commands.PlayMusicMenu();
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            configurationPanel.volMusic.Value = mainWindow.Session.PlayerConfiguration.volMusic / 100;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button buttonClicked = (Button)sender;
+            if (buttonClicked.Name == "btProfile") { UpdateVisibilityProfilePanel(); }
+            if (buttonClicked.Name == "btConfiguration") { UpdateVisibilityConfigurationPanel(); }
+        }
+
+        private void UpdateVisibilityConfigurationPanel()
+        {
+            if (configurationPanel.Visibility == Visibility.Hidden)
+            {
+                configurationPanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                configurationPanel.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void UpdateVisibilityProfilePanel()
+        {
+            if(profilePanel.Visibility == Visibility.Hidden)
+            {
+                profilePanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                profilePanel.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

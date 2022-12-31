@@ -178,7 +178,7 @@
     <value>Aplicar</value>
   </data>
   <data name="Common_Accept" xml:space="preserve">
-    <value>Accept</value>
+    <value>Aceptar</value>
   </data>
   <data name="Common_PasswordPolicie" xml:space="preserve">
     <value>Debe contener Mayusculas
@@ -217,5 +217,8 @@ Debe contener numeros</value>
   </data>
   <data name="Common_Profile" xml:space="preserve">
     <value>Perfil</value>
+  </data>
+  <data name="Common_ChangeLanguage" xml:space="preserve">
+    <value>Cambiar idioma</value>
   </data>
 </root>

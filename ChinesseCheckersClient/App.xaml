@@ -11,6 +11,11 @@
                 <ResourceDictionary Source= "Styles\ButtonRestoreStateStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonConfigurationStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonProfileStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonJoinMatchStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonFriendListStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonCreditsStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonChangeLanguageMxStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonChangeLanguageUsaStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

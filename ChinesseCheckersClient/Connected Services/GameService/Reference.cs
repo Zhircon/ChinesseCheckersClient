@@ -107,10 +107,7 @@ namespace ChinesseCheckersClient.GameService {
         private string languageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int volMusicField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int volSFXField;
+        private double volMusicField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -149,7 +146,7 @@ namespace ChinesseCheckersClient.GameService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int volMusic {
+        public double volMusic {
             get {
                 return this.volMusicField;
             }
@@ -157,19 +154,6 @@ namespace ChinesseCheckersClient.GameService {
                 if ((this.volMusicField.Equals(value) != true)) {
                     this.volMusicField = value;
                     this.RaisePropertyChanged("volMusic");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int volSFX {
-            get {
-                return this.volSFXField;
-            }
-            set {
-                if ((this.volSFXField.Equals(value) != true)) {
-                    this.volSFXField = value;
-                    this.RaisePropertyChanged("volSFX");
                 }
             }
         }
@@ -298,6 +282,12 @@ namespace ChinesseCheckersClient.GameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/DeletePlayer", ReplyAction="http://tempuri.org/IPlayerMgt/DeletePlayerResponse")]
         System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> DeletePlayerAsync(int _idPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/UpdateConfiguration", ReplyAction="http://tempuri.org/IPlayerMgt/UpdateConfigurationResponse")]
+        ChinesseCheckersClient.GameService.OperationResult UpdateConfiguration(ChinesseCheckersClient.GameService.Configuration _configuration);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/UpdateConfiguration", ReplyAction="http://tempuri.org/IPlayerMgt/UpdateConfigurationResponse")]
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> UpdateConfigurationAsync(ChinesseCheckersClient.GameService.Configuration _configuration);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -349,6 +339,14 @@ namespace ChinesseCheckersClient.GameService {
         
         public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> DeletePlayerAsync(int _idPlayer) {
             return base.Channel.DeletePlayerAsync(_idPlayer);
+        }
+        
+        public ChinesseCheckersClient.GameService.OperationResult UpdateConfiguration(ChinesseCheckersClient.GameService.Configuration _configuration) {
+            return base.Channel.UpdateConfiguration(_configuration);
+        }
+        
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> UpdateConfigurationAsync(ChinesseCheckersClient.GameService.Configuration _configuration) {
+            return base.Channel.UpdateConfigurationAsync(_configuration);
         }
     }
     

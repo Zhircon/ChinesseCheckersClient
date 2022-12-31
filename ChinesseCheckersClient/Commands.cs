@@ -36,5 +36,25 @@ namespace ChinesseCheckersClient
             Console.WriteLine(mainWindow.MediaPlayer.Volume);
             mainWindow.MediaPlayer.Play();
         }
+        public static void RestartAplication()
+        {
+            MainWindow mainWindow;
+            MainWindow mainWindowNew = new MainWindow();
+            mainWindow = (MainWindow)Application.Current.MainWindow;
+            
+            mainWindowNew.Session = mainWindow.Session;
+            mainWindowNew.WindowState = mainWindow.WindowState;
+            mainWindowNew.WindowStyle = mainWindow.WindowStyle;
+            mainWindowNew.LastPage = mainWindow.LastPage;
+            mainWindow.MediaPlayer.Stop();
+            mainWindowNew.frame.Source = new Uri("/MainMenuPage.xaml", UriKind.Relative);
+            mainWindowNew.Show();
+            mainWindow.Close();
+            Application.Current.MainWindow = mainWindowNew;
+            /*
+            System.Windows.Application.Current.Shutdown();
+            System.Windows.Forms.Application.Restart();
+            */
+        }
     }
 }

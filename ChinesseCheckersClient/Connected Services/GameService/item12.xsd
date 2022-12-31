@@ -4,8 +4,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="IdConfiguration" type="xs:int" />
       <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="volMusic" type="xs:int" />
-      <xs:element minOccurs="0" name="volSFX" type="xs:int" />
+      <xs:element minOccurs="0" name="volMusic" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Configuration" nillable="true" type="tns:Configuration" />

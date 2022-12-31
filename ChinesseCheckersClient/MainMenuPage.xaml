@@ -15,15 +15,15 @@
                 <ColumnDefinition Width="387*"/>
                 <ColumnDefinition Width="253*"/>
             </Grid.ColumnDefinitions>
-            <local:UpdateProfilePanel Margin="0,84,540,196" />
-            <local:ConfigurationPanel Height="480" Width="150" Margin="346,85,10,115" Grid.Column="1" ></local:ConfigurationPanel>
+            <local:UpdateProfilePanel x:Name="profilePanel" Visibility="Hidden" Margin="0,84,540,196" />
+            <local:ConfigurationPanel x:Name="configurationPanel" Visibility="Hidden" Height="480" Width="150" Margin="346,85,10,115" Grid.Column="1" ></local:ConfigurationPanel>
             <Button Content="Create Match" HorizontalAlignment="Left" Margin="536,172,0,0" VerticalAlignment="Top" Width="238" Height="48"/>
-            <Button Content="Join Match" HorizontalAlignment="Left" VerticalAlignment="Top" Width="238" Margin="536,272,0,0" Height="50"/>
-            <Button Content="FriendList" HorizontalAlignment="Left" VerticalAlignment="Top" Width="238" Margin="536,381,0,0" Height="50"/>
-            <Button Content="Credits" HorizontalAlignment="Left" VerticalAlignment="Top" Width="238" Margin="536,471,0,0" Height="49"/>
-            <Button Style="{DynamicResource ButtonProfileStyle}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
-            <Button Style="{DynamicResource ButtonConfigurationStyle}" HorizontalAlignment="Left" Margin="426,10,0,0" VerticalAlignment="Top" Width="70" Height="70" Grid.Column="1"/>
-            <Label FontSize="32" Content="Main Menu" HorizontalAlignment="Left" Margin="582,85,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="284"/>
+            <Button Style="{DynamicResource ButtonJoinMatchStyle}" Content="Join Match" HorizontalAlignment="Left" VerticalAlignment="Top" Width="332" Margin="488,272,0,0" Height="104" Grid.ColumnSpan="2"/>
+            <Button Style="{DynamicResource ButtonFriendListStyle}" Content="FriendList" HorizontalAlignment="Left" VerticalAlignment="Top" Width="332" Margin="488,390,0,0" Height="104" Grid.ColumnSpan="2"/>
+            <Button Style="{DynamicResource ButtonCreditsStyle}" Content="Credits" HorizontalAlignment="Left" VerticalAlignment="Top" Width="332" Margin="488,506,0,0" Height="104" Grid.ColumnSpan="2"/>
+            <Button x:Name="btProfile" Click="Button_Click" Style="{DynamicResource ButtonProfileStyle}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+            <Button x:Name="btConfiguration" Click="Button_Click" Style="{DynamicResource ButtonConfigurationStyle}" HorizontalAlignment="Left" Margin="426,10,0,0" VerticalAlignment="Top" Width="70" Height="70" Grid.Column="1"/>
+            <Label FontSize="32" Content="Main Menu" HorizontalAlignment="Left" Margin="536,67,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="284"/>
 
         </Grid>
     </Viewbox>
