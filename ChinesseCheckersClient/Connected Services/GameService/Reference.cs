@@ -288,6 +288,12 @@ namespace ChinesseCheckersClient.GameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/UpdateConfiguration", ReplyAction="http://tempuri.org/IPlayerMgt/UpdateConfigurationResponse")]
         System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> UpdateConfigurationAsync(ChinesseCheckersClient.GameService.Configuration _configuration);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/UpdatePlayer", ReplyAction="http://tempuri.org/IPlayerMgt/UpdatePlayerResponse")]
+        ChinesseCheckersClient.GameService.OperationResult UpdatePlayer(ChinesseCheckersClient.GameService.Player _player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/UpdatePlayer", ReplyAction="http://tempuri.org/IPlayerMgt/UpdatePlayerResponse")]
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> UpdatePlayerAsync(ChinesseCheckersClient.GameService.Player _player);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -347,6 +353,14 @@ namespace ChinesseCheckersClient.GameService {
         
         public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> UpdateConfigurationAsync(ChinesseCheckersClient.GameService.Configuration _configuration) {
             return base.Channel.UpdateConfigurationAsync(_configuration);
+        }
+        
+        public ChinesseCheckersClient.GameService.OperationResult UpdatePlayer(ChinesseCheckersClient.GameService.Player _player) {
+            return base.Channel.UpdatePlayer(_player);
+        }
+        
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> UpdatePlayerAsync(ChinesseCheckersClient.GameService.Player _player) {
+            return base.Channel.UpdatePlayerAsync(_player);
         }
     }
     

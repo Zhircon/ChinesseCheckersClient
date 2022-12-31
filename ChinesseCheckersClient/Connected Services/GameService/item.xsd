@@ -61,6 +61,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdatePlayer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DataAccess" minOccurs="0" name="_player" nillable="true" type="q6:Player" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePlayerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="UpdatePlayerResult" type="q7:OperationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="IsConnectionUp">
     <xs:complexType>
       <xs:sequence />

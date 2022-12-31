@@ -17,6 +17,7 @@
             </Grid.ColumnDefinitions>
             <local:UpdateProfilePanel x:Name="profilePanel" Visibility="Hidden" Margin="0,84,540,196" />
             <local:ConfigurationPanel x:Name="configurationPanel" Visibility="Hidden" Height="480" Width="150" Margin="346,85,10,115" Grid.Column="1" ></local:ConfigurationPanel>
+            <local:PoliciesPanel x:Name="policiesPanel" Margin="283,82,311,248" Visibility="Hidden" ></local:PoliciesPanel>
             <Button Content="Create Match" HorizontalAlignment="Left" Margin="536,172,0,0" VerticalAlignment="Top" Width="238" Height="48"/>
             <Button Style="{DynamicResource ButtonJoinMatchStyle}" Content="Join Match" HorizontalAlignment="Left" VerticalAlignment="Top" Width="332" Margin="488,272,0,0" Height="104" Grid.ColumnSpan="2"/>
             <Button Style="{DynamicResource ButtonFriendListStyle}" Content="FriendList" HorizontalAlignment="Left" VerticalAlignment="Top" Width="332" Margin="488,390,0,0" Height="104" Grid.ColumnSpan="2"/>

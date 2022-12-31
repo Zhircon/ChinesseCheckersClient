@@ -68,13 +68,14 @@ namespace ChinesseCheckersClient
             if (inputTextBox.Name == "tbSigninEmail") { UpdateSigninEmailStatus(inputTextBox); }
             if (inputTextBox.Name == "tbSigninNickname") { UpdateSigninNicknameStatus(inputTextBox); }
 
-            btLogin.IsEnabled = IsDataInputLoginValid() ? true : false; 
+            btLogin.IsEnabled = IsDataInputLoginValid() ? true : false;
             btSignin.IsEnabled = IsDataInputSigninValid() ? true : false;
         }
 
         private void UpdateSigninDuplicatedPasswordStatus(PasswordBox _inputTextBox)
         {
-            if (_inputTextBox.Password.Length == 0) { 
+            if (_inputTextBox.Password.Length == 0)
+            {
                 rCheckDuplicatedPassword.Fill = infoLogoSprite;
                 isSigninDuplicatedPasswordValid = false;
                 return;
@@ -93,8 +94,8 @@ namespace ChinesseCheckersClient
 
         private void UpdateSigninPasswordStatus(PasswordBox _inputTextBox)
         {
-            if (_inputTextBox.Password.Length == 0) 
-            { 
+            if (_inputTextBox.Password.Length == 0)
+            {
                 rCheckPassword.Fill = infoLogoSprite;
                 isSigninPasswordValid = false;
                 return;
@@ -113,8 +114,8 @@ namespace ChinesseCheckersClient
 
         private void UpdateSigninNicknameStatus(TextBox _inputTextBox)
         {
-            if (_inputTextBox.Text.Length == 0) 
-            { 
+            if (_inputTextBox.Text.Length == 0)
+            {
                 rCheckNickname.Fill = infoLogoSprite;
                 isSigninNicknameValid = false;
                 return;
@@ -129,16 +130,16 @@ namespace ChinesseCheckersClient
                 rCheckNickname.Fill = incorrectLogoSprite;
                 isSigninNicknameValid = false;
             }
-            
+
         }
 
         private void UpdateSigninEmailStatus(TextBox _inputTextBox)
         {
-            if (_inputTextBox.Text.Length == 0) 
-            { 
+            if (_inputTextBox.Text.Length == 0)
+            {
                 rCheckEmail.Fill = infoLogoSprite;
                 isSigninEmailValid = false;
-                return;            
+                return;
             }
             if (Validator.IsEmailValid(_inputTextBox.Text))
             {

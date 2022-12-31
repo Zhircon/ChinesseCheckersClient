@@ -34,16 +34,15 @@
         <Label x:Name="lbValidatePassword" Content="{x:Static properties:Resources.Common_ValidatePassword}" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left"  Width="164" />
         <!--#LabelsEnd-->
         <!--#InputsBegins-->
-        <TextBox x:Name="tbEmail" Grid.Row="2" HorizontalAlignment="Left" Width="164" />
-        <TextBox x:Name="tbNickname" Grid.Row="4" HorizontalAlignment="Left" Width="164" />
-        <PasswordBox x:Name="pbPassword" Grid.Row="6" HorizontalAlignment="Left" Width="164" />
-        <PasswordBox x:Name="pbValidatePassword" Grid.Row="8" HorizontalAlignment="Left" Width="164" />
-        <Button x:Name="btAccept" HorizontalAlignment="Center" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Content="Accept" Width="185" Margin="10,0,0,0"/>
+        <TextBox x:Name="tbEmail" TextChanged="Textbox_TextChanged" Grid.Row="2" HorizontalAlignment="Left" Width="164" />
+        <TextBox x:Name="tbNickname" TextChanged="Textbox_TextChanged" Grid.Row="4" HorizontalAlignment="Left" Width="164" />
+        <PasswordBox x:Name="pbPassword"  PasswordChanged="PasswordBox_TextChanged" Grid.Row="6" HorizontalAlignment="Left" Width="164" />
+        <PasswordBox x:Name="pbValidatePassword"  PasswordChanged="PasswordBox_TextChanged"  Grid.Row="8" HorizontalAlignment="Left" Width="164" />
+        <Button x:Name="btSave" Click="btSave_Click" HorizontalAlignment="Center" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Content="Accept" Width="185" Margin="10,0,0,0"/>
         <!--#InputsEnd-->
-        <Rectangle Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
-        <Rectangle Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
-        <Rectangle Grid.Column="1" Grid.Row="5" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
-        <Rectangle Grid.Column="1" Grid.Row="7" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
-       
+        <Rectangle x:Name="rCheckEmail" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
+        <Rectangle x:Name="rCheckNickname" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
+        <Rectangle x:Name="rCheckPassword" Grid.Column="1" Grid.Row="5" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
+        <Rectangle x:Name="rCheckDuplicatedPassword" Grid.Column="1" Grid.Row="7" Grid.RowSpan="2" Fill="Green" HorizontalAlignment="Center"  Width="35" VerticalAlignment="Center" Height="35"/>
     </Grid>
 </UserControl>

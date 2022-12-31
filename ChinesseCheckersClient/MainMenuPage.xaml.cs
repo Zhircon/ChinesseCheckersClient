@@ -25,7 +25,7 @@ namespace ChinesseCheckersClient
             InitializeComponent();
             Commands.PlayMusicMenu();
             LoadVolMusicValue();
-            
+            LoadProfile();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -33,6 +33,14 @@ namespace ChinesseCheckersClient
             Button buttonClicked = (Button)sender;
             if (buttonClicked.Name == "btProfile") { UpdateVisibilityProfilePanel(); }
             if (buttonClicked.Name == "btConfiguration") { UpdateVisibilityConfigurationPanel(); }
+        }
+        private void LoadProfile()
+        {
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            profilePanel.tbEmail.Text = mainWindow.Session.PlayerLoged.Email;
+            profilePanel.tbNickname.Text = mainWindow.Session.PlayerLoged.Nickname;
+            profilePanel.pbPassword.Password = mainWindow.Session.PlayerLoged.Password;
+            profilePanel.pbValidatePassword.Password = mainWindow.Session.PlayerLoged.Password;
         }
         private void LoadVolMusicValue()
         {
@@ -57,10 +65,12 @@ namespace ChinesseCheckersClient
             if(profilePanel.Visibility == Visibility.Hidden)
             {
                 profilePanel.Visibility = Visibility.Visible;
+                policiesPanel.Visibility = Visibility.Visible;
             }
             else
             {
                 profilePanel.Visibility = Visibility.Hidden;
+                policiesPanel.Visibility = Visibility.Hidden;
             }
         }
     }
