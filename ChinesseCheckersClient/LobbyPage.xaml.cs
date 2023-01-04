@@ -27,7 +27,7 @@ namespace ChinesseCheckersClient
         private int angle;
         public LobbyPage()
         {
-            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow = (MainWindow)Application.Current.MainWindow;
             InitializeComponent();
             lbIdRoom.Content = "IdRoom: " + mainWindow.Room.IdRoom;
             SetUp();

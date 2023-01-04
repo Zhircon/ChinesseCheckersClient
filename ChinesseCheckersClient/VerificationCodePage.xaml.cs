@@ -20,7 +20,7 @@ namespace ChinesseCheckersClient
     public partial class VerificationCodePage : Window
     {
         private string verificationCodeTyped;
-        private string verificationCode;
+        private readonly string verificationCode;
         private bool isVerificated;
         public bool IsVerificated
         {
@@ -28,7 +28,7 @@ namespace ChinesseCheckersClient
         }
         public string VerificationCodeTyped
         {
-            get { return VerificationCodeTyped; }
+            get { return verificationCodeTyped; }
             set { verificationCodeTyped = value; }
         }
 

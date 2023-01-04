@@ -22,8 +22,8 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class GameplayPage : Page  , GameService.IChatMgtCallback
     {
-        private MainWindow mainWindow;
-        private GameService.ChatMgtClient chatMgt;
+        private readonly MainWindow mainWindow;
+        private readonly GameService.ChatMgtClient chatMgt;
         public GameplayPage()
         {
             InitializeComponent();
