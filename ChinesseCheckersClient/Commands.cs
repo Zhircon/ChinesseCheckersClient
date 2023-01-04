@@ -51,10 +51,7 @@ namespace ChinesseCheckersClient
             mainWindowNew.Show();
             mainWindow.Close();
             Application.Current.MainWindow = mainWindowNew;
-            /*
-            System.Windows.Application.Current.Shutdown();
-            System.Windows.Forms.Application.Restart();
-            */
+
         }
     }
 }

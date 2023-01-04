@@ -41,7 +41,7 @@ namespace ChinesseCheckersClient
         gameTimer.Interval = TimeSpan.FromMilliseconds(16); //Set up framerate
         gameTimer.Start(); //Start gameloop logic
         rLoading.RenderTransformOrigin = new Point(0.5f, 0.5f);
-    }
+        }
 
         private void GameLoop(object sender, EventArgs e)
         {
@@ -59,7 +59,7 @@ namespace ChinesseCheckersClient
         }
         private async Task NotifyAllPlayerReady()
         {
-            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow = (MainWindow)Application.Current.MainWindow;
             var roomMgt = new GameService.RoomMgtClient(new InstanceContext(mainWindow));
             mainWindow.Room = await roomMgt.SearchRoomAsync(mainWindow.Room.IdRoom);
             await roomMgt.NotifyAllPlayersReadyAsync(mainWindow.Room.IdRoom);
