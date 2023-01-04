@@ -166,14 +166,14 @@ namespace ChinesseCheckersClient
             if (pbLoginPassword.Password.Length == 0) { return false; }
             return true;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             Button buttonClicked = (Button) sender;
-            if (buttonClicked.Name == "btSignin") { RegisterPlayer(); }
-            if (buttonClicked.Name == "btLogin") { LoginPlayer(); }
+            if (buttonClicked.Name == "btSignin") {await  RegisterPlayer(); }
+            if (buttonClicked.Name == "btLogin") { await LoginPlayer(); }
         }
 
-        private async void LoginPlayer()
+        private async Task LoginPlayer()
         {
             string email = tbLoginEmail.Text;
             string password = pbLoginPassword.Password;
@@ -206,7 +206,7 @@ namespace ChinesseCheckersClient
             }
         }
 
-        private async void RegisterPlayer()
+        private async Task RegisterPlayer()
         {
 
             string email = tbSigninEmail.Text;
@@ -215,28 +215,40 @@ namespace ChinesseCheckersClient
             DisableAllInput();
             lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_Executing;
             rCheckOperation.Visibility = Visibility.Visible;
-
-            try
+            var emailMgt = new GameService.EmailMgtClient();
+            string code = await emailMgt.SendVerificationCodeAsync(email);
+            var verificationCodePage = new VerificationCodePage(code);
+            verificationCodePage.Owner = Application.Current.MainWindow;
+            verificationCodePage.ShowDialog();
+            if (verificationCodePage.IsVerificated)
             {
-                GameService.PlayerMgtClient playerMgt = new GameService.PlayerMgtClient();
-                GameService.OperationResult operationResult = await playerMgt.RegisterPlayerAsync(nickname, password, email);
-                EnableAllInput();
-                if (operationResult == GameService.OperationResult.Sucessfull)
+                try
                 {
-                    lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_OperationSuccessful;
-                    rCheckOperation.Visibility = Visibility.Hidden;
-                    ClearTextBoxes();
-                }
-                else
-                {
-                    lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_ErrorDatabase;
-                    rCheckOperation.Visibility = Visibility.Hidden;
-                }
+                    GameService.PlayerMgtClient playerMgt = new GameService.PlayerMgtClient();
+                    GameService.OperationResult operationResult = await playerMgt.RegisterPlayerAsync(nickname, password, email);
+                    EnableAllInput();
+                    if (operationResult == GameService.OperationResult.Sucessfull)
+                    {
+                        lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_OperationSuccessful;
+                        rCheckOperation.Visibility = Visibility.Hidden;
+                        ClearTextBoxes();
+                    }
+                    else
+                    {
+                        lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_ErrorDatabase;
+                        rCheckOperation.Visibility = Visibility.Hidden;
+                    }
 
+                }
+                catch (EndpointNotFoundException)
+                {
+                    NavigationCommands.GoToConnectionLostPage();
+                }
             }
-            catch (EndpointNotFoundException)
+            else
             {
-                NavigationCommands.GoToConnectionLostPage();
+                lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_VerificationFail;
+                EnableAllInput();
             }
         }
         private void DisableAllInput()

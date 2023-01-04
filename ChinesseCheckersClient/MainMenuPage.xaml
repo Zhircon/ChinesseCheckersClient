@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChinesseCheckersClient"
+      xmlns:properties="clr-namespace:ChinesseCheckersClient.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="680" d:DesignWidth="1280"
       Title="MainMenuPage"
@@ -11,20 +12,20 @@
       >
     <Viewbox Stretch="Fill" StretchDirection="Both">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="387*"/>
-                <ColumnDefinition Width="253*"/>
-            </Grid.ColumnDefinitions>
-            <local:UpdateProfilePanel x:Name="profilePanel" Visibility="Hidden" Margin="0,84,540,196" />
-            <local:ConfigurationPanel x:Name="configurationPanel" Visibility="Hidden" Height="480" Width="150" Margin="346,85,10,115" Grid.Column="1" ></local:ConfigurationPanel>
-            <local:PoliciesPanel x:Name="policiesPanel" Margin="283,82,311,248" Visibility="Hidden" ></local:PoliciesPanel>
-            <Button Content="Create Match" HorizontalAlignment="Left" Margin="536,172,0,0" VerticalAlignment="Top" Width="238" Height="48"/>
-            <Button Style="{DynamicResource ButtonJoinMatchStyle}" Content="Join Match" HorizontalAlignment="Left" VerticalAlignment="Top" Width="332" Margin="488,272,0,0" Height="104" Grid.ColumnSpan="2"/>
-            <Button Style="{DynamicResource ButtonFriendListStyle}" Content="FriendList" HorizontalAlignment="Left" VerticalAlignment="Top" Width="332" Margin="488,390,0,0" Height="104" Grid.ColumnSpan="2"/>
-            <Button Style="{DynamicResource ButtonCreditsStyle}" Content="Credits" HorizontalAlignment="Left" VerticalAlignment="Top" Width="332" Margin="488,506,0,0" Height="104" Grid.ColumnSpan="2"/>
+
+            <Button x:Name="btCreateMatch" Click="Button_Click" Style="{DynamicResource ButtonCreateMatchStyle}"  Content="{x:Static properties:Resources.Common_CreateMatch}" HorizontalAlignment="Left" Margin="270,191,0,0" VerticalAlignment="Top" Width="275" Height="104"/>
+            <Button x:Name="btTwoPlayers" Click="Button_Click" Style="{DynamicResource ButtonTwoPlayersStyle}" Visibility="Hidden" Margin="157,191,550,369"/>
+            <Button x:Name="btThreePlayers" Click="Button_Click" Style="{DynamicResource ButtonThreePlayersStyle}" Visibility="Hidden" Margin="550,191,157,369"/>
+            <Button x:Name="btJoinMatch" Click="Button_Click" Style="{DynamicResource ButtonJoinMatchStyle}" Content="{x:Static properties:Resources.Common_JoinMatch}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Margin="270,300,0,0" Height="104"/>
+            <Button x:Name="btFriendList" Style="{DynamicResource ButtonFriendListStyle}" Content="{x:Static properties:Resources.Common_FriendList}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Margin="270,429,0,0" Height="104"/>
+            <Button x:Name="btCredits" Style="{DynamicResource ButtonCreditsStyle}" Content="{x:Static properties:Resources.Common_Credits}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Margin="270,538,0,0" Height="104"/>
             <Button x:Name="btProfile" Click="Button_Click" Style="{DynamicResource ButtonProfileStyle}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
-            <Button x:Name="btConfiguration" Click="Button_Click" Style="{DynamicResource ButtonConfigurationStyle}" HorizontalAlignment="Left" Margin="426,10,0,0" VerticalAlignment="Top" Width="70" Height="70" Grid.Column="1"/>
-            <Label FontSize="32" Content="Main Menu" HorizontalAlignment="Left" Margin="536,67,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="284"/>
+            <Button x:Name="btConfiguration" Click="Button_Click" Style="{DynamicResource ButtonConfigurationStyle}" HorizontalAlignment="Left" Margin="740,10,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+            <Label FontSize="32" Content="Main Menu" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="261,42,0,0" VerticalAlignment="Top" Width="284"/>
+            <local:SearchRoomPanel x:Name="searchRoomPanel" Visibility="Hidden" Margin="545,308,26,243"/>
+            <local:PoliciesPanel x:Name="policiesPanel" Margin="283,82,311,248" Visibility="Hidden" ></local:PoliciesPanel>
+            <local:UpdateProfilePanel x:Name="profilePanel" Visibility="Hidden" HorizontalAlignment="Left" Margin="0,100,0,150" />
+            <local:ConfigurationPanel x:Name="configurationPanel" Visibility="Hidden"  HorizontalAlignment="Right" Margin="10,10,0,0"  Height="480" Width="150"  />
 
         </Grid>
     </Viewbox>

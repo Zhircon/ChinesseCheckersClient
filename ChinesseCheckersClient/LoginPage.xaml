@@ -14,7 +14,7 @@
     <Viewbox  Stretch="Fill" StretchDirection="Both">
         <Canvas  Height="680" Width="1280">
             <!--#LoginBegin-->
-            <Rectangle Fill="White" Height="680" Stroke="Black" Width="576" Opacity="0.8" StrokeThickness="0"/>
+            <Rectangle Fill="White" Height="680" Stroke="Black" Width="576" Opacity="0.2" StrokeThickness="0"/>
 
             <Label Content="{x:Static properties:Resources.Common_Login}" FontSize="32"  Canvas.Left="132" Canvas.Top="78" Width="211"/>
             <Label Content="{x:Static properties:Resources.Common_Email}" Canvas.Left="110" Canvas.Top="199"/>
@@ -27,7 +27,7 @@
             <Button x:Name="btLogin" Content="{x:Static properties:Resources.Common_Login}" Click="Button_Click" IsEnabled="False"  Canvas.Left="162" Canvas.Top="486" Width="162" BorderBrush="{x:Null}" />
             <!--#LoginEnd-->
             <!--#SigninBegin-->
-            <Rectangle Fill="#FFFEFFE7" Height="680" Canvas.Left="576" Stroke="Black" Width="704" StrokeThickness="0" Opacity="0.8"/>
+            <Rectangle Fill="#FFFEFFE7" Height="680" Canvas.Left="576" Stroke="Black" Width="704" StrokeThickness="0" Opacity="0.2"/>
 
             <Label Content="{x:Static properties:Resources.Common_Signin}" FontSize="32"  Canvas.Left="764" Canvas.Top="80" Width="174"/>
             <Label Content="{x:Static properties:Resources.Common_Email}" Canvas.Left="790" Canvas.Top="159"/>

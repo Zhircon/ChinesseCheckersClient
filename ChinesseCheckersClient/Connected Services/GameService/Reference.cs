@@ -261,6 +261,115 @@ namespace ChinesseCheckersClient.GameService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Room", Namespace="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer")]
+    [System.SerializableAttribute()]
+    public partial class Room : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<int, object> ChatCallbacksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<int, object> GameplayCallbacksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdRoomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<int, ChinesseCheckersClient.GameService.Player> PlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<int, object> RoomCallbacksField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<int, object> ChatCallbacks {
+            get {
+                return this.ChatCallbacksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ChatCallbacksField, value) != true)) {
+                    this.ChatCallbacksField = value;
+                    this.RaisePropertyChanged("ChatCallbacks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<int, object> GameplayCallbacks {
+            get {
+                return this.GameplayCallbacksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GameplayCallbacksField, value) != true)) {
+                    this.GameplayCallbacksField = value;
+                    this.RaisePropertyChanged("GameplayCallbacks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IdRoom {
+            get {
+                return this.IdRoomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdRoomField, value) != true)) {
+                    this.IdRoomField = value;
+                    this.RaisePropertyChanged("IdRoom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<int, ChinesseCheckersClient.GameService.Player> Players {
+            get {
+                return this.PlayersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
+                    this.PlayersField = value;
+                    this.RaisePropertyChanged("Players");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<int, object> RoomCallbacks {
+            get {
+                return this.RoomCallbacksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoomCallbacksField, value) != true)) {
+                    this.RoomCallbacksField = value;
+                    this.RaisePropertyChanged("RoomCallbacks");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GameService.IPlayerMgt")]
     public interface IPlayerMgt {
@@ -408,6 +517,250 @@ namespace ChinesseCheckersClient.GameService {
         
         public System.Threading.Tasks.Task<bool> IsConnectionUpAsync() {
             return base.Channel.IsConnectionUpAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GameService.IChatMgt", CallbackContract=typeof(ChinesseCheckersClient.GameService.IChatMgtCallback))]
+    public interface IChatMgt {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/JoinToChat", ReplyAction="http://tempuri.org/IChatMgt/JoinToChatResponse")]
+        void JoinToChat(string _idRoom, int _idPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/JoinToChat", ReplyAction="http://tempuri.org/IChatMgt/JoinToChatResponse")]
+        System.Threading.Tasks.Task JoinToChatAsync(string _idRoom, int _idPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/SendMessage", ReplyAction="http://tempuri.org/IChatMgt/SendMessageResponse")]
+        void SendMessage(string _idRoom, string _nickname, string _message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/SendMessage", ReplyAction="http://tempuri.org/IChatMgt/SendMessageResponse")]
+        System.Threading.Tasks.Task SendMessageAsync(string _idRoom, string _nickname, string _message);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IChatMgtCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/ReceiveMessage", ReplyAction="http://tempuri.org/IChatMgt/ReceiveMessageResponse")]
+        void ReceiveMessage(string _nickname, string _message);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IChatMgtChannel : ChinesseCheckersClient.GameService.IChatMgt, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ChatMgtClient : System.ServiceModel.DuplexClientBase<ChinesseCheckersClient.GameService.IChatMgt>, ChinesseCheckersClient.GameService.IChatMgt {
+        
+        public ChatMgtClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public ChatMgtClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public ChatMgtClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ChatMgtClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ChatMgtClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void JoinToChat(string _idRoom, int _idPlayer) {
+            base.Channel.JoinToChat(_idRoom, _idPlayer);
+        }
+        
+        public System.Threading.Tasks.Task JoinToChatAsync(string _idRoom, int _idPlayer) {
+            return base.Channel.JoinToChatAsync(_idRoom, _idPlayer);
+        }
+        
+        public void SendMessage(string _idRoom, string _nickname, string _message) {
+            base.Channel.SendMessage(_idRoom, _nickname, _message);
+        }
+        
+        public System.Threading.Tasks.Task SendMessageAsync(string _idRoom, string _nickname, string _message) {
+            return base.Channel.SendMessageAsync(_idRoom, _nickname, _message);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GameService.IRoomMgt", CallbackContract=typeof(ChinesseCheckersClient.GameService.IRoomMgtCallback))]
+    public interface IRoomMgt {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/CreateRoom", ReplyAction="http://tempuri.org/IRoomMgt/CreateRoomResponse")]
+        string CreateRoom();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/CreateRoom", ReplyAction="http://tempuri.org/IRoomMgt/CreateRoomResponse")]
+        System.Threading.Tasks.Task<string> CreateRoomAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/SearchRoom", ReplyAction="http://tempuri.org/IRoomMgt/SearchRoomResponse")]
+        ChinesseCheckersClient.GameService.Room SearchRoom(string _idRoom);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/SearchRoom", ReplyAction="http://tempuri.org/IRoomMgt/SearchRoomResponse")]
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Room> SearchRoomAsync(string _idRoom);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/JoinToRoom", ReplyAction="http://tempuri.org/IRoomMgt/JoinToRoomResponse")]
+        int JoinToRoom(string _idRoom, ChinesseCheckersClient.GameService.Player _player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/JoinToRoom", ReplyAction="http://tempuri.org/IRoomMgt/JoinToRoomResponse")]
+        System.Threading.Tasks.Task<int> JoinToRoomAsync(string _idRoom, ChinesseCheckersClient.GameService.Player _player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/LeaveRoom", ReplyAction="http://tempuri.org/IRoomMgt/LeaveRoomResponse")]
+        ChinesseCheckersClient.GameService.OperationResult LeaveRoom(string _idRoom, int _idPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/LeaveRoom", ReplyAction="http://tempuri.org/IRoomMgt/LeaveRoomResponse")]
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> LeaveRoomAsync(string _idRoom, int _idPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/NotifyAllPlayersReady", ReplyAction="http://tempuri.org/IRoomMgt/NotifyAllPlayersReadyResponse")]
+        void NotifyAllPlayersReady(string _idRoom);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/NotifyAllPlayersReady", ReplyAction="http://tempuri.org/IRoomMgt/NotifyAllPlayersReadyResponse")]
+        System.Threading.Tasks.Task NotifyAllPlayersReadyAsync(string _idRoom);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRoomMgtCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/SendAllPlayerToGameplay", ReplyAction="http://tempuri.org/IRoomMgt/SendAllPlayerToGameplayResponse")]
+        void SendAllPlayerToGameplay();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/UpdateNumberOfPlayersConected", ReplyAction="http://tempuri.org/IRoomMgt/UpdateNumberOfPlayersConectedResponse")]
+        void UpdateNumberOfPlayersConected(int _numberOfPlayers);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRoomMgtChannel : ChinesseCheckersClient.GameService.IRoomMgt, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RoomMgtClient : System.ServiceModel.DuplexClientBase<ChinesseCheckersClient.GameService.IRoomMgt>, ChinesseCheckersClient.GameService.IRoomMgt {
+        
+        public RoomMgtClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public RoomMgtClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public RoomMgtClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RoomMgtClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RoomMgtClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public string CreateRoom() {
+            return base.Channel.CreateRoom();
+        }
+        
+        public System.Threading.Tasks.Task<string> CreateRoomAsync() {
+            return base.Channel.CreateRoomAsync();
+        }
+        
+        public ChinesseCheckersClient.GameService.Room SearchRoom(string _idRoom) {
+            return base.Channel.SearchRoom(_idRoom);
+        }
+        
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Room> SearchRoomAsync(string _idRoom) {
+            return base.Channel.SearchRoomAsync(_idRoom);
+        }
+        
+        public int JoinToRoom(string _idRoom, ChinesseCheckersClient.GameService.Player _player) {
+            return base.Channel.JoinToRoom(_idRoom, _player);
+        }
+        
+        public System.Threading.Tasks.Task<int> JoinToRoomAsync(string _idRoom, ChinesseCheckersClient.GameService.Player _player) {
+            return base.Channel.JoinToRoomAsync(_idRoom, _player);
+        }
+        
+        public ChinesseCheckersClient.GameService.OperationResult LeaveRoom(string _idRoom, int _idPlayer) {
+            return base.Channel.LeaveRoom(_idRoom, _idPlayer);
+        }
+        
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> LeaveRoomAsync(string _idRoom, int _idPlayer) {
+            return base.Channel.LeaveRoomAsync(_idRoom, _idPlayer);
+        }
+        
+        public void NotifyAllPlayersReady(string _idRoom) {
+            base.Channel.NotifyAllPlayersReady(_idRoom);
+        }
+        
+        public System.Threading.Tasks.Task NotifyAllPlayersReadyAsync(string _idRoom) {
+            return base.Channel.NotifyAllPlayersReadyAsync(_idRoom);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GameService.IEmailMgt")]
+    public interface IEmailMgt {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmailMgt/SendVerificationCode", ReplyAction="http://tempuri.org/IEmailMgt/SendVerificationCodeResponse")]
+        string SendVerificationCode(string _recipients);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmailMgt/SendVerificationCode", ReplyAction="http://tempuri.org/IEmailMgt/SendVerificationCodeResponse")]
+        System.Threading.Tasks.Task<string> SendVerificationCodeAsync(string _recipients);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmailMgt/SendEmail", ReplyAction="http://tempuri.org/IEmailMgt/SendEmailResponse")]
+        ChinesseCheckersClient.GameService.OperationResult SendEmail(string _recipients, string _subject, string _body);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmailMgt/SendEmail", ReplyAction="http://tempuri.org/IEmailMgt/SendEmailResponse")]
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> SendEmailAsync(string _recipients, string _subject, string _body);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IEmailMgtChannel : ChinesseCheckersClient.GameService.IEmailMgt, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class EmailMgtClient : System.ServiceModel.ClientBase<ChinesseCheckersClient.GameService.IEmailMgt>, ChinesseCheckersClient.GameService.IEmailMgt {
+        
+        public EmailMgtClient() {
+        }
+        
+        public EmailMgtClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public EmailMgtClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public EmailMgtClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public EmailMgtClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public string SendVerificationCode(string _recipients) {
+            return base.Channel.SendVerificationCode(_recipients);
+        }
+        
+        public System.Threading.Tasks.Task<string> SendVerificationCodeAsync(string _recipients) {
+            return base.Channel.SendVerificationCodeAsync(_recipients);
+        }
+        
+        public ChinesseCheckersClient.GameService.OperationResult SendEmail(string _recipients, string _subject, string _body) {
+            return base.Channel.SendEmail(_recipients, _subject, _body);
+        }
+        
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> SendEmailAsync(string _recipients, string _subject, string _body) {
+            return base.Channel.SendEmailAsync(_recipients, _subject, _body);
         }
     }
 }

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{08240A2C-479A-477E-841F-5FA417EE7DE5}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>ChinesseCheckersClient</RootNamespace>
     <AssemblyName>ChinesseCheckersClient</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -33,6 +33,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -71,6 +74,12 @@
     <Compile Include="ConnectionLostPage.xaml.cs">
       <DependentUpon>ConnectionLostPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameplayPage.xaml.cs">
+      <DependentUpon>GameplayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LobbyPage.xaml.cs">
+      <DependentUpon>LobbyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
     </Compile>
@@ -82,6 +91,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchRoomPanel.xaml.cs">
+      <DependentUpon>SearchRoomPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateProfilePanel.xaml.cs">
       <DependentUpon>UpdateProfilePanel.xaml</DependentUpon>
@@ -104,6 +116,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GameplayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LobbyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,11 +132,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SearchRoomPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\ButtonChangeLanguageUsaStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\ButtonChangeLanguageMxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonThreePlayersStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonTwoPlayersStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonCreateMatchStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -206,6 +242,9 @@
     <None Include="Connected Services\GameService\ChinesseCheckersClient.GameService.OperationResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\GameService\ChinesseCheckersClient.GameService.Room.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\GameService\ChinesseCheckersClient.GameService.Session.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -220,6 +259,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\GameService\item12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameService\item21.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -290,10 +335,27 @@
     <Resource Include="Assets\Images\ServerLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Styles\Disabled\ButtonJoinMatchDisabled.png" />
+    <Resource Include="Styles\Disabled\ButtonMainMenuDisabled.png" />
+    <Resource Include="Styles\Pressed\ButtonCreateMatchPressed.png" />
+    <Resource Include="Styles\Pressed\ButtonThreePlayersPressed.png" />
+    <Resource Include="Styles\Pressed\ButtonTwoPlayersPressed.png" />
+    <Resource Include="Styles\Static\ButtonCreateMatchStatic.png" />
+    <Resource Include="Styles\Static\ButtonThreePlayersStatic.png" />
+    <Resource Include="Styles\Static\ButtonTwoPlayersStatic.png" />
+    <Resource Include="Styles\Hover\ButtonCreateMatchHover.png" />
+    <Resource Include="Styles\Hover\ButtonThreePlayersHover.png" />
+    <Resource Include="Styles\Hover\ButtonTwoPlayersHover.png" />
     <Resource Include="Styles\Pressed\ButtonChangeLanguagePressed.png" />
     <Resource Include="Styles\Hover\ButtonChangeLanguageHover.png" />
     <Resource Include="Styles\Static\MXFlag.png" />
     <Resource Include="Styles\Static\USAFlag.png" />
+    <Resource Include="Assets\Images\BluePanel.png" />
+    <Resource Include="Assets\Images\GreyPanel.png" />
+    <Resource Include="Assets\Images\GameBoard.png" />
+    <Resource Include="Assets\Images\Sun.png" />
+    <Resource Include="Assets\Images\Halo.png" />
+    <Resource Include="Assets\Images\Halo2.png" />
     <Content Include="Assets\Music\UnoOst.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -115,6 +115,24 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Create Match.
+        /// </summary>
+        public static string Common_CreateMatch {
+            get {
+                return ResourceManager.GetString("Common_CreateMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Credits.
+        /// </summary>
+        public static string Common_Credits {
+            get {
+                return ResourceManager.GetString("Common_Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Email.
         /// </summary>
         public static string Common_Email {
@@ -160,11 +178,47 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Friend List.
+        /// </summary>
+        public static string Common_FriendList {
+            get {
+                return ResourceManager.GetString("Common_FriendList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Join Match.
+        /// </summary>
+        public static string Common_JoinMatch {
+            get {
+                return ResourceManager.GetString("Common_JoinMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Join sucessfull.
+        /// </summary>
+        public static string Common_JoinSucessfull {
+            get {
+                return ResourceManager.GetString("Common_JoinSucessfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Language.
         /// </summary>
         public static string Common_Language {
             get {
                 return ResourceManager.GetString("Common_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Launch Match.
+        /// </summary>
+        public static string Common_LaunchMatch {
+            get {
+                return ResourceManager.GetString("Common_LaunchMatch", resourceCulture);
             }
         }
         
@@ -223,6 +277,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Not found room.
+        /// </summary>
+        public static string Common_NotFoundRoom {
+            get {
+                return ResourceManager.GetString("Common_NotFoundRoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Operation Successful.
         /// </summary>
         public static string Common_OperationSuccessful {
@@ -248,6 +311,15 @@ namespace ChinesseCheckersClient.Properties {
         public static string Common_PasswordPolicie {
             get {
                 return ResourceManager.GetString("Common_PasswordPolicie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Players connected:.
+        /// </summary>
+        public static string Common_PlayersConnected {
+            get {
+                return ResourceManager.GetString("Common_PlayersConnected", resourceCulture);
             }
         }
         
@@ -288,6 +360,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Searching room.
+        /// </summary>
+        public static string Common_SearchingRoom {
+            get {
+                return ResourceManager.GetString("Common_SearchingRoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Signin.
         /// </summary>
         public static string Common_Signin {
@@ -315,6 +396,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Try to join.
+        /// </summary>
+        public static string Common_TryToJoin {
+            get {
+                return ResourceManager.GetString("Common_TryToJoin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Validate password.
         /// </summary>
         public static string Common_ValidatePassword {
@@ -329,6 +419,15 @@ namespace ChinesseCheckersClient.Properties {
         public static string Common_ValidatePasswordPolicie {
             get {
                 return ResourceManager.GetString("Common_ValidatePasswordPolicie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Verification Fail.
+        /// </summary>
+        public static string Common_VerificationFail {
+            get {
+                return ResourceManager.GetString("Common_VerificationFail", resourceCulture);
             }
         }
         
@@ -360,11 +459,30 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Waiting user input.
+        /// </summary>
+        public static string Common_WaitingUserInput {
+            get {
+                return ResourceManager.GetString("Common_WaitingUserInput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Welcome.
         /// </summary>
         public static string Common_Welcome {
             get {
                 return ResourceManager.GetString("Common_Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Introducce verification code
+        /// in your email.
+        /// </summary>
+        public static string VerificationCodePage_Instructions {
+            get {
+                return ResourceManager.GetString("VerificationCodePage_Instructions", resourceCulture);
             }
         }
     }

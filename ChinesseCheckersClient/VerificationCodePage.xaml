@@ -4,18 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChinesseCheckersClient"
+        xmlns:properties="clr-namespace:ChinesseCheckersClient.Properties"
         mc:Ignorable="d"
         Title="VerificationCodePage" Height="250" Width="400"
         FontSize="16"
         WindowStyle="ToolWindow"
         >
     <Grid >
-        <Label  Content="Introduce el código de verificación que se &#xA;ha enviado a tu correo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="372" Height="79"/>
-        <TextBox FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="10,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
-        <TextBox FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="112,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
-        <TextBox FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="207,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
-        <TextBox FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="307,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
-        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="293,184,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label  Content="{x:Static properties:Resources.VerificationCodePage_Instructions}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="372" Height="56"/>
+        <TextBox x:Name="tb1" TextChanged="TextBox_TextChange" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="10,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
+        <TextBox x:Name="tb2" TextChanged="TextBox_TextChange" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="112,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
+        <TextBox x:Name="tb3" TextChanged="TextBox_TextChange" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="207,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
+        <TextBox x:Name="tb4" TextChanged="TextBox_TextChange" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="89" Margin="307,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" MaxLength="1"/>
+        <Button Content="{x:Static properties:Resources.Common_Accept}" HorizontalAlignment="Left" Margin="293,184,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label x:Name="lbStatus" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

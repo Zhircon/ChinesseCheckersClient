@@ -32,8 +32,7 @@ namespace ChinesseCheckersClient
         {
             MainWindow mainWindow =(MainWindow) Application.Current.MainWindow;
             mainWindow.MediaPlayer.Open(new Uri("pack://siteoforigin:,,,/Assets/Music/UnoOst.mp3"));
-            mainWindow.MediaPlayer.Volume = mainWindow.Session.PlayerConfiguration.volMusic/100;
-            Console.WriteLine(mainWindow.MediaPlayer.Volume);
+            mainWindow.MediaPlayer.Volume = mainWindow.Session.PlayerConfiguration.volMusic;
             mainWindow.MediaPlayer.Play();
         }
         public static void RestartAplication()

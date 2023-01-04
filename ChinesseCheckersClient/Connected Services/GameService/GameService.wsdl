@@ -58,12 +58,101 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IChatMgt_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IRoomMgt_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IEmailMgt_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Logic" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataAccess" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPlayerMgt_RegisterPlayer_InputMessage">
@@ -102,6 +191,78 @@
   <wsdl:message name="IConnectionTestMgt_IsConnectionUp_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsConnectionUpResponse" />
   </wsdl:message>
+  <wsdl:message name="IChatMgt_JoinToChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinToChat" />
+  </wsdl:message>
+  <wsdl:message name="IChatMgt_JoinToChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinToChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatMgt_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="IChatMgt_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatMgt_ReceiveMessage_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveMessage" />
+  </wsdl:message>
+  <wsdl:message name="IChatMgt_ReceiveMessage_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_CreateRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_CreateRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_SearchRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_SearchRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_JoinToRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinToRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_JoinToRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinToRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_LeaveRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_LeaveRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_NotifyAllPlayersReady_InputMessage">
+    <wsdl:part name="parameters" element="tns:NotifyAllPlayersReady" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_NotifyAllPlayersReady_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NotifyAllPlayersReadyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_SendAllPlayerToGameplay_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendAllPlayerToGameplay" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_SendAllPlayerToGameplay_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendAllPlayerToGameplayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_UpdateNumberOfPlayersConected_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNumberOfPlayersConected" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_UpdateNumberOfPlayersConected_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNumberOfPlayersConectedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailMgt_SendVerificationCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendVerificationCode" />
+  </wsdl:message>
+  <wsdl:message name="IEmailMgt_SendVerificationCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendVerificationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailMgt_SendEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="IEmailMgt_SendEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPlayerMgt">
     <wsdl:operation name="RegisterPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayerMgt/RegisterPlayer" message="tns:IPlayerMgt_RegisterPlayer_InputMessage" />
@@ -128,6 +289,60 @@
     <wsdl:operation name="IsConnectionUp">
       <wsdl:input wsaw:Action="http://tempuri.org/IConnectionTestMgt/IsConnectionUp" message="tns:IConnectionTestMgt_IsConnectionUp_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConnectionTestMgt/IsConnectionUpResponse" message="tns:IConnectionTestMgt_IsConnectionUp_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IChatMgt">
+    <wsdl:operation name="JoinToChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatMgt/JoinToChat" message="tns:IChatMgt_JoinToChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatMgt/JoinToChatResponse" message="tns:IChatMgt_JoinToChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatMgt/SendMessage" message="tns:IChatMgt_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatMgt/SendMessageResponse" message="tns:IChatMgt_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMessage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatMgt/ReceiveMessage" message="tns:IChatMgt_ReceiveMessage_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatMgt/ReceiveMessageResponse" message="tns:IChatMgt_ReceiveMessage_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRoomMgt">
+    <wsdl:operation name="CreateRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/CreateRoom" message="tns:IRoomMgt_CreateRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/CreateRoomResponse" message="tns:IRoomMgt_CreateRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/SearchRoom" message="tns:IRoomMgt_SearchRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/SearchRoomResponse" message="tns:IRoomMgt_SearchRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinToRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/JoinToRoom" message="tns:IRoomMgt_JoinToRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/JoinToRoomResponse" message="tns:IRoomMgt_JoinToRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/LeaveRoom" message="tns:IRoomMgt_LeaveRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/LeaveRoomResponse" message="tns:IRoomMgt_LeaveRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyAllPlayersReady">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/NotifyAllPlayersReady" message="tns:IRoomMgt_NotifyAllPlayersReady_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/NotifyAllPlayersReadyResponse" message="tns:IRoomMgt_NotifyAllPlayersReady_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAllPlayerToGameplay">
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/SendAllPlayerToGameplay" message="tns:IRoomMgt_SendAllPlayerToGameplay_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/SendAllPlayerToGameplayResponse" message="tns:IRoomMgt_SendAllPlayerToGameplay_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNumberOfPlayersConected">
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/UpdateNumberOfPlayersConected" message="tns:IRoomMgt_UpdateNumberOfPlayersConected_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/UpdateNumberOfPlayersConectedResponse" message="tns:IRoomMgt_UpdateNumberOfPlayersConected_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IEmailMgt">
+    <wsdl:operation name="SendVerificationCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailMgt/SendVerificationCode" message="tns:IEmailMgt_SendVerificationCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailMgt/SendVerificationCodeResponse" message="tns:IEmailMgt_SendVerificationCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailMgt/SendEmail" message="tns:IEmailMgt_SendEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailMgt/SendEmailResponse" message="tns:IEmailMgt_SendEmail_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IPlayerMgt" type="tns:IPlayerMgt">
@@ -192,6 +407,126 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IChatMgt" type="tns:IChatMgt">
+    <wsp:PolicyReference URI="#NetTcpBinding_IChatMgt_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="JoinToChat">
+      <soap12:operation soapAction="http://tempuri.org/IChatMgt/JoinToChat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/IChatMgt/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMessage">
+      <soap12:operation soapAction="http://tempuri.org/IChatMgt/ReceiveMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IRoomMgt" type="tns:IRoomMgt">
+    <wsp:PolicyReference URI="#NetTcpBinding_IRoomMgt_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CreateRoom">
+      <soap12:operation soapAction="http://tempuri.org/IRoomMgt/CreateRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchRoom">
+      <soap12:operation soapAction="http://tempuri.org/IRoomMgt/SearchRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinToRoom">
+      <soap12:operation soapAction="http://tempuri.org/IRoomMgt/JoinToRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveRoom">
+      <soap12:operation soapAction="http://tempuri.org/IRoomMgt/LeaveRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyAllPlayersReady">
+      <soap12:operation soapAction="http://tempuri.org/IRoomMgt/NotifyAllPlayersReady" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAllPlayerToGameplay">
+      <soap12:operation soapAction="http://tempuri.org/IRoomMgt/SendAllPlayerToGameplay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNumberOfPlayersConected">
+      <soap12:operation soapAction="http://tempuri.org/IRoomMgt/UpdateNumberOfPlayersConected" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IEmailMgt" type="tns:IEmailMgt">
+    <wsp:PolicyReference URI="#NetTcpBinding_IEmailMgt_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SendVerificationCode">
+      <soap12:operation soapAction="http://tempuri.org/IEmailMgt/SendVerificationCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap12:operation soapAction="http://tempuri.org/IEmailMgt/SendEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="GameService">
     <wsdl:port name="NetTcpBinding_IPlayerMgt" binding="tns:NetTcpBinding_IPlayerMgt">
       <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
@@ -203,6 +538,33 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IConnectionTestMgt" binding="tns:NetTcpBinding_IConnectionTestMgt">
+      <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IChatMgt" binding="tns:NetTcpBinding_IChatMgt">
+      <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IRoomMgt" binding="tns:NetTcpBinding_IRoomMgt">
+      <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IEmailMgt" binding="tns:NetTcpBinding_IEmailMgt">
       <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>

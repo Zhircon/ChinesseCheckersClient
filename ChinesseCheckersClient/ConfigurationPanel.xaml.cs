@@ -40,14 +40,14 @@ namespace ChinesseCheckersClient
             lbVolMusic.Content = Properties.Resources.Common_VolMusic + ": " + (int)(mainWindow.MediaPlayer.Volume * 100);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             Button buttonInput = (Button)sender;
             if (buttonInput.Name == "btChangeLanguage") { ChangeLanguage(); }
-            if (buttonInput.Name == "btAccept") { SaveConfiguration(); }
+            if (buttonInput.Name == "btAccept") { await SaveConfiguration(); }
         }
 
-        private async void SaveConfiguration()
+        private async Task SaveConfiguration()
         {
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             var playerMgtClient =new  GameService.PlayerMgtClient();

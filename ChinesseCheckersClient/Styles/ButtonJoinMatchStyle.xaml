@@ -12,7 +12,7 @@
     <ImageBrush x:Key="Button.Static.Background" ImageSource="Static/ButtonJoinMatchStatic.png"/>
     <ImageBrush x:Key="Button.Pressed.Background" ImageSource="Pressed/ButtonJoinMatchPressed.png"/>
     <ImageBrush x:Key="Button.MouseOver.Background" ImageSource="Hover/ButtonJoinMatchHover.png"/>
-    <ImageBrush x:Key="Button.Disabled.Background" ImageSource="Disabled/ButtonWindowDisabled.png"/>
+    <ImageBrush x:Key="Button.Disabled.Background" ImageSource="Disabled/ButtonJoinMatchDisabled.png"/>
 
     <Style x:Key="ButtonJoinMatchStyle" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>

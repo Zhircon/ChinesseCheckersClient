@@ -16,6 +16,9 @@
                 <ResourceDictionary Source= "Styles\ButtonCreditsStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonChangeLanguageMxStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonChangeLanguageUsaStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonCreateMatchStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonTwoPlayersStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonThreePlayersStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

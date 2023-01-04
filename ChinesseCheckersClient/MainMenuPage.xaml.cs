@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,12 +29,76 @@ namespace ChinesseCheckersClient
             LoadProfile();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             Button buttonClicked = (Button)sender;
             if (buttonClicked.Name == "btProfile") { UpdateVisibilityProfilePanel(); }
+            if (buttonClicked.Name == "btTwoPlayers") { await CreateTwoPlayersMatch(); }
+            if (buttonClicked.Name == "btThreePlayers") { await CreateThreePlayersMatch(); }
+            if (buttonClicked.Name == "btJoinMatch") { UpdateVisibilitySearchPanel(); }
+            if (buttonClicked.Name == "btCreateMatch") { UpdateVisibilityPlayersButtons(); }
             if (buttonClicked.Name == "btConfiguration") { UpdateVisibilityConfigurationPanel(); }
         }
+
+        private async Task CreateTwoPlayersMatch()
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.PlayerToWait = 2;
+            await JoinLocalToRoom();
+        }
+        private async Task CreateThreePlayersMatch()
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.PlayerToWait = 3;
+            await JoinLocalToRoom();
+        }
+        private async Task JoinLocalToRoom()
+        {
+            GameService.Room room;
+            try
+            {
+                MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+                string idCode = await mainWindow.RoomMgt.CreateRoomAsync();
+                room = await  mainWindow.RoomMgt.SearchRoomAsync(idCode);
+                if (room != null)
+                {
+                    mainWindow.Room = room;
+                    mainWindow.PlayerConectedInRoom = await mainWindow.RoomMgt.JoinToRoomAsync(room.IdRoom, mainWindow.Session.PlayerLoged);
+                    NavigationCommands.GoToLobby();
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                NavigationCommands.GoToConnectionLostPage();
+            }
+        }
+
+        private void UpdateVisibilitySearchPanel()
+        {
+            if (searchRoomPanel.Visibility == Visibility.Hidden)
+            {
+                searchRoomPanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                searchRoomPanel.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void UpdateVisibilityPlayersButtons()
+        {
+            if (btTwoPlayers.Visibility == Visibility.Hidden)
+            {
+                btTwoPlayers.Visibility = Visibility.Visible;
+                btThreePlayers.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btTwoPlayers.Visibility = Visibility.Hidden;
+                btThreePlayers.Visibility = Visibility.Hidden;
+            }
+        }
+
         private void LoadProfile()
         {
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;

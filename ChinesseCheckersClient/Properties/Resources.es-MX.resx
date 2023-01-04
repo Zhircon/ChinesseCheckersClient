@@ -221,4 +221,44 @@ Debe contener numeros</value>
   <data name="Common_ChangeLanguage" xml:space="preserve">
     <value>Cambiar idioma</value>
   </data>
+  <data name="Common_CreateMatch" xml:space="preserve">
+    <value>Crear Partida</value>
+  </data>
+  <data name="Common_JoinMatch" xml:space="preserve">
+    <value>Unirse a partida</value>
+  </data>
+  <data name="Common_FriendList" xml:space="preserve">
+    <value>Lista de Amigos</value>
+  </data>
+  <data name="Common_Credits" xml:space="preserve">
+    <value>Créditos</value>
+  </data>
+  <data name="Common_SearchingRoom" xml:space="preserve">
+    <value>Buscando partida</value>
+  </data>
+  <data name="Common_TryToJoin" xml:space="preserve">
+    <value>Intentando conectar</value>
+  </data>
+  <data name="Common_JoinSucessfull" xml:space="preserve">
+    <value>Conexión exitosa</value>
+  </data>
+  <data name="Common_NotFoundRoom" xml:space="preserve">
+    <value>No encontrada</value>
+  </data>
+  <data name="Common_WaitingUserInput" xml:space="preserve">
+    <value>Esperando entrada humana</value>
+  </data>
+  <data name="Common_PlayersConnected" xml:space="preserve">
+    <value>Jugadores conectados:</value>
+  </data>
+  <data name="Common_LaunchMatch" xml:space="preserve">
+    <value>Lanzar partida</value>
+  </data>
+  <data name="Common_VerificationFail" xml:space="preserve">
+    <value>Verificación Fallida</value>
+  </data>
+  <data name="VerificationCodePage_Instructions" xml:space="preserve">
+    <value>Introduzca el código de verificación 
+que fue mandado a su correo</value>
+  </data>
 </root>

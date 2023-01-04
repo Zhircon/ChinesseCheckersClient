@@ -20,12 +20,28 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <Rectangle x:Name="rHalo1" Margin="980,374,-309,-303" Grid.Row="1">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="assets/images/Halo2.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rHalo2" Margin="-307,374,978,-303" Grid.Row="1">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="assets/images/Halo2.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rSun" Height="330" Grid.Row="1"  Width="339">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="assets/images/sun.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
         <Rectangle Fill="Green" MouseLeftButtonDown="window_MouseLeftButtonDown" Grid.ColumnSpan="2"/>
         <Button Style="{DynamicResource ButtonCloseStyle}" x:Name="btClose" HorizontalAlignment="Right"  Width="40" Click="btClose_Click" Grid.Column="1" />
-        <Frame   x:Name="frame" Source="/LoginPage.xaml" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden">
+        <Frame   x:Name="frame" Source="/LoginPage.xaml" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" >
 
         </Frame>
         <Button Style="{DynamicResource ButtonRestoreStateStyle}" x:Name="btChangeState" HorizontalAlignment="Right"  Width="40"  Click="btChangeState_Click" Margin="0,0,55,0" Grid.Column="1"/>
         <Button Style="{DynamicResource ButtonMinimizeStyle}" x:Name="btMinimize" HorizontalAlignment="Right"  Width="40"  Click="btMinimize_Click" Margin="0,0,110,0" Grid.Column="1"/>
+
     </Grid>
 </Window>

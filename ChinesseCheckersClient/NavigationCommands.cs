@@ -32,5 +32,17 @@ namespace ChinesseCheckersClient
             mainWindow.LastPage = mainWindow.frame.Source;
             mainWindow.frame.Source = new Uri("/MainMenuPage.xaml", UriKind.Relative);
         }
+        public static void GoToLobby()
+        {
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.LastPage = mainWindow.frame.Source;
+            mainWindow.frame.Source = new Uri("/LobbyPage.xaml", UriKind.Relative);
+        }
+        public static void GoToGameplay()
+        {
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.LastPage = mainWindow.frame.Source;
+            mainWindow.frame.Source = new Uri("/GameplayPage.xaml", UriKind.Relative);
+        }
     }
 }

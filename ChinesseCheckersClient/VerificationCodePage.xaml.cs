@@ -19,14 +19,47 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class VerificationCodePage : Window
     {
-        public VerificationCodePage()
+        private string verificationCodeTyped;
+        private string verificationCode;
+        private bool isVerificated;
+        public bool IsVerificated
         {
-            InitializeComponent();
+            get { return isVerificated; }
+        }
+        public string VerificationCodeTyped
+        {
+            get { return VerificationCodeTyped; }
+            set { verificationCodeTyped = value; }
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        public VerificationCodePage(string _code)
         {
-            throw new NotImplementedException();
+            InitializeComponent();
+            verificationCode = _code;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            verificationCodeTyped = tb1.Text + tb2.Text + tb3.Text + tb4.Text;
+            if (verificationCode.Equals(verificationCodeTyped))
+            {
+                isVerificated = true;
+                lbStatus.Content = "Accepted";
+                this.Close();
+            }
+            else
+            {
+                lbStatus.Content = "Code not Match";
+            }
+            
+        }
+
+        private void TextBox_TextChange(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Name == "tb1" && tb1.Text!="" ) { tb2.Focus(); }
+            if (textBox.Name == "tb2" && tb1.Text != "") { tb3.Focus(); }
+            if (textBox.Name == "tb3" && tb1.Text != "") { tb4.Focus(); }
         }
     }
 }

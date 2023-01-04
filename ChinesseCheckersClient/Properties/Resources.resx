@@ -218,4 +218,44 @@ Must contain digits</value>
   <data name="Common_ChangeLanguage" xml:space="preserve">
     <value>Change language</value>
   </data>
+  <data name="Common_CreateMatch" xml:space="preserve">
+    <value>Create Match</value>
+  </data>
+  <data name="Common_JoinMatch" xml:space="preserve">
+    <value>Join Match</value>
+  </data>
+  <data name="Common_FriendList" xml:space="preserve">
+    <value>Friend List</value>
+  </data>
+  <data name="Common_Credits" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="Common_SearchingRoom" xml:space="preserve">
+    <value>Searching room</value>
+  </data>
+  <data name="Common_TryToJoin" xml:space="preserve">
+    <value>Try to join</value>
+  </data>
+  <data name="Common_JoinSucessfull" xml:space="preserve">
+    <value>Join sucessfull</value>
+  </data>
+  <data name="Common_NotFoundRoom" xml:space="preserve">
+    <value>Not found room</value>
+  </data>
+  <data name="Common_WaitingUserInput" xml:space="preserve">
+    <value>Waiting user input</value>
+  </data>
+  <data name="Common_PlayersConnected" xml:space="preserve">
+    <value>Players connected:</value>
+  </data>
+  <data name="Common_LaunchMatch" xml:space="preserve">
+    <value>Launch Match</value>
+  </data>
+  <data name="Common_VerificationFail" xml:space="preserve">
+    <value>Verification Fail</value>
+  </data>
+  <data name="VerificationCodePage_Instructions" xml:space="preserve">
+    <value>Introducce verification code
+ in your email</value>
+  </data>
 </root>
