@@ -36,11 +36,11 @@ namespace ChinesseCheckersClient
     
 
     public void SetUp()
-    {
-        gameTimer.Tick += GameLoop; //with each iteration of gameloop increment timer 
-        gameTimer.Interval = TimeSpan.FromMilliseconds(16); //Set up framerate
-        gameTimer.Start(); //Start gameloop logic
-        rLoading.RenderTransformOrigin = new Point(0.5f, 0.5f);
+        {
+            gameTimer.Tick += GameLoop; //with each iteration of gameloop increment timer 
+            gameTimer.Interval = TimeSpan.FromMilliseconds(16); //Set up framerate
+            gameTimer.Start(); //Start gameloop logic
+            rLoading.RenderTransformOrigin = new Point(0.5f, 0.5f);
         }
 
         private void GameLoop(object sender, EventArgs e)

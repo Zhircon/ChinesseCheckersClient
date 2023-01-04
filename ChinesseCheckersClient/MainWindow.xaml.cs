@@ -23,7 +23,6 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class MainWindow : Window , GameService.IRoomMgtCallback 
     {
-        private Uri lastPage;
         private GameService.Session session;
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private GameService.Room room;
@@ -49,11 +48,7 @@ namespace ChinesseCheckersClient
             get { return playerConectedInRoom; }
             set { playerConectedInRoom = value; }
         } 
-        public Uri LastPage
-        {
-            get { return lastPage; }
-            set { lastPage = value; }
-        }
+ 
         public GameService.Session Session {
             get { return session; }
             set { session = value; }
@@ -121,6 +116,9 @@ namespace ChinesseCheckersClient
             playerConectedInRoom = _numberOfPlayers;
         }
 
-
+        private void btBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationCommands.GoToLastPage();
+        }
     }
 }

@@ -74,6 +74,9 @@
     <Compile Include="ConnectionLostPage.xaml.cs">
       <DependentUpon>ConnectionLostPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FriendListPage.xaml.cs">
+      <DependentUpon>FriendListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameplayPage.xaml.cs">
       <DependentUpon>GameplayPage.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ConnectionLostPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FriendListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -356,6 +363,7 @@
     <Resource Include="Assets\Images\Sun.png" />
     <Resource Include="Assets\Images\Halo.png" />
     <Resource Include="Assets\Images\Halo2.png" />
+    <Resource Include="Assets\Images\AGLOGO%28red%29.png" />
     <Content Include="Assets\Music\UnoOst.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

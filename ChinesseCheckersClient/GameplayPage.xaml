@@ -14,7 +14,8 @@
             <Image Source="assets/Images/GameBoard.png" Height="681" Width="681"></Image>
             <ListBox x:Name="listBoxMessage" Height="537" Width="300" Canvas.Left="970" Canvas.Top="10" />
             <TextBox x:Name="tbMessage"  Height="25" Canvas.Left="970" TextWrapping="Wrap" Canvas.Top="552" Width="246"/>
-            <Button x:Name="btSendMessage" Click="btSendMessage_Click" Content=">" Canvas.Left="1221" Canvas.Top="552" Width="49"/>
+            <Button x:Name="btSendMessage" Click="Button_Click" Content=">" Canvas.Left="1221" Canvas.Top="552" Width="49"/>
+            <ListBox x:Name="listBoxFriendButtons" Height="100" Canvas.Left="970" Canvas.Top="582" Width="300"/>
         </Canvas>
     </Viewbox>
 </Page>
