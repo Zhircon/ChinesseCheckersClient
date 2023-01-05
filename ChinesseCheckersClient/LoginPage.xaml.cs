@@ -17,7 +17,9 @@ using System.Windows.Threading;
 
 namespace ChinesseCheckersClient
 {
-
+    /// <summary>
+    /// provides funtionality signin and login
+    /// </summary>
     public partial class LoginPage : Page
     {
         private readonly ImageBrush correctLogoSprite= new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/CorrectLogo.png")));

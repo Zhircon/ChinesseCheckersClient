@@ -62,7 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands.cs" />
+    <Compile Include="Commands\Commands.cs" />
     <Compile Include="ConfigurationPanel.xaml.cs">
       <DependentUpon>ConfigurationPanel.xaml</DependentUpon>
     </Compile>
@@ -86,7 +86,7 @@
     <Compile Include="MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NavigationCommands.cs" />
+    <Compile Include="Commands\NavigationCommands.cs" />
     <Compile Include="PoliciesPanel.xaml.cs">
       <DependentUpon>PoliciesPanel.xaml</DependentUpon>
     </Compile>

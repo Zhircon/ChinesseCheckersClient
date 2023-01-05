@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace ChinesseCheckersClient
 {
     /// <summary>
-    /// Lógica de interacción para ConfigurationPanel.xaml
+    /// This class enable a way to change configuration in real time
     /// </summary>
     public partial class ConfigurationPanel : UserControl
     {

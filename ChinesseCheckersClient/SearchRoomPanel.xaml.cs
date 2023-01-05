@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace ChinesseCheckersClient
 {
     /// <summary>
-    /// Lógica de interacción para SearchRoom.xaml
+    /// Enable to join a room
     /// </summary>
     public partial class SearchRoomPanel : UserControl 
     {

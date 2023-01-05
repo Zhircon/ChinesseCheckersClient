@@ -18,7 +18,7 @@ using System.Windows.Threading;
 namespace ChinesseCheckersClient
 {
     /// <summary>
-    /// Lógica de interacción para ConnectionLostPaage.xaml
+    /// this page provide funtionality for reconnect server
     /// </summary>
     public partial class ConnectionLostPage : Page
     {

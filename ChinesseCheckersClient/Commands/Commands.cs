@@ -7,6 +7,9 @@ using System.Windows;
 
 namespace ChinesseCheckersClient
 {
+    ///<sumary>
+    ///This class provide command to the main window
+    ///<sumary>
     public static class Commands
     {
         public static void ChangeWindowState()
@@ -40,7 +43,6 @@ namespace ChinesseCheckersClient
             MainWindow mainWindow;
             MainWindow mainWindowNew = new MainWindow();
             mainWindow = (MainWindow)Application.Current.MainWindow;
-            
             mainWindowNew.Session = mainWindow.Session;
             mainWindowNew.WindowState = mainWindow.WindowState;
             mainWindowNew.WindowStyle = mainWindow.WindowStyle;

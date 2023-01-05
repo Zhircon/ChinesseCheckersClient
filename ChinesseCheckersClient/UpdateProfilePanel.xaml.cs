@@ -16,6 +16,9 @@ using System.Windows.Shapes;
 
 namespace ChinesseCheckersClient
 {
+    /// <summary>
+    /// Enable change profile 
+    /// </summary>
     public partial class UpdateProfilePanel : UserControl
     {
         private readonly ImageBrush correctLogoSprite = new ImageBrush(new BitmapImage(new Uri("pack://application:,,/Assets/Images/CorrectLogo.png")));

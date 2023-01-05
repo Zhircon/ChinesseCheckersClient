@@ -18,7 +18,7 @@ using System.Windows.Threading;
 namespace ChinesseCheckersClient
 {
     /// <summary>
-    /// Lógica de interacción para LobbyPage.xaml
+    /// this class provide a way to connect al player to a unique room
     /// </summary>
     public partial class LobbyPage : Page
     {

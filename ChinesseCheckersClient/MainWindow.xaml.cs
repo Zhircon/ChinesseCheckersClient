@@ -19,7 +19,7 @@ using System.Windows.Threading;
 namespace ChinesseCheckersClient
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// This Windows funtionality like a web browser loading pages in frame. 
     /// </summary>
     public partial class MainWindow : Window , GameService.IRoomMgtCallback 
     {
@@ -86,7 +86,6 @@ namespace ChinesseCheckersClient
             rSun.RenderTransform = new RotateTransform(angle);
             rHalo1.RenderTransform = new RotateTransform(angle);
             rHalo2.RenderTransform = new RotateTransform(angle);
-    
         }
 
         private void window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

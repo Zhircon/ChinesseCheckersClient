@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChinesseCheckersClient
 {
+    ///<summary>
+    /// This class is responsable to Validate the user input for singin 
+    ///<sumary>
     public static class Validator
     {
         public static bool IsEmailValid(string _email)

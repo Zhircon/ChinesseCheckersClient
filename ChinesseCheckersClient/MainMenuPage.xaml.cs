@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace ChinesseCheckersClient
 {
     /// <summary>
-    /// Lógica de interacción para MainMenuPage.xaml
+    /// Provides funtionality to reach other pages and funtions
     /// </summary>
     public partial class MainMenuPage : Page
     {

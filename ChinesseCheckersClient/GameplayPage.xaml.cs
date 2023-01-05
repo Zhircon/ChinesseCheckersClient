@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace ChinesseCheckersClient
 {
     /// <summary>
-    /// Lógica de interacción para GameplayPage.xaml
+    /// This class provide gameplay and chat funtionality
     /// </summary>
     public partial class GameplayPage : Page  , GameService.IChatMgtCallback
     {
