@@ -360,6 +360,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Room full.
+        /// </summary>
+        public static string Common_RoomFull {
+            get {
+                return ResourceManager.GetString("Common_RoomFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Searching room.
         /// </summary>
         public static string Common_SearchingRoom {

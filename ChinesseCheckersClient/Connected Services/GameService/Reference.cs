@@ -280,6 +280,9 @@ namespace ChinesseCheckersClient.GameService {
         private string IdRoomField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberOfAllowedPlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.Dictionary<int, ChinesseCheckersClient.GameService.Player> PlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -330,6 +333,19 @@ namespace ChinesseCheckersClient.GameService {
                 if ((object.ReferenceEquals(this.IdRoomField, value) != true)) {
                     this.IdRoomField = value;
                     this.RaisePropertyChanged("IdRoom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberOfAllowedPlayers {
+            get {
+                return this.NumberOfAllowedPlayersField;
+            }
+            set {
+                if ((this.NumberOfAllowedPlayersField.Equals(value) != true)) {
+                    this.NumberOfAllowedPlayersField = value;
+                    this.RaisePropertyChanged("NumberOfAllowedPlayers");
                 }
             }
         }
@@ -594,10 +610,10 @@ namespace ChinesseCheckersClient.GameService {
     public interface IRoomMgt {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/CreateRoom", ReplyAction="http://tempuri.org/IRoomMgt/CreateRoomResponse")]
-        string CreateRoom();
+        string CreateRoom(int _numberOfAllowedPlayers);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/CreateRoom", ReplyAction="http://tempuri.org/IRoomMgt/CreateRoomResponse")]
-        System.Threading.Tasks.Task<string> CreateRoomAsync();
+        System.Threading.Tasks.Task<string> CreateRoomAsync(int _numberOfAllowedPlayers);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/SearchRoom", ReplyAction="http://tempuri.org/IRoomMgt/SearchRoomResponse")]
         ChinesseCheckersClient.GameService.Room SearchRoom(string _idRoom);
@@ -662,12 +678,12 @@ namespace ChinesseCheckersClient.GameService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public string CreateRoom() {
-            return base.Channel.CreateRoom();
+        public string CreateRoom(int _numberOfAllowedPlayers) {
+            return base.Channel.CreateRoom(_numberOfAllowedPlayers);
         }
         
-        public System.Threading.Tasks.Task<string> CreateRoomAsync() {
-            return base.Channel.CreateRoomAsync();
+        public System.Threading.Tasks.Task<string> CreateRoomAsync(int _numberOfAllowedPlayers) {
+            return base.Channel.CreateRoomAsync(_numberOfAllowedPlayers);
         }
         
         public ChinesseCheckersClient.GameService.Room SearchRoom(string _idRoom) {

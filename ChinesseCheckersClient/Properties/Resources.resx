@@ -258,4 +258,7 @@ Must contain digits</value>
     <value>Introducce verification code
  in your email</value>
   </data>
+  <data name="Common_RoomFull" xml:space="preserve">
+    <value>Room full</value>
+  </data>
 </root>

@@ -6,6 +6,7 @@
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChatCallbacks" nillable="true" type="q1:ArrayOfKeyValueOfintanyType" />
       <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GameplayCallbacks" nillable="true" type="q2:ArrayOfKeyValueOfintanyType" />
       <xs:element minOccurs="0" name="IdRoom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfAllowedPlayers" type="xs:int" />
       <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Players" nillable="true" type="q3:ArrayOfKeyValueOfintPlayerTDzOzkk0" />
       <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RoomCallbacks" nillable="true" type="q4:ArrayOfKeyValueOfintanyType" />
     </xs:sequence>

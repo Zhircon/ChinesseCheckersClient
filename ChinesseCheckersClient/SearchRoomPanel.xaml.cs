@@ -21,7 +21,7 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class SearchRoomPanel : UserControl 
     {
-
+        private const int PLAYER_NOT_ALLOWED=-1;
         public SearchRoomPanel()
         {
             InitializeComponent();
@@ -45,8 +45,15 @@ namespace ChinesseCheckersClient
                     lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_TryToJoin;
                     mainWindow.Room = room;
                     mainWindow.PlayerConectedInRoom = await  mainWindow.RoomMgt.JoinToRoomAsync(room.IdRoom,mainWindow.Session.PlayerLoged);
-                    lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_JoinSucessfull;
-                    NavigationCommands.GoToLobby();
+                    if (mainWindow.PlayerConectedInRoom != PLAYER_NOT_ALLOWED)
+                    {
+                        lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_JoinSucessfull;
+                        NavigationCommands.GoToLobby();
+                    }
+                    else
+                    {
+                        lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_RoomFull;
+                    }
                 }
                 else
                 {

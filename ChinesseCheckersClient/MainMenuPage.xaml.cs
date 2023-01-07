@@ -58,7 +58,7 @@ namespace ChinesseCheckersClient
             try
             {
                 MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-                string idCode = await mainWindow.RoomMgt.CreateRoomAsync();
+                string idCode = await mainWindow.RoomMgt.CreateRoomAsync(mainWindow.PlayerToWait);
                 room = await  mainWindow.RoomMgt.SearchRoomAsync(idCode);
                 if (room != null)
                 {
