@@ -42,18 +42,27 @@ namespace ChinesseCheckersClient
                 room = await mainWindow.RoomMgt.SearchRoomAsync(_idRoom);
                 if(room != null)
                 {
-                    lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_TryToJoin;
-                    mainWindow.Room = room;
-                    mainWindow.PlayerConectedInRoom = await  mainWindow.RoomMgt.JoinToRoomAsync(room.IdRoom,mainWindow.Session.PlayerLoged);
-                    if (mainWindow.PlayerConectedInRoom != PLAYER_NOT_ALLOWED)
+                    bool isPlayerInRoom=await  mainWindow.RoomMgt.IsPlayerInRoomAsync(_idRoom, mainWindow.Session.PlayerLoged.IdPlayer);
+                    if (!isPlayerInRoom)
                     {
-                        lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_JoinSucessfull;
-                        NavigationCommands.GoToLobby();
+                        lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_TryToJoin;
+                        mainWindow.Room = room;
+                        mainWindow.PlayerConectedInRoom = await mainWindow.RoomMgt.JoinToRoomAsync(room.IdRoom, mainWindow.Session.PlayerLoged);
+                        if (mainWindow.PlayerConectedInRoom != PLAYER_NOT_ALLOWED)
+                        {
+                            lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_JoinSucessfull;
+                            NavigationCommands.GoToLobby();
+                        }
+                        else
+                        {
+                            lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_RoomFull;
+                        }
                     }
                     else
                     {
-                        lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_RoomFull;
+                        lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_PlayerInside;
                     }
+
                 }
                 else
                 {

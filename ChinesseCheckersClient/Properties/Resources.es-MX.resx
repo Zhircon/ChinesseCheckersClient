@@ -264,4 +264,7 @@ que fue mandado a su correo</value>
   <data name="Common_RoomFull" xml:space="preserve">
     <value>Partida llena</value>
   </data>
+  <data name="Common_PlayerInside" xml:space="preserve">
+    <value>Jugador adentro</value>
+  </data>
 </root>

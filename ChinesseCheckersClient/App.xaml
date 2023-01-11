@@ -19,6 +19,7 @@
                 <ResourceDictionary Source= "Styles\ButtonCreateMatchStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonTwoPlayersStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonThreePlayersStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonLoginPageStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

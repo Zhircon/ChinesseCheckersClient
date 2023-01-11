@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="Room">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChatCallbacks" nillable="true" type="q1:ArrayOfKeyValueOfintanyType" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GameplayCallbacks" nillable="true" type="q2:ArrayOfKeyValueOfintanyType" />
+      <xs:element minOccurs="0" name="IdRoom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfAllowedPlayers" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Players" nillable="true" type="q3:ArrayOfKeyValueOfintPlayerTDzOzkk0" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RoomCallbacks" nillable="true" type="q4:ArrayOfKeyValueOfintanyType" />
+      <xs:element minOccurs="0" name="Turn" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Room" nillable="true" type="tns:Room" />
+</xs:schema>

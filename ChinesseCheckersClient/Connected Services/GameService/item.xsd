@@ -3,6 +3,7 @@
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Logic" />
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataAccess" />
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Windows" />
   <xs:element name="RegisterPlayer">
     <xs:complexType>
       <xs:sequence>
@@ -186,6 +187,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IsPlayerInRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_idPlayer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsPlayerInRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsPlayerInRoomResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="NotifyAllPlayersReady">
     <xs:complexType>
       <xs:sequence>
@@ -248,6 +264,70 @@
       <xs:sequence>
         <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="SendEmailResult" type="q11:OperationResult" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinToGameplay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_idPlayer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinToGameplayResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoveToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q12:Point" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q13:Point" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoveTokenResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TerminateTurn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TerminateTurnResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoveAllPlayers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q14:Point" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q15:Point" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoveAllPlayersResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeTurn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="turn" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeTurnResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

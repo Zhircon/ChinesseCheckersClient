@@ -261,4 +261,7 @@ Must contain digits</value>
   <data name="Common_RoomFull" xml:space="preserve">
     <value>Room full</value>
   </data>
+  <data name="Common_PlayerInside" xml:space="preserve">
+    <value>Player inside</value>
+  </data>
 </root>

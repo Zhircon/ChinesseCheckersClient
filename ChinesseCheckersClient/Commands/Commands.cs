@@ -27,8 +27,18 @@ namespace ChinesseCheckersClient
         {
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
         }
+        public static void LeaveRoom()
+        {
+            var playerMgt = new GameService.PlayerMgtClient();
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            if (mainWindow.Room != null)
+            {
+                mainWindow.RoomMgt.LeaveRoom(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
+            }
+        }
         public static void CloseWindow()
         {
+            LeaveRoom();
             Application.Current.MainWindow.Close();
         }
         public static void PlayMusicMenu()

@@ -44,10 +44,11 @@ namespace ChinesseCheckersClient
 
         public void SetUp()
         {
+            var mainMenu = (MainWindow)Application.Current.MainWindow;
+            mainMenu.btBack.Visibility= Visibility.Hidden;
             gameTimer.Tick += GameLoop; //with each iteration of gameloop increment timer 
             gameTimer.Interval = TimeSpan.FromMilliseconds(16); //Set up framerate
             gameTimer.Start(); //Start gameloop logic
-
             rCheckEmail.Fill = infoLogoSprite;
             rCheckNickname.Fill = infoLogoSprite;
             rCheckPassword.Fill = infoLogoSprite;

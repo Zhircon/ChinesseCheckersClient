@@ -74,9 +74,11 @@
     <Compile Include="ConnectionLostPage.xaml.cs">
       <DependentUpon>ConnectionLostPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FriendButton.cs" />
     <Compile Include="FriendListPage.xaml.cs">
       <DependentUpon>FriendListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameBoard.cs" />
     <Compile Include="GameplayPage.xaml.cs">
       <DependentUpon>GameplayPage.xaml</DependentUpon>
     </Compile>
@@ -98,6 +100,7 @@
     <Compile Include="SearchRoomPanel.xaml.cs">
       <DependentUpon>SearchRoomPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TokenButton.cs" />
     <Compile Include="UpdateProfilePanel.xaml.cs">
       <DependentUpon>UpdateProfilePanel.xaml</DependentUpon>
     </Compile>
@@ -215,6 +218,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ButtonLoginPageStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UpdateProfilePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -271,7 +278,10 @@
     <None Include="Connected Services\GameService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\GameService\item21.xsd">
+    <None Include="Connected Services\GameService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameService\item31.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -342,6 +352,18 @@
     <Resource Include="Assets\Images\ServerLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Styles\Pressed\ButtonLoginPagePressed.png" />
+    <Resource Include="Styles\Static\ButtonLoginPageStatic.png" />
+    <Resource Include="Styles\Hover\ButtonLoginPageHover.png" />
+    <Resource Include="Styles\Hover\ButtonBanFriendHover.png" />
+    <Resource Include="Styles\Hover\ButtonDeleteFriendHover.png" />
+    <Resource Include="Styles\Hover\ButtonSendMessageChatHover.png" />
+    <Resource Include="Styles\Pressed\BanFriendPressed.png" />
+    <Resource Include="Styles\Pressed\ButtonDeleteFriendPressed.png" />
+    <Resource Include="Styles\Pressed\ButtonSendMessageChatPressed.png" />
+    <Resource Include="Styles\Static\ButtonBanFriendStatic.png" />
+    <Resource Include="Styles\Static\ButtonDeleteFriendStatic.png" />
+    <Resource Include="Styles\Static\ButtonSendMessageChatStatic.png" />
     <Resource Include="Styles\Disabled\ButtonJoinMatchDisabled.png" />
     <Resource Include="Styles\Disabled\ButtonMainMenuDisabled.png" />
     <Resource Include="Styles\Pressed\ButtonCreateMatchPressed.png" />

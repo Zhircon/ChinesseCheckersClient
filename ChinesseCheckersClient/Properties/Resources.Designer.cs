@@ -315,6 +315,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Player inside.
+        /// </summary>
+        public static string Common_PlayerInside {
+            get {
+                return ResourceManager.GetString("Common_PlayerInside", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Players connected:.
         /// </summary>
         public static string Common_PlayersConnected {

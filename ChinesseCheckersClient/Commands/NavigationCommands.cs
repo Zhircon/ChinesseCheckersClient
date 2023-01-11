@@ -13,11 +13,12 @@ namespace ChinesseCheckersClient
         public static void GoToLogin()
         {
             MainWindow mainWindow = (MainWindow) Application.Current.MainWindow;
-            mainWindow.frame.Source= new Uri("/LoginPage.xaml", UriKind.Relative); ;
+            mainWindow.frame.Source= new Uri("/LoginPage.xaml", UriKind.Relative); 
         }
         public static void GoToLastPage()
         {
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            Commands.LeaveRoom();
             mainWindow.frame.GoBack();
         }
         public static void GoToConnectionLostPage()

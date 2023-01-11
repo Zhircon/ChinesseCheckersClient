@@ -145,6 +145,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IGameplayMgt_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -153,6 +182,7 @@
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataAccess" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Windows" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPlayerMgt_RegisterPlayer_InputMessage">
@@ -233,6 +263,12 @@
   <wsdl:message name="IRoomMgt_LeaveRoom_OutputMessage">
     <wsdl:part name="parameters" element="tns:LeaveRoomResponse" />
   </wsdl:message>
+  <wsdl:message name="IRoomMgt_IsPlayerInRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsPlayerInRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomMgt_IsPlayerInRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsPlayerInRoomResponse" />
+  </wsdl:message>
   <wsdl:message name="IRoomMgt_NotifyAllPlayersReady_InputMessage">
     <wsdl:part name="parameters" element="tns:NotifyAllPlayersReady" />
   </wsdl:message>
@@ -262,6 +298,36 @@
   </wsdl:message>
   <wsdl:message name="IEmailMgt_SendEmail_OutputMessage">
     <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_JoinToGameplay_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinToGameplay" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_JoinToGameplay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinToGameplayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_MoveToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveToken" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_MoveToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_TerminateTurn_InputMessage">
+    <wsdl:part name="parameters" element="tns:TerminateTurn" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_TerminateTurn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TerminateTurnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_MoveAllPlayers_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MoveAllPlayers" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_MoveAllPlayers_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MoveAllPlayersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_ChangeTurn_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTurn" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_ChangeTurn_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTurnResponse" />
   </wsdl:message>
   <wsdl:portType name="IPlayerMgt">
     <wsdl:operation name="RegisterPlayer">
@@ -322,6 +388,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/LeaveRoom" message="tns:IRoomMgt_LeaveRoom_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/LeaveRoomResponse" message="tns:IRoomMgt_LeaveRoom_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="IsPlayerInRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/IsPlayerInRoom" message="tns:IRoomMgt_IsPlayerInRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/IsPlayerInRoomResponse" message="tns:IRoomMgt_IsPlayerInRoom_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="NotifyAllPlayersReady">
       <wsdl:input wsaw:Action="http://tempuri.org/IRoomMgt/NotifyAllPlayersReady" message="tns:IRoomMgt_NotifyAllPlayersReady_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRoomMgt/NotifyAllPlayersReadyResponse" message="tns:IRoomMgt_NotifyAllPlayersReady_OutputMessage" />
@@ -343,6 +413,28 @@
     <wsdl:operation name="SendEmail">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmailMgt/SendEmail" message="tns:IEmailMgt_SendEmail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEmailMgt/SendEmailResponse" message="tns:IEmailMgt_SendEmail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGameplayMgt">
+    <wsdl:operation name="JoinToGameplay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/JoinToGameplay" message="tns:IGameplayMgt_JoinToGameplay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/JoinToGameplayResponse" message="tns:IGameplayMgt_JoinToGameplay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/MoveToken" message="tns:IGameplayMgt_MoveToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/MoveTokenResponse" message="tns:IGameplayMgt_MoveToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TerminateTurn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/TerminateTurn" message="tns:IGameplayMgt_TerminateTurn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/TerminateTurnResponse" message="tns:IGameplayMgt_TerminateTurn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveAllPlayers">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/MoveAllPlayers" message="tns:IGameplayMgt_MoveAllPlayers_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/MoveAllPlayersResponse" message="tns:IGameplayMgt_MoveAllPlayers_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTurn">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/ChangeTurn" message="tns:IGameplayMgt_ChangeTurn_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/ChangeTurnResponse" message="tns:IGameplayMgt_ChangeTurn_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IPlayerMgt" type="tns:IPlayerMgt">
@@ -477,6 +569,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IsPlayerInRoom">
+      <soap12:operation soapAction="http://tempuri.org/IRoomMgt/IsPlayerInRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NotifyAllPlayersReady">
       <soap12:operation soapAction="http://tempuri.org/IRoomMgt/NotifyAllPlayersReady" style="document" />
       <wsdl:input>
@@ -527,6 +628,55 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IGameplayMgt" type="tns:IGameplayMgt">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGameplayMgt_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="JoinToGameplay">
+      <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/JoinToGameplay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveToken">
+      <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/MoveToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TerminateTurn">
+      <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/TerminateTurn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveAllPlayers">
+      <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/MoveAllPlayers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTurn">
+      <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/ChangeTurn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="GameService">
     <wsdl:port name="NetTcpBinding_IPlayerMgt" binding="tns:NetTcpBinding_IPlayerMgt">
       <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
@@ -565,6 +715,15 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IEmailMgt" binding="tns:NetTcpBinding_IEmailMgt">
+      <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IGameplayMgt" binding="tns:NetTcpBinding_IGameplayMgt">
       <soap12:address location="net.tcp://localhost:8081/ChinesseCheckersServer" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>

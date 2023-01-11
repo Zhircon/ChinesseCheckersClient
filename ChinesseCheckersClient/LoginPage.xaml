@@ -14,7 +14,7 @@
     <Viewbox  Stretch="Fill" StretchDirection="Both">
         <Canvas  Height="680" Width="1280">
             <!--#LoginBegin-->
-            <Rectangle Fill="White" Height="680" Stroke="Black" Width="576" Opacity="0.2" StrokeThickness="0"/>
+            <Rectangle Fill="White" Height="680" Stroke="Black" Width="602" Opacity="0.2" StrokeThickness="0"/>
 
             <Label Content="{x:Static properties:Resources.Common_Login}" FontSize="32"  Canvas.Left="132" Canvas.Top="78" Width="211"/>
             <Label Content="{x:Static properties:Resources.Common_Email}" Canvas.Left="110" Canvas.Top="199"/>
@@ -24,10 +24,10 @@
             <TextBox x:Name="tbLoginEmail" TextChanged="Textbox_TextChanged" Height="37" Canvas.Left="110" TextWrapping="Wrap"  Canvas.Top="241" Width="259" BorderBrush="{x:Null}"/>
             <PasswordBox x:Name="pbLoginPassword" PasswordChanged="PasswordBox_TextChanged" Height="41" Canvas.Left="110"  Canvas.Top="374" Width="259" BorderBrush="{x:Null}"/>
 
-            <Button x:Name="btLogin" Content="{x:Static properties:Resources.Common_Login}" Click="Button_Click" IsEnabled="False"  Canvas.Left="162" Canvas.Top="486" Width="162" BorderBrush="{x:Null}" />
+            <Button Foreground="White"  x:Name="btLogin" Style="{DynamicResource ButtonLoginPageStyle}" Content="{x:Static properties:Resources.Common_Login}" Click="Button_Click" IsEnabled="False"  Canvas.Left="110" Canvas.Top="443" Width="259" BorderBrush="{x:Null}" Height="75" />
             <!--#LoginEnd-->
             <!--#SigninBegin-->
-            <Rectangle Fill="#FFFEFFE7" Height="680" Canvas.Left="576" Stroke="Black" Width="704" StrokeThickness="0" Opacity="0.2"/>
+            <Rectangle Fill="#FFFEFFE7" Height="680" Canvas.Left="602" Stroke="Black" Width="678" StrokeThickness="0" Opacity="0.2"/>
 
             <Label Content="{x:Static properties:Resources.Common_Signin}" FontSize="32"  Canvas.Left="764" Canvas.Top="80" Width="174"/>
             <Label Content="{x:Static properties:Resources.Common_Email}" Canvas.Left="790" Canvas.Top="159"/>
@@ -45,13 +45,13 @@
             <Rectangle x:Name="rCheckPassword" Fill="#FFF4F4F5" Height="44" Canvas.Left="1074" Canvas.Top="386" Width="44" RadiusY="8.5" RadiusX="8.5"/>
             <Rectangle x:Name="rCheckDuplicatedPassword" Fill="#FFF4F4F5" Height="44" Canvas.Left="1074" Canvas.Top="478" Width="44" RadiusY="8.5" RadiusX="8.5"/>
 
-            <Button x:Name="btSignin" Content="{x:Static properties:Resources.Common_Signin}" Click="Button_Click" IsEnabled="False"   Canvas.Left="858" Canvas.Top="556" Width="162" BorderBrush="{x:Null}"/>
+            <Button Foreground="White" Style="{DynamicResource ButtonLoginPageStyle}" x:Name="btSignin" Content="{x:Static properties:Resources.Common_Signin}" Click="Button_Click" IsEnabled="False"   Canvas.Left="788" Canvas.Top="567" Width="266" BorderBrush="{x:Null}" Height="61"/>
             <Rectangle x:Name="rPolicies" MouseEnter="rPolicies_MouseEnter" MouseLeave="rPolicies_MouseLeave" Height="44" Canvas.Left="1150" Canvas.Top="584" Width="42" RadiusY="8.5" RadiusX="8.5" Fill="Black"/>
             <!--#SigninEnd-->
             <!--#StatusBegin-->
-            <Rectangle Visibility="Visible" x:Name="rCheckOperation" Fill="#FFF4F4F5" Height="271" Canvas.Left="432" RadiusY="315.5" RadiusX="315.5" Canvas.Top="199" Width="271"/>
+            <Rectangle Visibility="Visible" x:Name="rCheckOperation" Fill="#FFF4F4F5" Height="271" Canvas.Left="460" RadiusY="315.5" RadiusX="315.5" Canvas.Top="199" Width="271"/>
 
-            <Label x:Name="lbStatus" Content="{x:Static properties:Resources.Common_Welcome}" HorizontalContentAlignment="Center"  Canvas.Left="378" Canvas.Top="313" Width="381"/>
+            <Label x:Name="lbStatus" Content="{x:Static properties:Resources.Common_Welcome}" HorizontalContentAlignment="Center"  Canvas.Left="404" Canvas.Top="313" Width="381"/>
             <local:PoliciesPanel x:Name="policiesPanel" Canvas.Left="945" Canvas.Top="296" Visibility="Hidden" ></local:PoliciesPanel>
             <!--#StatusEnd-->
         </Canvas>

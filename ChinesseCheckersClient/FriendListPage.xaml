@@ -10,14 +10,23 @@
       FontSize="32">
 
     <Viewbox Stretch="Fill" StretchDirection="Both">
-        <Canvas Height="680" Width="1280">
-            <Rectangle Height="300" Width="598" Canvas.Left="333" Canvas.Top="186">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="assets/images/Aglogo(red).png"></ImageBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-            <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Creditos" Height="60" Canvas.Left="333" Canvas.Top="78" Width="603"/>
-            <TextBlock   Text="Videojuego realizado para la experiencia educativa tecnologías para la construcción de software" Height="112" Canvas.Left="214" Canvas.Top="533" Width="868" TextWrapping="Wrap" TextAlignment="Center"/>
-        </Canvas>
+        <Grid Height="680" Width="1280">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Margin="0,56,0,0">
+            </ListBox>
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Friend List" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="980"/>
+            <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="809,602,0,0" VerticalAlignment="Top" Width="121"/>
+            <Label Content="Asunto:" Grid.Column="1" HorizontalAlignment="Left" Margin="458,87,0,0" VerticalAlignment="Top" Width="134"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="48" Margin="614,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="316"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="332" Margin="68,254,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="862"/>
+            <Label Content="Mensaje:" Grid.Column="1" HorizontalAlignment="Left" Margin="68,196,0,0" VerticalAlignment="Top" Width="181"/>
+            <Button Content="Borrar" Grid.Column="1" HorizontalAlignment="Left" Margin="245,119,0,0" VerticalAlignment="Top" Width="159"/>
+            <Button Content="Banear" Grid.Column="1" HorizontalAlignment="Left" Margin="48,119,0,0" VerticalAlignment="Top" Width="160"/>
+            <Label Content="Amigos" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" Width="300"/>
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Acciones" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="352" Margin="52,56,0,0"/>
+        </Grid>
     </Viewbox>
 </Page>
