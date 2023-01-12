@@ -20,6 +20,8 @@
                 <ResourceDictionary Source= "Styles\ButtonTwoPlayersStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonThreePlayersStyle.xaml"/>
                 <ResourceDictionary Source= "Styles\ButtonLoginPageStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonBanFriendStyle.xaml"/>
+                <ResourceDictionary Source= "Styles\ButtonSendMessageChatStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

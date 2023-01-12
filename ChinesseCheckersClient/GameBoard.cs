@@ -75,22 +75,23 @@ namespace ChinesseCheckersClient
         public List<Point> GetPosibleMoves(ref List<Point> _posiblesMovesList,Point _from)
         {
             if (gameBoard[(int)_from.Y - 1, (int)_from.X + 1] == 'O') { _posiblesMovesList.Add(new Point(_from.X + 1, _from.Y - 1)); }
-            else { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X + 1, _from.Y - 1)); }
+            else if (gameBoard[(int)_from.Y - 1, (int)_from.X + 1] == 'X') { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X + 1, _from.Y - 1)); }
             
             if (gameBoard[(int)_from.Y - 1, (int)_from.X - 1] == 'O') { _posiblesMovesList.Add(new Point(_from.X - 1, _from.Y - 1)); }
-            else { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X - 1, _from.Y - 1)); }
+            else if (gameBoard[(int)_from.Y - 1, (int)_from.X - 1] == 'X') { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X - 1, _from.Y - 1)); }
             
             if (gameBoard[(int)_from.Y + 1, (int)_from.X + 1] == 'O') { _posiblesMovesList.Add(new Point(_from.X + 1, _from.Y + 1)); }
-            else { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X + 1, _from.Y + 1)); }
+            else if (gameBoard[(int)_from.Y + 1, (int)_from.X + 1] == 'X') { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X + 1, _from.Y + 1)); }
             
             if (gameBoard[(int)_from.Y + 1, (int)_from.X - 1] == 'O') { _posiblesMovesList.Add(new Point(_from.X - 1, _from.Y + 1)); }
             else if(gameBoard[(int)_from.Y + 1, (int)_from.X - 1] != 'X')  { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X - 1, _from.Y + 1)); }
-            
+            /*
             if (gameBoard[(int)_from.Y, (int)_from.X + 1] == 'O') { _posiblesMovesList.Add(new Point(_from.X + 1, _from.Y)); }
             else if (gameBoard[(int)_from.Y, (int)_from.X + 1] != 'X') { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X + 1, _from.Y)); }
             
             if (gameBoard[(int)_from.Y, (int)_from.X - 1] == 'O') { _posiblesMovesList.Add(new Point(_from.X - 1, _from.Y)); }
-            else if (gameBoard[(int)_from.Y, (int)_from.X - 1] == 'O') { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X - 1, _from.Y)); }
+            else if (gameBoard[(int)_from.Y, (int)_from.X - 1] == 'X') { ObtainPosibleMovesOccupied(ref _posiblesMovesList, new Point(_from.X - 1, _from.Y)); }
+            */
             return _posiblesMovesList;
         }
     }

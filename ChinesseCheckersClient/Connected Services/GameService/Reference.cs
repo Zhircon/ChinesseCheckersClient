@@ -402,6 +402,99 @@ namespace ChinesseCheckersClient.GameService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Relationship", Namespace="http://schemas.datacontract.org/2004/07/DataAccess")]
+    [System.SerializableAttribute()]
+    public partial class Relationship : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdRelationshipField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsBadRelationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idGuestField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idOwnerField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdRelationship {
+            get {
+                return this.IdRelationshipField;
+            }
+            set {
+                if ((this.IdRelationshipField.Equals(value) != true)) {
+                    this.IdRelationshipField = value;
+                    this.RaisePropertyChanged("IdRelationship");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsBadRelation {
+            get {
+                return this.IsBadRelationField;
+            }
+            set {
+                if ((this.IsBadRelationField.Equals(value) != true)) {
+                    this.IsBadRelationField = value;
+                    this.RaisePropertyChanged("IsBadRelation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idGuest {
+            get {
+                return this.idGuestField;
+            }
+            set {
+                if ((this.idGuestField.Equals(value) != true)) {
+                    this.idGuestField = value;
+                    this.RaisePropertyChanged("idGuest");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idOwner {
+            get {
+                return this.idOwnerField;
+            }
+            set {
+                if ((this.idOwnerField.Equals(value) != true)) {
+                    this.idOwnerField = value;
+                    this.RaisePropertyChanged("idOwner");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GameService.IPlayerMgt")]
     public interface IPlayerMgt {
@@ -435,6 +528,12 @@ namespace ChinesseCheckersClient.GameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/UpdatePlayer", ReplyAction="http://tempuri.org/IPlayerMgt/UpdatePlayerResponse")]
         System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> UpdatePlayerAsync(ChinesseCheckersClient.GameService.Player _player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/SearchPlayerById", ReplyAction="http://tempuri.org/IPlayerMgt/SearchPlayerByIdResponse")]
+        ChinesseCheckersClient.GameService.Player SearchPlayerById(int _idPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerMgt/SearchPlayerById", ReplyAction="http://tempuri.org/IPlayerMgt/SearchPlayerByIdResponse")]
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Player> SearchPlayerByIdAsync(int _idPlayer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -503,6 +602,14 @@ namespace ChinesseCheckersClient.GameService {
         public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> UpdatePlayerAsync(ChinesseCheckersClient.GameService.Player _player) {
             return base.Channel.UpdatePlayerAsync(_player);
         }
+        
+        public ChinesseCheckersClient.GameService.Player SearchPlayerById(int _idPlayer) {
+            return base.Channel.SearchPlayerById(_idPlayer);
+        }
+        
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Player> SearchPlayerByIdAsync(int _idPlayer) {
+            return base.Channel.SearchPlayerByIdAsync(_idPlayer);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -567,6 +674,12 @@ namespace ChinesseCheckersClient.GameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/SendMessage", ReplyAction="http://tempuri.org/IChatMgt/SendMessageResponse")]
         System.Threading.Tasks.Task SendMessageAsync(string _idRoom, string _nickname, string _message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/SendFrienRequest", ReplyAction="http://tempuri.org/IChatMgt/SendFrienRequestResponse")]
+        void SendFrienRequest(string _idRoom, int _idApplicantPlayer, string _nicknameApplicantPlayer, int _idPlayerAddressed);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/SendFrienRequest", ReplyAction="http://tempuri.org/IChatMgt/SendFrienRequestResponse")]
+        System.Threading.Tasks.Task SendFrienRequestAsync(string _idRoom, int _idApplicantPlayer, string _nicknameApplicantPlayer, int _idPlayerAddressed);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -574,6 +687,9 @@ namespace ChinesseCheckersClient.GameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/ReceiveMessage", ReplyAction="http://tempuri.org/IChatMgt/ReceiveMessageResponse")]
         void ReceiveMessage(string _nickname, string _message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatMgt/ReceiveFriendRequest", ReplyAction="http://tempuri.org/IChatMgt/ReceiveFriendRequestResponse")]
+        void ReceiveFriendRequest(int _idApplicantPlayer, string _nicknameApplicantPlayer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -618,6 +734,14 @@ namespace ChinesseCheckersClient.GameService {
         
         public System.Threading.Tasks.Task SendMessageAsync(string _idRoom, string _nickname, string _message) {
             return base.Channel.SendMessageAsync(_idRoom, _nickname, _message);
+        }
+        
+        public void SendFrienRequest(string _idRoom, int _idApplicantPlayer, string _nicknameApplicantPlayer, int _idPlayerAddressed) {
+            base.Channel.SendFrienRequest(_idRoom, _idApplicantPlayer, _nicknameApplicantPlayer, _idPlayerAddressed);
+        }
+        
+        public System.Threading.Tasks.Task SendFrienRequestAsync(string _idRoom, int _idApplicantPlayer, string _nicknameApplicantPlayer, int _idPlayerAddressed) {
+            return base.Channel.SendFrienRequestAsync(_idRoom, _idApplicantPlayer, _nicknameApplicantPlayer, _idPlayerAddressed);
         }
     }
     
@@ -893,6 +1017,81 @@ namespace ChinesseCheckersClient.GameService {
         
         public System.Threading.Tasks.Task TerminateTurnAsync(string _idRoom) {
             return base.Channel.TerminateTurnAsync(_idRoom);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GameService.IRelationshipMgt")]
+    public interface IRelationshipMgt {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRelationshipMgt/CreateRelationship", ReplyAction="http://tempuri.org/IRelationshipMgt/CreateRelationshipResponse")]
+        ChinesseCheckersClient.GameService.OperationResult CreateRelationship(int _idPlayerOwner, int _idPlayerGuest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRelationshipMgt/CreateRelationship", ReplyAction="http://tempuri.org/IRelationshipMgt/CreateRelationshipResponse")]
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> CreateRelationshipAsync(int _idPlayerOwner, int _idPlayerGuest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRelationshipMgt/GetRelationships", ReplyAction="http://tempuri.org/IRelationshipMgt/GetRelationshipsResponse")]
+        ChinesseCheckersClient.GameService.Relationship[] GetRelationships(int _idPlayerOwner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRelationshipMgt/GetRelationships", ReplyAction="http://tempuri.org/IRelationshipMgt/GetRelationshipsResponse")]
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Relationship[]> GetRelationshipsAsync(int _idPlayerOwner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRelationshipMgt/DeclarateBadRelationship", ReplyAction="http://tempuri.org/IRelationshipMgt/DeclarateBadRelationshipResponse")]
+        ChinesseCheckersClient.GameService.OperationResult DeclarateBadRelationship(int _idPlayerOwner, int _idPlayerGuest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRelationshipMgt/DeclarateBadRelationship", ReplyAction="http://tempuri.org/IRelationshipMgt/DeclarateBadRelationshipResponse")]
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> DeclarateBadRelationshipAsync(int _idPlayerOwner, int _idPlayerGuest);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRelationshipMgtChannel : ChinesseCheckersClient.GameService.IRelationshipMgt, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RelationshipMgtClient : System.ServiceModel.ClientBase<ChinesseCheckersClient.GameService.IRelationshipMgt>, ChinesseCheckersClient.GameService.IRelationshipMgt {
+        
+        public RelationshipMgtClient() {
+        }
+        
+        public RelationshipMgtClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RelationshipMgtClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RelationshipMgtClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RelationshipMgtClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public ChinesseCheckersClient.GameService.OperationResult CreateRelationship(int _idPlayerOwner, int _idPlayerGuest) {
+            return base.Channel.CreateRelationship(_idPlayerOwner, _idPlayerGuest);
+        }
+        
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> CreateRelationshipAsync(int _idPlayerOwner, int _idPlayerGuest) {
+            return base.Channel.CreateRelationshipAsync(_idPlayerOwner, _idPlayerGuest);
+        }
+        
+        public ChinesseCheckersClient.GameService.Relationship[] GetRelationships(int _idPlayerOwner) {
+            return base.Channel.GetRelationships(_idPlayerOwner);
+        }
+        
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.Relationship[]> GetRelationshipsAsync(int _idPlayerOwner) {
+            return base.Channel.GetRelationshipsAsync(_idPlayerOwner);
+        }
+        
+        public ChinesseCheckersClient.GameService.OperationResult DeclarateBadRelationship(int _idPlayerOwner, int _idPlayerGuest) {
+            return base.Channel.DeclarateBadRelationship(_idPlayerOwner, _idPlayerGuest);
+        }
+        
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> DeclarateBadRelationshipAsync(int _idPlayerOwner, int _idPlayerGuest) {
+            return base.Channel.DeclarateBadRelationshipAsync(_idPlayerOwner, _idPlayerGuest);
         }
     }
 }

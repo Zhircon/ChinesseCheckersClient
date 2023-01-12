@@ -19,7 +19,8 @@ namespace ChinesseCheckersClient
         {
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             Commands.LeaveRoom();
-            mainWindow.frame.GoBack();
+            if (mainWindow.frame.CanGoBack) { mainWindow.frame.GoBack(); }
+            else { mainWindow.frame.Source = new Uri("/LoginPage.xaml", UriKind.Relative); }
         }
         public static void GoToConnectionLostPage()
         {
@@ -43,6 +44,11 @@ namespace ChinesseCheckersClient
 
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow.frame.Source = new Uri("/GameplayPage.xaml", UriKind.Relative);
+        }
+        public static void GoToFriendList()
+        {
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.frame.Source = new Uri("/FriendListPage.xaml", UriKind.Relative);
         }
     }
 }

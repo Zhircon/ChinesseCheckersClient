@@ -77,6 +77,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SearchPlayerById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idPlayer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchPlayerByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DataAccess" minOccurs="0" name="SearchPlayerByIdResult" nillable="true" type="q8:Player" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="IsConnectionUp">
     <xs:complexType>
       <xs:sequence />
@@ -116,6 +130,21 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="SendFrienRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_idApplicantPlayer" type="xs:int" />
+        <xs:element minOccurs="0" name="_nicknameApplicantPlayer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_idPlayerAddressed" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendFrienRequestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ReceiveMessage">
     <xs:complexType>
       <xs:sequence>
@@ -125,6 +154,19 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="ReceiveMessageResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReceiveFriendRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idApplicantPlayer" type="xs:int" />
+        <xs:element minOccurs="0" name="_nicknameApplicantPlayer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReceiveFriendRequestResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -153,7 +195,7 @@
   <xs:element name="SearchRoomResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer" minOccurs="0" name="SearchRoomResult" nillable="true" type="q8:Room" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer" minOccurs="0" name="SearchRoomResult" nillable="true" type="q9:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -161,7 +203,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DataAccess" minOccurs="0" name="_player" nillable="true" type="q9:Player" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DataAccess" minOccurs="0" name="_player" nillable="true" type="q10:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -183,7 +225,7 @@
   <xs:element name="LeaveRoomResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="LeaveRoomResult" type="q10:OperationResult" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="LeaveRoomResult" type="q11:OperationResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -262,7 +304,7 @@
   <xs:element name="SendEmailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="SendEmailResult" type="q11:OperationResult" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="SendEmailResult" type="q12:OperationResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -283,8 +325,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q12:Point" />
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q13:Point" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q13:Point" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q14:Point" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -308,8 +350,8 @@
   <xs:element name="MoveAllPlayers">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q14:Point" />
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q15:Point" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q15:Point" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q16:Point" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -328,6 +370,50 @@
   <xs:element name="ChangeTurnResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRelationship">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idPlayerOwner" type="xs:int" />
+        <xs:element minOccurs="0" name="_idPlayerGuest" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRelationshipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="CreateRelationshipResult" type="q17:OperationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRelationships">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idPlayerOwner" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRelationshipsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DataAccess" minOccurs="0" name="GetRelationshipsResult" nillable="true" type="q18:ArrayOfRelationship" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeclarateBadRelationship">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idPlayerOwner" type="xs:int" />
+        <xs:element minOccurs="0" name="_idPlayerGuest" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeclarateBadRelationshipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="DeclarateBadRelationshipResult" type="q19:OperationResult" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -91,14 +91,14 @@ namespace ChinesseCheckersClient
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             if (mainWindow.Session.PlayerConfiguration.language == "es") {
                 mainWindow.Session.PlayerConfiguration.language = "en";
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-Mx");
                 btChangeLanguage.Style = (Style)FindResource("ButtonChangeLanguageUsaStyle");
                 
                 Commands.RestartAplication();
             }
             else{
                 mainWindow.Session.PlayerConfiguration.language = "es";
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-MX");
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
                 btChangeLanguage.Style = (Style)FindResource("ButtonChangeLanguageMxStyle");
                 Commands.RestartAplication();
             }

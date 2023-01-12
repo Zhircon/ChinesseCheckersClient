@@ -47,6 +47,17 @@ namespace ChinesseCheckersClient
             if (_passwordDuplicate.Length == 0) { return false; }
             return _password.Equals(_passwordDuplicate);   
         }
-
+        public static bool IsSubjectValid(string _subject)
+        {
+            if (_subject.Length == 0) { return false; }
+            if (_subject.Length >= 70) { return false; }
+            return true;
+        }
+        public static bool IsBodyValid(string _body)
+        {
+            if (_body.Length == 0) { return false; }
+            if (_body.Length > 10000) { return false; }
+            return true;
+        }
     }
 }

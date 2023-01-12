@@ -25,7 +25,7 @@ namespace ChinesseCheckersClient
     {
         private readonly MainWindow mainWindow;
         private readonly GameService.ChatMgtClient chatMgt;
-        private GameBoard gameBoard = new GameBoard();
+        private readonly GameBoard gameBoard = new GameBoard();
         private List<System.Drawing.Point> lastPosiblesMoves = new List<System.Drawing.Point>();
         public GameplayPage()
         {
@@ -108,7 +108,6 @@ namespace ChinesseCheckersClient
             lastPosiblesMoves = posiblesMoves;
             foreach(System.Drawing.Point point in posiblesMoves)
             {
-                var token = gameBoard.GetPosition(point);
                 int column = (int)point.X;
                 int row = (int)point.Y;
                 var element = gridGameBoard.Children
@@ -123,21 +122,40 @@ namespace ChinesseCheckersClient
             mainWindow.Room = await roomMgt.SearchRoomAsync(mainWindow.Room.IdRoom);
             foreach (GameService.Player player in mainWindow.Room.Players.Values)
             {
-                var listBoxItem = new ListBoxItem();
-                var friendButton = new FriendButton();
-                friendButton.Content = player.Nickname;
-                friendButton.IdPlayer = player.IdPlayer;
-                friendButton.Nickname = player.Nickname;
-                friendButton.Email = player.Email;
-                friendButton.Click += FriendButton_Click;
-                listBoxItem.Content = friendButton.Nickname;
-                listBoxFriendButtons.Items.Add(listBoxItem);
+                if (player.IdPlayer != mainWindow.Session.PlayerLoged.IdPlayer)
+                {
+                    var listBoxItem = new ListBoxItem();
+                    var friendButton = new FriendButton();
+                    friendButton.Content = player.Nickname;
+                    friendButton.IdPlayer = player.IdPlayer;
+                    friendButton.Nickname = player.Nickname;
+                    friendButton.Email = player.Email;
+                    friendButton.Click += FriendButton_Click;
+                    listBoxItem.Content = friendButton;
+                    listBoxFriendButtons.Items.Add(listBoxItem);
+                }
             }
         }
 
-        private void FriendButton_Click(object sender, RoutedEventArgs e)
+        private async void FriendButton_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var friendButton = (FriendButton)sender;
+            await SendFriendRequest(mainWindow.Session.PlayerLoged.IdPlayer, mainWindow.Session.PlayerLoged.Nickname, friendButton.IdPlayer,friendButton.Nickname);
+        }
+        private async Task SendFriendRequest(int _idApplicantPlayer,string _nicknameApplicantPlayer,int _idPlayerAddressed,string _nicknameAddressedPlayer)
+        {
+            var listBoxItem = new ListBoxItem();
+            try
+            {
+                await chatMgt.SendFrienRequestAsync(mainWindow.Room.IdRoom, _idApplicantPlayer, _nicknameApplicantPlayer, _idPlayerAddressed);
+                listBoxItem.Content = "Solicitud enviada a: " +_nicknameAddressedPlayer;
+                listBoxMessage.Items.Add(listBoxItem);
+            }
+            catch (EndpointNotFoundException)
+            {  
+                listBoxItem.Content = "Solicitud no enviada";
+                listBoxMessage.Items.Add(listBoxItem);
+            }
         }
 
         private async void JoinAndUpdateRoom()
@@ -147,7 +165,12 @@ namespace ChinesseCheckersClient
         private async Task SendChatMessage()
         {
             string message = tbMessage.Text;
-            await chatMgt.SendMessageAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.Nickname, message);
+            try
+            {
+                await chatMgt.SendMessageAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.Nickname, message);
+            }catch(EndpointNotFoundException){
+                tbMessage.Text = "";
+            }
             tbMessage.Text = "";
         }
         void IChatMgtCallback.ReceiveMessage(string _nickname, string _message)
@@ -161,6 +184,38 @@ namespace ChinesseCheckersClient
         {
             Button button = (Button)sender;
             if (button.Name == "btSendMessage") {await  SendChatMessage(); }
+        }
+
+        void IChatMgtCallback.ReceiveFriendRequest(int _idApplicantPlayer, string _nicknameApplicantPlayer)
+        {
+            var listBoxItem = new ListBoxItem();
+            var friendButton = new FriendButton();
+            friendButton.Content = "(Click) Aceptar amigo : " + _nicknameApplicantPlayer;
+            friendButton.IdPlayer = _idApplicantPlayer;
+            friendButton.Click += FriendRequest_Click;
+            listBoxItem.Content = friendButton;
+
+            listBoxMessage.Items.Add(listBoxItem);
+        }
+
+        private async void FriendRequest_Click(object sender, RoutedEventArgs e)
+        {
+            var friendButton = (FriendButton)sender;
+            var relationshipMgt =new GameService.RelationshipMgtClient();
+            try
+            {
+                await relationshipMgt.CreateRelationshipAsync(friendButton.IdPlayer, mainWindow.Session.PlayerLoged.IdPlayer);
+                var listBoxItem = new ListBoxItem();
+                listBoxItem.Content = "Amigo agregado";
+                listBoxMessage.Items.Add(listBoxItem);
+            }
+            catch (EndpointNotFoundException)
+            {
+                var listBoxItem = new ListBoxItem();
+                listBoxItem.Content = "Fail to create relation";
+                listBoxMessage.Items.Add(listBoxItem);
+            }
+            
         }
     }
 }

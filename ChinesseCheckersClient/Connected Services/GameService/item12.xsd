@@ -17,4 +17,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Player" nillable="true" type="tns:Player" />
+  <xs:complexType name="ArrayOfRelationship">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Relationship" nillable="true" type="tns:Relationship" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationship" nillable="true" type="tns:ArrayOfRelationship" />
+  <xs:complexType name="Relationship">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdRelationship" type="xs:int" />
+      <xs:element minOccurs="0" name="IsBadRelation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="idGuest" type="xs:int" />
+      <xs:element minOccurs="0" name="idOwner" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Relationship" nillable="true" type="tns:Relationship" />
 </xs:schema>

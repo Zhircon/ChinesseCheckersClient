@@ -54,8 +54,8 @@
                 </Grid.ColumnDefinitions>
             </Grid>
             <ListBox x:Name="listBoxMessage" Height="537" Width="300" Canvas.Left="970" Canvas.Top="10" />
-            <TextBox x:Name="tbMessage"  Height="25" Canvas.Left="970" TextWrapping="Wrap" Canvas.Top="552" Width="246"/>
-            <Button x:Name="btSendMessage" Click="Button_Click" Content=">" Canvas.Left="1221" Canvas.Top="552" Width="49"/>
+            <TextBox x:Name="tbMessage"  Height="25" Canvas.Left="970" TextWrapping="Wrap" Canvas.Top="552" Width="250"/>
+            <Button x:Name="btSendMessage" Style="{DynamicResource ButtonSendMessageChatStyle}" Click="Button_Click" Canvas.Left="1234" Canvas.Top="552" Width="36" Height="25"/>
             <ListBox  x:Name="listBoxFriendButtons" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="100" Canvas.Left="970" Canvas.Top="582" Width="300"/>
         </Canvas>
     </Viewbox>

@@ -32,11 +32,13 @@ namespace ChinesseCheckersClient
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             Button buttonClicked = (Button)sender;
+
             if (buttonClicked.Name == "btProfile") { UpdateVisibilityProfilePanel(); }
             if (buttonClicked.Name == "btTwoPlayers") { await CreateTwoPlayersMatch(); }
             if (buttonClicked.Name == "btThreePlayers") { await CreateThreePlayersMatch(); }
             if (buttonClicked.Name == "btJoinMatch") { UpdateVisibilitySearchPanel(); }
             if (buttonClicked.Name == "btCreateMatch") { UpdateVisibilityPlayersButtons(); }
+            if (buttonClicked.Name == "btFriendList") { NavigationCommands.GoToFriendList(); }
             if (buttonClicked.Name == "btConfiguration") { UpdateVisibilityConfigurationPanel(); }
         }
 

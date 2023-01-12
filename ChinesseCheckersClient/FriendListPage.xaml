@@ -15,16 +15,15 @@
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox Margin="0,56,0,0">
+            <ListBox x:Name="listBoxFriends"  Margin="0,56,0,0">
             </ListBox>
             <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Friend List" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="980"/>
-            <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="809,602,0,0" VerticalAlignment="Top" Width="121"/>
-            <Label Content="Asunto:" Grid.Column="1" HorizontalAlignment="Left" Margin="458,87,0,0" VerticalAlignment="Top" Width="134"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="48" Margin="614,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="316"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="332" Margin="68,254,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="862"/>
-            <Label Content="Mensaje:" Grid.Column="1" HorizontalAlignment="Left" Margin="68,196,0,0" VerticalAlignment="Top" Width="181"/>
-            <Button Content="Borrar" Grid.Column="1" HorizontalAlignment="Left" Margin="245,119,0,0" VerticalAlignment="Top" Width="159"/>
-            <Button Content="Banear" Grid.Column="1" HorizontalAlignment="Left" Margin="48,119,0,0" VerticalAlignment="Top" Width="160"/>
+            <Button x:Name="btSendMessage"  Click="Button_Click" Style="{DynamicResource ButtonSendMessageChatStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="864,618,0,0" VerticalAlignment="Top" Width="66" Height="52"/>
+            <Label x:Name="lbSubject" Content="Asunto:" Grid.Column="1" HorizontalAlignment="Left" Margin="458,87,0,0" VerticalAlignment="Top" Width="134"/>
+            <TextBox x:Name="tbSubject" TextChanged="Textbox_TextChanged" Grid.Column="1" HorizontalAlignment="Left" Height="48" Margin="614,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="316"/>
+            <TextBox x:Name="tbMessage" TextChanged="Textbox_TextChanged" Grid.Column="1" Margin="83,249,50,107" AcceptsReturn="True"/>
+            <Label x:Name="lbMessage" Content="Mensaje:" Grid.Column="1" HorizontalAlignment="Left" Margin="68,196,0,0" VerticalAlignment="Top" Width="862"/>
+            <Button x:Name="btBanFriend" Click="Button_Click"  Style="{DynamicResource ButtonBanFriendStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="169,112,0,0" VerticalAlignment="Top" Width="122" Height="61"/>
             <Label Content="Amigos" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" Width="300"/>
             <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Acciones" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="352" Margin="52,56,0,0"/>
         </Grid>

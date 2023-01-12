@@ -146,11 +146,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ButtonSendMessageChatStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\ButtonChangeLanguageUsaStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\ButtonChangeLanguageMxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonBanFriendStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -256,6 +264,12 @@
     <None Include="Connected Services\GameService\ChinesseCheckersClient.GameService.OperationResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\GameService\ChinesseCheckersClient.GameService.Player.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\GameService\ChinesseCheckersClient.GameService.Relationship.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\GameService\ChinesseCheckersClient.GameService.Room.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -352,13 +366,14 @@
     <Resource Include="Assets\Images\ServerLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Styles\Disabled\ButtonSendMessageChatDisabled.png" />
     <Resource Include="Styles\Pressed\ButtonLoginPagePressed.png" />
     <Resource Include="Styles\Static\ButtonLoginPageStatic.png" />
     <Resource Include="Styles\Hover\ButtonLoginPageHover.png" />
     <Resource Include="Styles\Hover\ButtonBanFriendHover.png" />
     <Resource Include="Styles\Hover\ButtonDeleteFriendHover.png" />
     <Resource Include="Styles\Hover\ButtonSendMessageChatHover.png" />
-    <Resource Include="Styles\Pressed\BanFriendPressed.png" />
+    <Resource Include="Styles\Pressed\ButtonBanFriendPressed.png" />
     <Resource Include="Styles\Pressed\ButtonDeleteFriendPressed.png" />
     <Resource Include="Styles\Pressed\ButtonSendMessageChatPressed.png" />
     <Resource Include="Styles\Static\ButtonBanFriendStatic.png" />
