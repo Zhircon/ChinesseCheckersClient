@@ -13,6 +13,7 @@ namespace ChinesseCheckersClient
         private char hideContent;
         private int owner;
         private Point position;
+        private bool isPosibleMovement;
         public char HideContent{
             get { return hideContent; }
             set { hideContent = value; }
@@ -26,6 +27,11 @@ namespace ChinesseCheckersClient
         {
             get { return position; }
             set { position = value; }
+        }
+        public bool IsPosibleMovement
+        {
+            get { return isPosibleMovement; }
+            set { isPosibleMovement = value; }
         }
     }
 }

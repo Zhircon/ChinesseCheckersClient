@@ -31,7 +31,13 @@ namespace ChinesseCheckersClient
         private GameService.RoomMgtClient roomMgt;
         private int angle;
         private readonly DispatcherTimer gameTimer = new DispatcherTimer();
+        private bool isInGame;
 
+        public bool IsInGame
+        {
+            get { return isInGame; }
+            set { isInGame = value; }
+        }
         public GameService.RoomMgtClient RoomMgt
         {
             get { return roomMgt; }

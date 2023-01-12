@@ -21,22 +21,36 @@ namespace ChinesseCheckersClient
     /// <summary>
     /// This class provide gameplay and chat funtionality
     /// </summary>
-    public partial class GameplayPage : Page  , GameService.IChatMgtCallback
+    public partial class GameplayPage : Page  , GameService.IChatMgtCallback ,GameService.IGameplayMgtCallback
     {
         private readonly MainWindow mainWindow;
         private readonly GameService.ChatMgtClient chatMgt;
+        private readonly GameplayMgtClient gameplayMgt;
         private readonly GameBoard gameBoard = new GameBoard();
         private List<System.Drawing.Point> lastPosiblesMoves = new List<System.Drawing.Point>();
+        private TokenButton tokenSeleted;
         public GameplayPage()
         {
             InitializeComponent();
             mainWindow = (MainWindow)Application.Current.MainWindow;
-            
-           
+            mainWindow.IsInGame = true;
             chatMgt = new GameService.ChatMgtClient(new InstanceContext(this));
+            gameplayMgt = new GameplayMgtClient(new InstanceContext(this));
+            ConfigureGameboard();
             JoinAndUpdateRoom();
             FillListBoxFriendList();
             RepresentGameBoard();
+        }
+        private void ConfigureGameboard()
+        {
+            if (mainWindow.Room.NumberOfAllowedPlayers == 2)
+            {
+                gameBoard.ConfigureForTwoPlayers();
+            }
+            else
+            {
+                gameBoard.ConfigureForThrePlayers();
+            }
         }
         private void RepresentGameBoard()
         {
@@ -92,7 +106,47 @@ namespace ChinesseCheckersClient
                     break;
             }
         }
-        private void ButtonToken_Click(object sender, RoutedEventArgs e)
+        private async void ButtonToken_Click(object sender, RoutedEventArgs e)
+        {
+            var buttonToken = (TokenButton)sender;
+            if (buttonToken.IsPosibleMovement)
+            {
+                RecoloredPosibleMoves();
+                await MoveTo(tokenSeleted.HideContent, buttonToken.Position);
+            }
+            else
+            {
+                tokenSeleted = (TokenButton)sender;
+                if (tokenSeleted.HideContent != 'O')
+                {
+                    RecoloredPosibleMoves();
+                    var posiblesMoves = gameBoard.GetAllPosiblesMoves(buttonToken.Position);
+                    lastPosiblesMoves = posiblesMoves;
+                    foreach (System.Drawing.Point point in posiblesMoves)
+                    {
+                        int column = (int)point.X;
+                        int row = (int)point.Y;
+                        var element = gridGameBoard.Children
+                        .Cast<TokenButton>().First(r => Grid.GetRow(r) == row && Grid.GetColumn(r) == column);
+                        element.Background = new SolidColorBrush(Colors.Violet);
+                        element.IsPosibleMovement = true;
+                    }
+                }
+
+            }
+
+        }
+        public async Task MoveTo(char _charToken, System.Drawing.Point _to)
+        {
+            var _compatibleTo = new System.Windows.Point();
+            var _compatibleFrom = new System.Windows.Point();
+            _compatibleFrom.X = tokenSeleted.Position.X;
+            _compatibleFrom.Y = tokenSeleted.Position.Y;
+            _compatibleTo.X = _to.X;
+            _compatibleTo.Y = _to.Y;
+            await gameplayMgt.MoveTokenAsync(mainWindow.Room.IdRoom, _charToken, _compatibleFrom, _compatibleTo);
+        }
+        private void RecoloredPosibleMoves()
         {
             foreach (System.Drawing.Point point in lastPosiblesMoves)
             {
@@ -101,18 +155,8 @@ namespace ChinesseCheckersClient
                 int row = (int)point.Y;
                 var element = gridGameBoard.Children
                 .Cast<TokenButton>().First(r => Grid.GetRow(r) == row && Grid.GetColumn(r) == column);
+                element.IsPosibleMovement = false;
                 ColoringTokensButtons(token, ref element);
-            }
-            var buttonToken = (TokenButton)sender; 
-            var posiblesMoves = gameBoard.GetAllPosiblesMoves(buttonToken.Position);
-            lastPosiblesMoves = posiblesMoves;
-            foreach(System.Drawing.Point point in posiblesMoves)
-            {
-                int column = (int)point.X;
-                int row = (int)point.Y;
-                var element = gridGameBoard.Children
-                .Cast<TokenButton>().First(r => Grid.GetRow(r) == row && Grid.GetColumn(r) == column);
-                element.Background = new SolidColorBrush(Colors.Violet);
             }
         }
 
@@ -161,7 +205,9 @@ namespace ChinesseCheckersClient
         private async void JoinAndUpdateRoom()
         {
             await chatMgt.JoinToChatAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
+            await gameplayMgt.JoinToGameplayAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
         }
+
         private async Task SendChatMessage()
         {
             string message = tbMessage.Text;
@@ -216,6 +262,37 @@ namespace ChinesseCheckersClient
                 listBoxMessage.Items.Add(listBoxItem);
             }
             
+        }
+
+
+
+        void IGameplayMgtCallback.ChangeTurn(int turn)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IGameplayMgtCallback.MoveAllPlayers(char _charToken, System.Windows.Point _from, System.Windows.Point _to)
+        {
+            System.Drawing.Point _compatibleFrom = new System.Drawing.Point();
+            System.Drawing.Point _compatibleTo = new System.Drawing.Point();
+            _compatibleFrom.X= Convert.ToInt32(_from.X);
+            _compatibleFrom.Y = Convert.ToInt32(_from.Y);
+            _compatibleTo.X  = Convert.ToInt32(_to.X);
+            _compatibleTo.Y = Convert.ToInt32(_to.Y);
+
+            var gridFrom = gridGameBoard.Children
+            .Cast<TokenButton>().First(r => Grid.GetRow(r) == _compatibleFrom.Y && Grid.GetColumn(r) == _compatibleFrom.X);
+            gridFrom.HideContent = 'O';
+            var gridTo = gridGameBoard.Children
+            .Cast<TokenButton>().First(r => Grid.GetRow(r) == _compatibleTo.Y && Grid.GetColumn(r) == _compatibleTo.X);
+            gridTo.HideContent = _charToken;
+
+            gameBoard.SetPosition('O', _compatibleFrom);
+            gameBoard.SetPosition(_charToken, _compatibleTo);
+
+            ColoringTokensButtons(_charToken, ref gridTo);
+            ColoringTokensButtons('O', ref gridFrom);
+
         }
     }
 }

@@ -945,10 +945,10 @@ namespace ChinesseCheckersClient.GameService {
         System.Threading.Tasks.Task JoinToGameplayAsync(string _idRoom, int _idPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/MoveToken", ReplyAction="http://tempuri.org/IGameplayMgt/MoveTokenResponse")]
-        void MoveToken(string _idRoom, System.Windows.Point _from, System.Windows.Point _to);
+        void MoveToken(string _idRoom, char _charToken, System.Windows.Point _from, System.Windows.Point _to);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/MoveToken", ReplyAction="http://tempuri.org/IGameplayMgt/MoveTokenResponse")]
-        System.Threading.Tasks.Task MoveTokenAsync(string _idRoom, System.Windows.Point _from, System.Windows.Point _to);
+        System.Threading.Tasks.Task MoveTokenAsync(string _idRoom, char _charToken, System.Windows.Point _from, System.Windows.Point _to);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/TerminateTurn", ReplyAction="http://tempuri.org/IGameplayMgt/TerminateTurnResponse")]
         void TerminateTurn(string _idRoom);
@@ -961,7 +961,7 @@ namespace ChinesseCheckersClient.GameService {
     public interface IGameplayMgtCallback {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/MoveAllPlayers", ReplyAction="http://tempuri.org/IGameplayMgt/MoveAllPlayersResponse")]
-        void MoveAllPlayers(System.Windows.Point _from, System.Windows.Point _to);
+        void MoveAllPlayers(char _charToken, System.Windows.Point _from, System.Windows.Point _to);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/ChangeTurn", ReplyAction="http://tempuri.org/IGameplayMgt/ChangeTurnResponse")]
         void ChangeTurn(int turn);
@@ -1003,12 +1003,12 @@ namespace ChinesseCheckersClient.GameService {
             return base.Channel.JoinToGameplayAsync(_idRoom, _idPlayer);
         }
         
-        public void MoveToken(string _idRoom, System.Windows.Point _from, System.Windows.Point _to) {
-            base.Channel.MoveToken(_idRoom, _from, _to);
+        public void MoveToken(string _idRoom, char _charToken, System.Windows.Point _from, System.Windows.Point _to) {
+            base.Channel.MoveToken(_idRoom, _charToken, _from, _to);
         }
         
-        public System.Threading.Tasks.Task MoveTokenAsync(string _idRoom, System.Windows.Point _from, System.Windows.Point _to) {
-            return base.Channel.MoveTokenAsync(_idRoom, _from, _to);
+        public System.Threading.Tasks.Task MoveTokenAsync(string _idRoom, char _charToken, System.Windows.Point _from, System.Windows.Point _to) {
+            return base.Channel.MoveTokenAsync(_idRoom, _charToken, _from, _to);
         }
         
         public void TerminateTurn(string _idRoom) {
