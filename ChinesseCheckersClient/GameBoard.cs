@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace ChinesseCheckersClient
 {
-    class GameBoard
+    public class GameBoard
     {
         private readonly List<Point> baseOrange;
         private readonly List<Point> baseYellow;
@@ -17,32 +17,21 @@ namespace ChinesseCheckersClient
         private const char RED = 'R';
         private const char YELLOW ='M';
         private const char ORANGE = 'N';
-        private const char WHITE = 'W';
+        private const char WHITE = 'B';
         private const char NOTHING = 'X';
         private const char FREE = 'O';
         
         private bool isTriangular;
 
-        private char[,] gameBoard = new char[,]{
-            { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            { 'X','X','X','X','X','X','X','X','X','X','N','X','X','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','X','N','X','N','X','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','N','X','N','X','N','X','X','X','X','X','X','X','X' },
-            { 'X','V','X','V','X','V','X','O','X','O','X','O','X','O','X','A','X','A','X','A','X' },
-            { 'X','X','V','X','V','X','O','X','O','X','O','X','O','X','O','X','A','X','A','X','X' },
-            { 'X','X','X','V','X','O','X','O','X','O','X','O','X','O','X','O','X','A','X','X','X' },
-            { 'X','X','X','X','O','X','O','X','O','X','O','X','O','X','O','X','O','X','X','X','X' },
-            { 'X','X','X','B','X','O','X','O','X','O','X','O','X','O','X','O','X','M','X','X','X' },
-            { 'X','X','B','X','B','X','O','X','O','X','O','X','O','X','O','X','M','X','M','X','X' },
-            { 'X','B','X','B','X','B','X','O','X','O','X','O','X','O','X','M','X','M','X','M','X' },
-            { 'X','X','X','X','X','X','X','X','R','X','R','X','R','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','X','R','X','R','X','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','X','X','R','X','X','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X' }
-        };
+        private char[,] board;
+        public char[,] Board
+        {
+            get { return board; }
+            set { board = value; }
+        }
         public void ConfigureForTwoPlayers()
         {
-            gameBoard= new char[,]{
+            board= new char[,]{
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
             { 'X','X','X','X','X','X','X','X','X','X','N','X','X','X','X','X','X','X','X','X','X' },
             { 'X','X','X','X','X','X','X','X','X','N','X','N','X','X','X','X','X','X','X','X','X' },
@@ -51,26 +40,6 @@ namespace ChinesseCheckersClient
             { 'X','X','X','X','X','X','O','X','O','X','O','X','O','X','O','X','X','X','X','X','X' },
             { 'X','X','X','X','X','O','X','O','X','O','X','O','X','O','X','O','X','X','X','X','X' },
             { 'X','X','X','X','O','X','O','X','O','X','O','X','O','X','O','X','O','X','X','X','X' },
-            { 'X','X','X','X','X','O','X','O','X','O','X','O','X','O','X','O','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','O','X','O','X','O','X','O','X','O','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','O','X','O','X','O','X','O','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','R','X','R','X','R','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','X','R','X','R','X','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','X','X','R','X','X','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X' }
-            };
-        }
-        public void ConfigureForTwoPlayersT()
-        {
-            gameBoard = new char[,]{
-            { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            { 'X','X','X','X','X','X','X','X','X','X','R','X','X','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','X','R','X','R','X','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','X','R','X','R','X','R','X','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','X','O','X','O','X','O','X','O','X','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','X','O','X','O','X','O','X','O','X','O','X','X','X','X','X','X' },
-            { 'X','X','X','X','X','O','X','O','X','O','X','O','X','O','X','O','X','X','X','X','X' },
-            { 'X','X','X','X','O','X','O','X','O','X','N','X','O','X','O','X','O','X','X','X','X' },
             { 'X','X','X','X','X','O','X','O','X','O','X','O','X','O','X','O','X','X','X','X','X' },
             { 'X','X','X','X','X','X','O','X','O','X','O','X','O','X','O','X','X','X','X','X','X' },
             { 'X','X','X','X','X','X','X','O','X','O','X','O','X','O','X','X','X','X','X','X','X' },
@@ -84,7 +53,7 @@ namespace ChinesseCheckersClient
         public void ConfigureForThrePlayers()
         {
             isTriangular = true;
-            gameBoard = new char[,]{
+            board = new char[,]{
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
             { 'X','X','X','X','X','X','X','X','X','X','N','X','X','X','X','X','X','X','X','X','X' },
             { 'X','X','X','X','X','X','X','X','X','N','X','N','X','X','X','X','X','X','X','X','X' },
@@ -140,26 +109,25 @@ namespace ChinesseCheckersClient
         }
         public char CheckWinColor()
         {
-            char _colorWinner = NOTHING;
             if (isTriangular)
             {
-                if (IsOccupiedBaseOrange()) { _colorWinner = ORANGE; }
-                if (IsOccupiedBaseYellow()) { _colorWinner = YELLOW; }
-                if (IsOccupiedBaseWhite()) { _colorWinner = WHITE; }
+                if (IsOccupiedBaseOrange()) { return ORANGE; }
+                if (IsOccupiedBaseYellow()) { return YELLOW; }
+                if (IsOccupiedBaseWhite()) { return  WHITE; }
             }
             else
             {
-                if (IsOccupiedBaseOrange()) { _colorWinner = ORANGE; }
-                if (IsOccupiedBaseRed()) { _colorWinner = RED; }
+                if (IsOccupiedBaseRed()) { return  RED; }
+                if (IsOccupiedBaseOrange()) { return ORANGE; }
             }
-            return _colorWinner;
+            return NOTHING;
         }
         public bool IsOccupiedBaseOrange()
         {
             bool isOcupped = true;
             foreach(Point element in baseOrange)
             {
-                if (gameBoard[element.Y, element.X] != FREE) { isOcupped = false; } 
+                if (board[element.Y, element.X] != ORANGE) { isOcupped = false; } 
             }
             return isOcupped;
         }
@@ -168,7 +136,7 @@ namespace ChinesseCheckersClient
             bool isOcupped = true;
             foreach (Point element in baseYellow)
             {
-                if (gameBoard[element.Y, element.X] != YELLOW) { isOcupped = false; }
+                if (board[element.Y, element.X] != YELLOW) { isOcupped = false; }
             }
             return isOcupped;
         }
@@ -177,7 +145,7 @@ namespace ChinesseCheckersClient
             bool isOcupped = true;
             foreach (Point element in baseRed)
             {
-                if (gameBoard[element.Y, element.X] != RED) { isOcupped = false; }
+                if (board[element.Y, element.X] != RED) { isOcupped = false; }
             }
             return isOcupped;
         }
@@ -186,23 +154,23 @@ namespace ChinesseCheckersClient
             bool isOcupped = true;
             foreach (Point element in baseWhite)
             {
-                if (gameBoard[element.Y, element.X] != WHITE) { isOcupped = false; }
+                if (board[element.Y, element.X] != WHITE) { isOcupped = false; }
             }
             return isOcupped;
         }
         public char GetPosition(Point _from)
         {
-            return gameBoard[(int)_from.Y, (int)_from.X];
+            return board[(int)_from.Y, (int)_from.X];
         }
         public void SetPosition(char _char, Point _to)
         {
-            gameBoard[(int)_to.Y,(int)_to.X] = _char;
+            board[(int)_to.Y,(int)_to.X] = _char;
         }
 
         public void Move(Point _from, Point _to)
         {
-            gameBoard[(int)_to.Y, (int)_to.X] = gameBoard[(int)_from.Y, (int)_from.X];
-            gameBoard[(int)_from.Y, (int)_from.X] = FREE;
+            board[(int)_to.Y, (int)_to.X] = board[(int)_from.Y, (int)_from.X];
+            board[(int)_from.Y, (int)_from.X] = FREE;
         }
 
         public List<Point> GetAllPosiblesMoves(Point _from)
@@ -214,10 +182,10 @@ namespace ChinesseCheckersClient
 
         public void GetPosibleMovesSimple(ref List<Point> _posiblesMovesList, Point _from )
         {
-            if (gameBoard[(int)_from.Y - 1, (int)_from.X + 1] == FREE) { _posiblesMovesList.Add(new Point(_from.X + 1, _from.Y - 1)); } 
-            if (gameBoard[(int)_from.Y - 1, (int)_from.X - 1] == FREE) { _posiblesMovesList.Add(new Point(_from.X - 1, _from.Y - 1)); }
-            if (gameBoard[(int)_from.Y + 1, (int)_from.X + 1] == FREE) { _posiblesMovesList.Add(new Point(_from.X + 1, _from.Y + 1)); }
-            if (gameBoard[(int)_from.Y + 1, (int)_from.X - 1] == FREE) { _posiblesMovesList.Add(new Point(_from.X - 1, _from.Y + 1)); }
+            if (board[(int)_from.Y - 1, (int)_from.X + 1] == FREE) { _posiblesMovesList.Add(new Point(_from.X + 1, _from.Y - 1)); } 
+            if (board[(int)_from.Y - 1, (int)_from.X - 1] == FREE) { _posiblesMovesList.Add(new Point(_from.X - 1, _from.Y - 1)); }
+            if (board[(int)_from.Y + 1, (int)_from.X + 1] == FREE) { _posiblesMovesList.Add(new Point(_from.X + 1, _from.Y + 1)); }
+            if (board[(int)_from.Y + 1, (int)_from.X - 1] == FREE) { _posiblesMovesList.Add(new Point(_from.X - 1, _from.Y + 1)); }
         }
     }
 }

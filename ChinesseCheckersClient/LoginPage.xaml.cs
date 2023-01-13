@@ -221,6 +221,7 @@ namespace ChinesseCheckersClient
             rCheckOperation.Visibility = Visibility.Visible;
             var emailMgt = new GameService.EmailMgtClient();
             string code = await emailMgt.SendVerificationCodeAsync(email);
+            Console.WriteLine(code);
             var verificationCodePage = new VerificationCodePage(code);
             verificationCodePage.Owner = Application.Current.MainWindow;
             verificationCodePage.ShowDialog();

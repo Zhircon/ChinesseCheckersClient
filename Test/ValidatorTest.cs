@@ -7,74 +7,112 @@ namespace Test
     public class ValidatorTest
     {
         [TestMethod]
-        public void ValidNickname1()
+        public void ValidEmail()
         {
             bool expectedResult = true;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsNicknameValid("Zhircon4327");
-            Assert.AreEqual(expectedResult, obtainedResult);
+            string inputOne = "agnizahir@gmail.com";
+            string inputTwo = "zs20015687@estudiantes.uv.mx.com";
+            string inputThree = "turo602@gmail.com";
+            bool obtainedResultOne = ChinesseCheckersClient.Validator.IsEmailValid(inputOne);
+            bool obtainedResultTwo = ChinesseCheckersClient.Validator.IsEmailValid(inputTwo);
+            bool obtainedResultThree = ChinesseCheckersClient.Validator.IsEmailValid(inputThree);
+            Assert.AreEqual(expectedResult, obtainedResultOne);
+            Assert.AreEqual(expectedResult, obtainedResultTwo);
+            Assert.AreEqual(expectedResult, obtainedResultThree);
         }
         [TestMethod]
-        public void ValidNickname2()
+        public void InvalidEmail()
+        {
+            bool expectedResult = false;
+            string inputOne = "agnizahirgmail.com";
+            string inputTwo = "@estudiantes.uv.mx.com";
+            string inputThree = "turo602@";
+            bool obtainedResultOne = ChinesseCheckersClient.Validator.IsEmailValid(inputOne);
+            bool obtainedResultTwo = ChinesseCheckersClient.Validator.IsEmailValid(inputTwo);
+            bool obtainedResultThree = ChinesseCheckersClient.Validator.IsEmailValid(inputThree);
+            Assert.AreEqual(expectedResult, obtainedResultOne);
+            Assert.AreEqual(expectedResult, obtainedResultTwo);
+            Assert.AreEqual(expectedResult, obtainedResultThree);
+        }
+        [TestMethod]
+        public void ValidNickname()
         {
             bool expectedResult = true;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsNicknameValid("ZhirconA1G2");
-            Assert.AreEqual(expectedResult, obtainedResult);
+            string inputOne = "Zhircon";
+            string inputTwo = "Osonovle";
+            string inputThree = "vegeta777";
+            bool obtainedResultOne = ChinesseCheckersClient.Validator.IsNicknameValid(inputOne);
+            bool obtainedResultTwo = ChinesseCheckersClient.Validator.IsNicknameValid(inputTwo);
+            bool obtainedResultThree = ChinesseCheckersClient.Validator.IsNicknameValid(inputThree);
+            Assert.AreEqual(expectedResult, obtainedResultOne);
+            Assert.AreEqual(expectedResult, obtainedResultTwo);
+            Assert.AreEqual(expectedResult, obtainedResultThree);
         }
         [TestMethod]
-        public void InvalidNickname1()
+        public void InvalidNickname()
         {
             bool expectedResult = false;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsNicknameValid("ZhirconA1G2n3n4");
-            Assert.AreEqual(expectedResult, obtainedResult);
+            string inputOne = "Zhircon4328agni";
+            string inputTwo = "Aversiestonotruena";
+            string inputThree = "Este no es un nombre valdo";
+            bool obtainedResultOne = ChinesseCheckersClient.Validator.IsNicknameValid(inputOne);
+            bool obtainedResultTwo = ChinesseCheckersClient.Validator.IsNicknameValid(inputTwo);
+            bool obtainedResultThree = ChinesseCheckersClient.Validator.IsNicknameValid(inputThree);
+            Assert.AreEqual(expectedResult, obtainedResultOne);
+            Assert.AreEqual(expectedResult, obtainedResultTwo);
+            Assert.AreEqual(expectedResult, obtainedResultThree);
         }
         [TestMethod]
-        public void InvalidNickname2()
-        {
-            bool expectedResult = false;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsNicknameValid("ZhirconA1G2n3i44328");
-            Assert.AreEqual(expectedResult, obtainedResult);
-        }
-        [TestMethod]
-        public void ValidPassword1()
+        public void ValidPassword()
         {
             bool expectedResult = true;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsPasswordValid("A1G2n3i4");
-            Assert.AreEqual(expectedResult, obtainedResult);
+            string inputOne = "Zhircon4328agni";
+            string inputTwo = "A1G2n3i4zhircon.";
+            string inputThree = "Yava020811HdFxnga8";
+            bool obtainedResultOne = ChinesseCheckersClient.Validator.IsPasswordValid(inputOne);
+            bool obtainedResultTwo = ChinesseCheckersClient.Validator.IsPasswordValid(inputTwo);
+            bool obtainedResultThree = ChinesseCheckersClient.Validator.IsPasswordValid(inputThree);
+            Assert.AreEqual(expectedResult, obtainedResultOne);
+            Assert.AreEqual(expectedResult, obtainedResultTwo);
+            Assert.AreEqual(expectedResult, obtainedResultThree);
         }
         [TestMethod]
-        public void ValidPassword2()
+        public void InvalidPassword()
+        {
+            bool expectedResult = false;
+            string inputOne = "zhircon";
+            string inputTwo = "12334";
+            string inputThree = "__";
+            bool obtainedResultOne = ChinesseCheckersClient.Validator.IsPasswordValid(inputOne);
+            bool obtainedResultTwo = ChinesseCheckersClient.Validator.IsPasswordValid(inputTwo);
+            bool obtainedResultThree = ChinesseCheckersClient.Validator.IsPasswordValid(inputThree);
+            Assert.AreEqual(expectedResult, obtainedResultOne);
+            Assert.AreEqual(expectedResult, obtainedResultTwo);
+            Assert.AreEqual(expectedResult, obtainedResultThree);
+        }
+        [TestMethod]
+        public void ValidSubject()
         {
             bool expectedResult = true;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsPasswordValid("Paracetalmol24");
-            Assert.AreEqual(expectedResult, obtainedResult);
+            string inputOne = "saludos";
+            bool obtainedResultOne = ChinesseCheckersClient.Validator.IsSubjectValid(inputOne);
+            Assert.AreEqual(expectedResult, obtainedResultOne);
+
         }
         [TestMethod]
-        public void ÏnvalidPassword1()
+        public void InvalidSubject()
         {
             bool expectedResult = false;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsPasswordValid("a1g2n3i4");
-            Assert.AreEqual(expectedResult, obtainedResult);
+            string inputOne = "Muvaffakiyetsezlestiricilestiriveremeyebileceklerimizdenmissinizcesine a";
+            bool obtainedResultOne = ChinesseCheckersClient.Validator.IsSubjectValid(inputOne);
+            Assert.AreEqual(expectedResult, obtainedResultOne);
         }
-        [TestMethod]
-        public void ÏnvalidPassword2()
+        public void ValidBody()
         {
-            bool expectedResult = false;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsPasswordValid("1234");
-            Assert.AreEqual(expectedResult, obtainedResult);
-        }
-        [TestMethod]
-        public void ÏnvalidPassword3()
-        {
-            bool expectedResult = false;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsPasswordValid("password");
-            Assert.AreEqual(expectedResult, obtainedResult);
-        }
-        [TestMethod]
-        public void ÏnvalidPassword4()
-        {
-            bool expectedResult = false;
-            bool obtainedResult = ChinesseCheckersClient.Validator.IsPasswordValid("PASSWORD");
-            Assert.AreEqual(expectedResult, obtainedResult);
+            bool expectedResult = true;
+            string inputOne = "Muvaffakiyetsezlestiricilestiriveremeyebileceklerimizdenmissinizcesine a";
+            bool obtainedResultOne = ChinesseCheckersClient.Validator.IsSubjectValid(inputOne);
+            Assert.AreEqual(expectedResult, obtainedResultOne);
         }
     }
 }

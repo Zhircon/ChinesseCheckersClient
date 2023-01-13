@@ -28,7 +28,7 @@ namespace ChinesseCheckersClient
         private const char RED = 'R';
         private const char YELLOW = 'M';
         private const char ORANGE = 'N';
-        private const char WHITE = 'W';
+        private const char WHITE = 'B';
         private const char NOTHING = 'X';
         private const char FREE = 'O';
 
@@ -133,6 +133,7 @@ namespace ChinesseCheckersClient
                     {
                         var buttonToken = new TokenButton();
                         buttonToken.Position = position;
+                        buttonToken.Content = position.X + "," + position.Y;
                         buttonToken.Click += ButtonToken_Click;
                         buttonToken.HideContent = token;
                         ColoringTokensButtons(token,ref buttonToken);
