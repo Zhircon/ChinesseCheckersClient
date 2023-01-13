@@ -264,4 +264,43 @@ Must contain digits</value>
   <data name="Common_PlayerInside" xml:space="preserve">
     <value>Player inside</value>
   </data>
+  <data name="Common_MessageTo" xml:space="preserve">
+    <value>Message to</value>
+  </data>
+  <data name="Common_FriendRequestSended" xml:space="preserve">
+    <value>Friend Request Sended to:</value>
+  </data>
+  <data name="Common_RequestNotSended" xml:space="preserve">
+    <value>Request not sended</value>
+  </data>
+  <data name="Common_FriendAdded" xml:space="preserve">
+    <value>Friend Added</value>
+  </data>
+  <data name="Commin_FailToCreateRelation" xml:space="preserve">
+    <value>Fail to create relation</value>
+  </data>
+  <data name="Common_Turn" xml:space="preserve">
+    <value>Turn</value>
+  </data>
+  <data name="Common_YourColor" xml:space="preserve">
+    <value>Your color</value>
+  </data>
+  <data name="Common_Free" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="Common_Orange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="Common_Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Common_White" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="Common_Yellow" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="Common_NotColor" xml:space="preserve">
+    <value>Not color</value>
+  </data>
 </root>

@@ -61,6 +61,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Fail to create relation.
+        /// </summary>
+        public static string Commin_FailToCreateRelation {
+            get {
+                return ResourceManager.GetString("Commin_FailToCreateRelation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Accept.
         /// </summary>
         public static string Common_Accept {
@@ -178,11 +187,38 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Free.
+        /// </summary>
+        public static string Common_Free {
+            get {
+                return ResourceManager.GetString("Common_Free", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Friend Added.
+        /// </summary>
+        public static string Common_FriendAdded {
+            get {
+                return ResourceManager.GetString("Common_FriendAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Friend List.
         /// </summary>
         public static string Common_FriendList {
             get {
                 return ResourceManager.GetString("Common_FriendList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Friend Request Sended to:.
+        /// </summary>
+        public static string Common_FriendRequestSended {
+            get {
+                return ResourceManager.GetString("Common_FriendRequestSended", resourceCulture);
             }
         }
         
@@ -241,6 +277,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Message to.
+        /// </summary>
+        public static string Common_MessageTo {
+            get {
+                return ResourceManager.GetString("Common_MessageTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Minimize.
         /// </summary>
         public static string Common_Minimize {
@@ -268,6 +313,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Not color.
+        /// </summary>
+        public static string Common_NotColor {
+            get {
+                return ResourceManager.GetString("Common_NotColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Not found credentials.
         /// </summary>
         public static string Common_NotFoundCredential {
@@ -291,6 +345,15 @@ namespace ChinesseCheckersClient.Properties {
         public static string Common_OperationSuccessful {
             get {
                 return ResourceManager.GetString("Common_OperationSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Orange.
+        /// </summary>
+        public static string Common_Orange {
+            get {
+                return ResourceManager.GetString("Common_Orange", resourceCulture);
             }
         }
         
@@ -347,6 +410,24 @@ namespace ChinesseCheckersClient.Properties {
         public static string Common_Profile {
             get {
                 return ResourceManager.GetString("Common_Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Red.
+        /// </summary>
+        public static string Common_Red {
+            get {
+                return ResourceManager.GetString("Common_Red", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Request not sended.
+        /// </summary>
+        public static string Common_RequestNotSended {
+            get {
+                return ResourceManager.GetString("Common_RequestNotSended", resourceCulture);
             }
         }
         
@@ -423,6 +504,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Turn.
+        /// </summary>
+        public static string Common_Turn {
+            get {
+                return ResourceManager.GetString("Common_Turn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Validate password.
         /// </summary>
         public static string Common_ValidatePassword {
@@ -491,6 +581,33 @@ namespace ChinesseCheckersClient.Properties {
         public static string Common_Welcome {
             get {
                 return ResourceManager.GetString("Common_Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a White.
+        /// </summary>
+        public static string Common_White {
+            get {
+                return ResourceManager.GetString("Common_White", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Yellow.
+        /// </summary>
+        public static string Common_Yellow {
+            get {
+                return ResourceManager.GetString("Common_Yellow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Your color.
+        /// </summary>
+        public static string Common_YourColor {
+            get {
+                return ResourceManager.GetString("Common_YourColor", resourceCulture);
             }
         }
         

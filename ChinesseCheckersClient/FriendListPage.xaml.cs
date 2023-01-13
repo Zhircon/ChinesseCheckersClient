@@ -95,7 +95,7 @@ namespace ChinesseCheckersClient
         }
         private void UpdateLabels()
         {
-            lbMessage.Content = "Message to: " + playerSelected.Nickname + "(" + playerSelected.Email + ")";
+            lbMessage.Content = ChinesseCheckersClient.Properties.Resources.Common_MessageTo + playerSelected.Nickname + "(" + playerSelected.Email + ")";
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)

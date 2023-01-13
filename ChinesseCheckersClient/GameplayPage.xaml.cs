@@ -62,22 +62,22 @@ namespace ChinesseCheckersClient
             switch (_color)
             {
                 case FREE:
-                    colorString = "Free";
+                    colorString = ChinesseCheckersClient.Properties.Resources.Common_Free;
                     break;
                 case ORANGE:
-                    colorString = "Orange";
+                    colorString = ChinesseCheckersClient.Properties.Resources.Common_Orange;
                     break;
                 case RED:
-                    colorString = "Red";
+                    colorString = ChinesseCheckersClient.Properties.Resources.Common_Red;
                     break;
                 case WHITE:
-                    colorString = "White";
+                    colorString = ChinesseCheckersClient.Properties.Resources.Common_White;
                     break;
                 case YELLOW:
-                    colorString = "Yellow";
+                    colorString = ChinesseCheckersClient.Properties.Resources.Common_Yellow;
                     break;
                 default:
-                    colorString = "Not color";
+                    colorString = ChinesseCheckersClient.Properties.Resources.Common_NotColor;
                     break;
             }
             return colorString;
@@ -85,12 +85,12 @@ namespace ChinesseCheckersClient
         private void GetTurn()
         {
             colorTurn = gameplayMgt.GetCurrentTurn(mainWindow.Room.IdRoom);
-            lbTurn.Content = "Turn: " + ConvertColorToString(colorTurn);
+            lbTurn.Content = ChinesseCheckersClient.Properties.Resources.Common_Turn +": " + ConvertColorToString(colorTurn);
         }
         private  void AssingColor()
         {
             playerColor = gameplayMgt.AssingColor(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
-            lbYourColor.Content = "Your color: "+ ConvertColorToString(playerColor);
+            lbYourColor.Content = ChinesseCheckersClient.Properties.Resources.Common_YourColor +": " + ConvertColorToString(playerColor);
         }
         private void ConfigureGameboard()
         {
@@ -113,7 +113,7 @@ namespace ChinesseCheckersClient
                 {
                     var position = new System.Drawing.Point(column, row);
                     token = gameBoard.GetPosition(position);
-                    if (token != 'X')
+                    if (token != NOTHING)
                     {
                         var buttonToken = new TokenButton();
                         buttonToken.Content = position.X + "," + position.Y;
@@ -246,12 +246,12 @@ namespace ChinesseCheckersClient
             try
             {
                 await chatMgt.SendFrienRequestAsync(mainWindow.Room.IdRoom, _idApplicantPlayer, _nicknameApplicantPlayer, _idPlayerAddressed);
-                listBoxItem.Content = "Solicitud enviada a: " +_nicknameAddressedPlayer;
+                listBoxItem.Content = ChinesseCheckersClient.Properties.Resources.Common_FriendRequestSended  +_nicknameAddressedPlayer;
                 listBoxMessage.Items.Add(listBoxItem);
             }
             catch (EndpointNotFoundException)
             {  
-                listBoxItem.Content = "Solicitud no enviada";
+                listBoxItem.Content = ChinesseCheckersClient.Properties.Resources.Common_RequestNotSended;
                 listBoxMessage.Items.Add(listBoxItem);
             }
         }
@@ -306,13 +306,13 @@ namespace ChinesseCheckersClient
             {
                 await relationshipMgt.CreateRelationshipAsync(friendButton.IdPlayer, mainWindow.Session.PlayerLoged.IdPlayer);
                 var listBoxItem = new ListBoxItem();
-                listBoxItem.Content = "Amigo agregado";
+                listBoxItem.Content = ChinesseCheckersClient.Properties.Resources.Common_FriendAdded;
                 listBoxMessage.Items.Add(listBoxItem);
             }
             catch (EndpointNotFoundException)
             {
                 var listBoxItem = new ListBoxItem();
-                listBoxItem.Content = "Fail to create relation";
+                listBoxItem.Content = ChinesseCheckersClient.Properties.Resources.Commin_FailToCreateRelation;
                 listBoxMessage.Items.Add(listBoxItem);
             }
             
@@ -334,18 +334,18 @@ namespace ChinesseCheckersClient
             .Cast<TokenButton>().First(r => Grid.GetRow(r) == _compatibleTo.Y && Grid.GetColumn(r) == _compatibleTo.X);
             gridTo.HideContent = _charToken;
 
-            gameBoard.SetPosition('O', _compatibleFrom);
+            gameBoard.SetPosition(FREE, _compatibleFrom);
             gameBoard.SetPosition(_charToken, _compatibleTo);
 
             ColoringTokensButtons(_charToken, ref gridTo);
-            ColoringTokensButtons('O', ref gridFrom);
+            ColoringTokensButtons(FREE, ref gridFrom);
 
         }
 
         void IGameplayMgtCallback.ChangeTurn(char _colorTurn)
         {
             colorTurn = _colorTurn;
-            lbTurn.Content = "Turn: " + ConvertColorToString(colorTurn);
+            lbTurn.Content = ChinesseCheckersClient.Properties.Resources.Common_Turn  +" : "+ ConvertColorToString(colorTurn);
         }
 
         void IGameplayMgtCallback.GameOver(string _playerNicknameDeclare, string _message)

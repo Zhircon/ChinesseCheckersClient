@@ -267,4 +267,43 @@ que fue mandado a su correo</value>
   <data name="Common_PlayerInside" xml:space="preserve">
     <value>Jugador adentro</value>
   </data>
+  <data name="Common_MessageTo" xml:space="preserve">
+    <value>Mensaje a</value>
+  </data>
+  <data name="Common_FriendRequestSended" xml:space="preserve">
+    <value>Solicitud enviada a:</value>
+  </data>
+  <data name="Common_RequestNotSended" xml:space="preserve">
+    <value>Solicitud no enviada</value>
+  </data>
+  <data name="Common_FriendAdded" xml:space="preserve">
+    <value>Amigo agregado</value>
+  </data>
+  <data name="Commin_FailToCreateRelation" xml:space="preserve">
+    <value>Fallo al crear relacion</value>
+  </data>
+  <data name="Common_Turn" xml:space="preserve">
+    <value>Turno</value>
+  </data>
+  <data name="Common_YourColor" xml:space="preserve">
+    <value>Tu color</value>
+  </data>
+  <data name="Common_Free" xml:space="preserve">
+    <value>Libre</value>
+  </data>
+  <data name="Common_Orange" xml:space="preserve">
+    <value>Naranja</value>
+  </data>
+  <data name="Common_Red" xml:space="preserve">
+    <value>Rojo</value>
+  </data>
+  <data name="Common_White" xml:space="preserve">
+    <value>Blanco</value>
+  </data>
+  <data name="Common_Yellow" xml:space="preserve">
+    <value>Amarillo</value>
+  </data>
+  <data name="Common_NotColor" xml:space="preserve">
+    <value>Sin color</value>
+  </data>
 </root>
