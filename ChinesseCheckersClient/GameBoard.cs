@@ -146,7 +146,7 @@ namespace ChinesseCheckersClient
         public bool IsOccupiedBaseYellow()
         {
             bool isOcupped = true;
-            foreach (Point element in baseRed)
+            foreach (Point element in baseYellow)
             {
                 if (gameBoard[element.Y, element.X] != YELLOW) { isOcupped = false; }
             }
