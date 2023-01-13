@@ -908,7 +908,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+          <Upn>DESKTOP-RH3JU6T\Acer</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -917,7 +917,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+          <Upn>DESKTOP-RH3JU6T\Acer</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -926,7 +926,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+          <Upn>DESKTOP-RH3JU6T\Acer</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -935,7 +935,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+          <Upn>DESKTOP-RH3JU6T\Acer</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -944,7 +944,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+          <Upn>DESKTOP-RH3JU6T\Acer</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -953,7 +953,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+          <Upn>DESKTOP-RH3JU6T\Acer</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -962,7 +962,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/ChinesseCheckersServer</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-78F1S0H\Zhircon</Upn>
+          <Upn>DESKTOP-RH3JU6T\Acer</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

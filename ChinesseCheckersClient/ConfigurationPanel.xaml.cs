@@ -54,17 +54,17 @@ namespace ChinesseCheckersClient
             try
             {
                 btAccept.IsEnabled = false;
-                btAccept.Content = "Saving";
+                btAccept.Content = ChinesseCheckersClient.Properties.Resources.Common_Saving;
                 GameService.OperationResult operationResult= await playerMgtClient.UpdateConfigurationAsync(mainWindow.Session.PlayerConfiguration);
                 if (operationResult == GameService.OperationResult.Sucessfull)
                 {
                     btAccept.IsEnabled = true;
-                    btAccept.Content = "Save";
+                    btAccept.Content = ChinesseCheckersClient.Properties.Resources.Common_Save;
                 }
                 else
                 {
                     btAccept.IsEnabled = true;
-                    btAccept.Content = "Fail";
+                    btAccept.Content = ChinesseCheckersClient.Properties.Resources.Common_Fail;
                 }
             }
             catch (EndpointNotFoundException)

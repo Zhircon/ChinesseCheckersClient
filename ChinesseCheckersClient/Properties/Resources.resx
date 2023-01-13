@@ -303,4 +303,16 @@ Must contain digits</value>
   <data name="Common_NotColor" xml:space="preserve">
     <value>Not color</value>
   </data>
+  <data name="Common_AcceptFriend" xml:space="preserve">
+    <value>(Click)Accept Friend</value>
+  </data>
+  <data name="Common_Saving" xml:space="preserve">
+    <value>Saving</value>
+  </data>
+  <data name="Common_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Common_Fail" xml:space="preserve">
+    <value>Fail</value>
+  </data>
 </root>

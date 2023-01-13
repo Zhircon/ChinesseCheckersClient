@@ -289,6 +289,9 @@ namespace ChinesseCheckersClient.GameService {
         private int NumberOfAllowedPlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberOfAllowedPlayersOriginalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.Dictionary<int, ChinesseCheckersClient.GameService.Player> PlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -384,6 +387,19 @@ namespace ChinesseCheckersClient.GameService {
                 if ((this.NumberOfAllowedPlayersField.Equals(value) != true)) {
                     this.NumberOfAllowedPlayersField = value;
                     this.RaisePropertyChanged("NumberOfAllowedPlayers");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberOfAllowedPlayersOriginal {
+            get {
+                return this.NumberOfAllowedPlayersOriginalField;
+            }
+            set {
+                if ((this.NumberOfAllowedPlayersOriginalField.Equals(value) != true)) {
+                    this.NumberOfAllowedPlayersOriginalField = value;
+                    this.RaisePropertyChanged("NumberOfAllowedPlayersOriginal");
                 }
             }
         }

@@ -84,13 +84,29 @@ namespace ChinesseCheckersClient
         }
         private void GetTurn()
         {
-            colorTurn = gameplayMgt.GetCurrentTurn(mainWindow.Room.IdRoom);
-            lbTurn.Content = ChinesseCheckersClient.Properties.Resources.Common_Turn +": " + ConvertColorToString(colorTurn);
+            try
+            {
+                colorTurn = gameplayMgt.GetCurrentTurn(mainWindow.Room.IdRoom);
+                lbTurn.Content = ChinesseCheckersClient.Properties.Resources.Common_Turn + ": " + ConvertColorToString(colorTurn);
+            }
+            catch (EndpointNotFoundException)
+            {
+                NavigationCommands.GoToConnectionLostPage();
+            }
+
         }
         private  void AssingColor()
         {
-            playerColor = gameplayMgt.AssingColor(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
-            lbYourColor.Content = ChinesseCheckersClient.Properties.Resources.Common_YourColor +": " + ConvertColorToString(playerColor);
+            try
+            {
+                playerColor = gameplayMgt.AssingColor(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
+                lbYourColor.Content = ChinesseCheckersClient.Properties.Resources.Common_YourColor + ": " + ConvertColorToString(playerColor);
+            }
+            catch (EndpointNotFoundException)
+            {
+                NavigationCommands.GoToConnectionLostPage();
+            }
+
         }
         private void ConfigureGameboard()
         {
@@ -116,7 +132,6 @@ namespace ChinesseCheckersClient
                     if (token != NOTHING)
                     {
                         var buttonToken = new TokenButton();
-                        buttonToken.Content = position.X + "," + position.Y;
                         buttonToken.Position = position;
                         buttonToken.Click += ButtonToken_Click;
                         buttonToken.HideContent = token;
@@ -160,10 +175,28 @@ namespace ChinesseCheckersClient
             if (colorTurn != playerColor) { return; }
             if (buttonToken.IsPosibleMovement && tokenSeleted.HideContent==playerColor)
             {
-                RecoloredPosibleMoves();
-                await MoveTo(tokenSeleted.HideContent, buttonToken.Position);
-                await gameplayMgt.TerminateTurnAsync(mainWindow.Room.IdRoom);
-                Console.WriteLine("winner"+gameBoard.CheckWinColor());
+                try
+                {
+                    RecoloredPosibleMoves();
+                    await MoveTo(tokenSeleted.HideContent, buttonToken.Position);
+                    var charWinner = gameBoard.CheckWinColor();
+                    if (charWinner != NOTHING)
+                    {
+                        Console.WriteLine("Winner:" + charWinner);
+                        await gameplayMgt.DeclareGameOverAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.Nickname, "Win +" + ConvertColorToString(charWinner));
+                    }
+                    else
+                    {
+                        await gameplayMgt.TerminateTurnAsync(mainWindow.Room.IdRoom);
+                    }
+                }
+                catch (EndpointNotFoundException)
+                {
+                    NavigationCommands.GoToConnectionLostPage();
+                }
+
+                
+
             }
             else
             {
@@ -198,7 +231,15 @@ namespace ChinesseCheckersClient
             _compatibleFrom.Y = tokenSeleted.Position.Y;
             _compatibleTo.X = _to.X;
             _compatibleTo.Y = _to.Y;
-            await gameplayMgt.MoveTokenAsync(mainWindow.Room.IdRoom, _charToken, _compatibleFrom, _compatibleTo);
+            try
+            {
+                await gameplayMgt.MoveTokenAsync(mainWindow.Room.IdRoom, _charToken, _compatibleFrom, _compatibleTo);
+            }
+            catch (EndpointNotFoundException)
+            {
+                NavigationCommands.GoToConnectionLostPage();
+            }
+            
         }
         private void RecoloredPosibleMoves()
         {
@@ -216,22 +257,29 @@ namespace ChinesseCheckersClient
 
         private async void FillListBoxFriendList()
         {
-            var roomMgt = new GameService.RoomMgtClient(new InstanceContext(mainWindow));
-            mainWindow.Room = await roomMgt.SearchRoomAsync(mainWindow.Room.IdRoom);
-            foreach (GameService.Player player in mainWindow.Room.Players.Values)
+            try
             {
-                if (player.IdPlayer != mainWindow.Session.PlayerLoged.IdPlayer)
+                var roomMgt = new GameService.RoomMgtClient(new InstanceContext(mainWindow));
+                mainWindow.Room = await roomMgt.SearchRoomAsync(mainWindow.Room.IdRoom);
+                foreach (GameService.Player player in mainWindow.Room.Players.Values)
                 {
-                    var listBoxItem = new ListBoxItem();
-                    var friendButton = new FriendButton();
-                    friendButton.Content = player.Nickname;
-                    friendButton.IdPlayer = player.IdPlayer;
-                    friendButton.Nickname = player.Nickname;
-                    friendButton.Email = player.Email;
-                    friendButton.Click += FriendButton_Click;
-                    listBoxItem.Content = friendButton;
-                    listBoxFriendButtons.Items.Add(listBoxItem);
+                    if (player.IdPlayer != mainWindow.Session.PlayerLoged.IdPlayer)
+                    {
+                        var listBoxItem = new ListBoxItem();
+                        var friendButton = new FriendButton();
+                        friendButton.Content = player.Nickname;
+                        friendButton.IdPlayer = player.IdPlayer;
+                        friendButton.Nickname = player.Nickname;
+                        friendButton.Email = player.Email;
+                        friendButton.Click += FriendButton_Click;
+                        listBoxItem.Content = friendButton;
+                        listBoxFriendButtons.Items.Add(listBoxItem);
+                    }
                 }
+            }
+            catch (EndpointNotFoundException)
+            {
+                NavigationCommands.GoToConnectionLostPage();
             }
         }
 
@@ -258,8 +306,16 @@ namespace ChinesseCheckersClient
 
         private async void JoinAndUpdateRoom()
         {
-            await chatMgt.JoinToChatAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
-            await gameplayMgt.JoinToGameplayAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
+            try
+            {
+                await chatMgt.JoinToChatAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
+                await gameplayMgt.JoinToGameplayAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
+            }
+            catch (EndpointNotFoundException)
+            {
+                NavigationCommands.GoToConnectionLostPage();
+            }
+
         }
 
         private async Task SendChatMessage()
@@ -290,7 +346,7 @@ namespace ChinesseCheckersClient
         {
             var listBoxItem = new ListBoxItem();
             var friendButton = new FriendButton();
-            friendButton.Content = "(Click) Aceptar amigo : " + _nicknameApplicantPlayer;
+            friendButton.Content = ChinesseCheckersClient.Properties.Resources.Common_AcceptFriend + _nicknameApplicantPlayer;
             friendButton.IdPlayer = _idApplicantPlayer;
             friendButton.Click += FriendRequest_Click;
             listBoxItem.Content = friendButton;
@@ -350,7 +406,13 @@ namespace ChinesseCheckersClient
 
         void IGameplayMgtCallback.GameOver(string _playerNicknameDeclare, string _message)
         {
-            throw new NotImplementedException();
+            GameOverWindow gameOverWindow = new GameOverWindow();
+            gameOverWindow.lbMessage.Content = _message;
+            gameOverWindow.Show();
+            mainWindow.IsInGameplay = false;
+            mainWindow.Room = null;
+            NavigationCommands.GoToLastPage();
+            NavigationCommands.GoToLastPage();
         }
     }
 }

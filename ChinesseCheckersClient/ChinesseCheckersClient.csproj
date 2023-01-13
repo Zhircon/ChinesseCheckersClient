@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{08240A2C-479A-477E-841F-5FA417EE7DE5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>ChinesseCheckersClient</RootNamespace>
     <AssemblyName>ChinesseCheckersClient</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -79,6 +79,9 @@
       <DependentUpon>FriendListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameBoard.cs" />
+    <Compile Include="GameOverWindow.xaml.cs">
+      <DependentUpon>GameOverWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameplayPage.xaml.cs">
       <DependentUpon>GameplayPage.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FriendListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameOverWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

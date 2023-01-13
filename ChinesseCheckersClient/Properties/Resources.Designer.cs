@@ -79,6 +79,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a (Click)Accept Friend.
+        /// </summary>
+        public static string Common_AcceptFriend {
+            get {
+                return ResourceManager.GetString("Common_AcceptFriend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Apply.
         /// </summary>
         public static string Common_Apply {
@@ -183,6 +192,15 @@ namespace ChinesseCheckersClient.Properties {
         public static string Common_Executing {
             get {
                 return ResourceManager.GetString("Common_Executing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fail.
+        /// </summary>
+        public static string Common_Fail {
+            get {
+                return ResourceManager.GetString("Common_Fail", resourceCulture);
             }
         }
         
@@ -455,6 +473,24 @@ namespace ChinesseCheckersClient.Properties {
         public static string Common_RoomFull {
             get {
                 return ResourceManager.GetString("Common_RoomFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Save.
+        /// </summary>
+        public static string Common_Save {
+            get {
+                return ResourceManager.GetString("Common_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Saving.
+        /// </summary>
+        public static string Common_Saving {
+            get {
+                return ResourceManager.GetString("Common_Saving", resourceCulture);
             }
         }
         
