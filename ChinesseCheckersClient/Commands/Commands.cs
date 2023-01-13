@@ -29,7 +29,6 @@ namespace ChinesseCheckersClient
         }
         public static void LeaveRoom()
         {
-            var playerMgt = new GameService.PlayerMgtClient();
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             if (mainWindow.Room != null)
             {

@@ -149,6 +149,9 @@ namespace ChinesseCheckersClient
                 case YELLOW:
                     _buttonToken.Background = new SolidColorBrush(Colors.Yellow);
                     break;
+                default:
+                    _buttonToken.Background = new SolidColorBrush(Colors.Transparent);
+                    break;
             }
         }
         private async void ButtonToken_Click(object sender, RoutedEventArgs e)
@@ -326,7 +329,7 @@ namespace ChinesseCheckersClient
 
             var gridFrom = gridGameBoard.Children
             .Cast<TokenButton>().First(r => Grid.GetRow(r) == _compatibleFrom.Y && Grid.GetColumn(r) == _compatibleFrom.X);
-            gridFrom.HideContent = 'O';
+            gridFrom.HideContent = FREE;
             var gridTo = gridGameBoard.Children
             .Cast<TokenButton>().First(r => Grid.GetRow(r) == _compatibleTo.Y && Grid.GetColumn(r) == _compatibleTo.X);
             gridTo.HideContent = _charToken;

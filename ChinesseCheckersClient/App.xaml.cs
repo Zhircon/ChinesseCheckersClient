@@ -13,7 +13,7 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class App : Application
     {
-        App()
+        public App()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-Mx");
         }

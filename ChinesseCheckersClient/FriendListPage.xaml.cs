@@ -21,7 +21,7 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class FriendListPage : Page
     {
-        private MainWindow mainWindow;
+        private readonly MainWindow mainWindow;
         private GameService.Player playerSelected;
         private bool isSubjectValid;
         private bool isBodyValid;
