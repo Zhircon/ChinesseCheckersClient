@@ -630,6 +630,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Win .
+        /// </summary>
+        public static string Common_Win {
+            get {
+                return ResourceManager.GetString("Common_Win", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Yellow.
         /// </summary>
         public static string Common_Yellow {

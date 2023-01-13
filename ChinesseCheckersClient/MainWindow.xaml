@@ -42,6 +42,6 @@
         </Frame>
         <Button Style="{DynamicResource ButtonRestoreStateStyle}" x:Name="btChangeState" HorizontalAlignment="Right"  Width="40"  Click="btChangeState_Click" Margin="0,0,55,0" Grid.Column="1"/>
         <Button Style="{DynamicResource ButtonMinimizeStyle}" x:Name="btMinimize" HorizontalAlignment="Right"  Width="40"  Click="btMinimize_Click" Margin="0,0,110,0" Grid.Column="1"/>
-        <Button Content="Back"  x:Name="btBack" HorizontalAlignment="Right"  Width="112" Visibility="Hidden" Click="btBack_Click" Margin="0,0,1168,0"/>
+        <Button  Content="Back"  x:Name="btBack" HorizontalAlignment="Left"  Width="112" Visibility="Hidden" Click="btBack_Click" Margin="0,0,1168,0"/>
     </Grid>
 </Window>

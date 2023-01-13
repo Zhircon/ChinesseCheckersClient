@@ -30,9 +30,9 @@ namespace ChinesseCheckersClient
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             string idRoom = tbIdRoom.Text;
-            await JoinLocalToRoom(idRoom);
+            await JoinLocalToRoomAsync(idRoom);
         }
-        private async Task JoinLocalToRoom(string _idRoom)
+        private async Task JoinLocalToRoomAsync(string _idRoom)
         {
             GameService.Room room;
             try

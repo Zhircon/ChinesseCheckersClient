@@ -101,11 +101,11 @@ namespace ChinesseCheckersClient
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
-            if (button.Name == "btSendMessage") { await SendEmailMessage(); }
-            if (button.Name == "btBanFriend") { await BanPlayer(); }
+            if (button.Name == "btSendMessage") { await SendEmailMessageAsync(); }
+            if (button.Name == "btBanFriend") { await BanPlayerAsync(); }
         }
 
-        private async Task BanPlayer()
+        private async Task BanPlayerAsync()
         {
             var relationshipsMgt = new GameService.RelationshipMgtClient();
             try
@@ -119,7 +119,7 @@ namespace ChinesseCheckersClient
             
         }
 
-        private async Task SendEmailMessage()
+        private async Task SendEmailMessageAsync()
         {
             var emailMgt = new GameService.EmailMgtClient();
             try

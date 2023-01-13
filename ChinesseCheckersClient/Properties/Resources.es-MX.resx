@@ -318,4 +318,7 @@ que fue mandado a su correo</value>
   <data name="Common_Saving" xml:space="preserve">
     <value>Guardando</value>
   </data>
+  <data name="Common_Win" xml:space="preserve">
+    <value>Gana</value>
+  </data>
 </root>

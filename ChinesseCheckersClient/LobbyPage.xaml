@@ -19,7 +19,7 @@
         </Rectangle>
         <Label FontSize="32" Content="Lobby" HorizontalAlignment="Left" Margin="593,27,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbStatus" FontSize="32" Content="{x:Static properties:Resources.Common_PlayersConnected}" HorizontalAlignment="Left" Margin="540,306,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbIdRoom" FontSize="32" Content="idRoom:" HorizontalAlignment="Left" Margin="563,102,0,0" VerticalAlignment="Top"/>
+        <Label Foreground="White" x:Name="lbIdRoom" FontSize="32" Content="idRoom:" HorizontalAlignment="Left" Margin="563,102,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btLaunchMatch" Click="btLaunchMatch_Click" Visibility="Hidden" Content="{x:Static properties:Resources.Common_LaunchMatch}" HorizontalAlignment="Left" Margin="540,554,0,0" VerticalAlignment="Top" Width="250" Height="48"/>
     </Grid>
 </Page>

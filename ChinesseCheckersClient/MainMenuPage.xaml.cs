@@ -34,22 +34,22 @@ namespace ChinesseCheckersClient
             Button buttonClicked = (Button)sender;
 
             if (buttonClicked.Name == "btProfile") { UpdateVisibilityProfilePanel(); }
-            if (buttonClicked.Name == "btTwoPlayers") { await CreateTwoPlayersMatch(); }
-            if (buttonClicked.Name == "btThreePlayers") { await CreateThreePlayersMatch(); }
+            if (buttonClicked.Name == "btTwoPlayers") { await CreateTwoPlayersMatchAsync(); }
+            if (buttonClicked.Name == "btThreePlayers") { await CreateThreePlayersMatchAsync(); }
             if (buttonClicked.Name == "btJoinMatch") { UpdateVisibilitySearchPanel(); }
             if (buttonClicked.Name == "btCreateMatch") { UpdateVisibilityPlayersButtons(); }
             if (buttonClicked.Name == "btFriendList") { NavigationCommands.GoToFriendList(); }
             if (buttonClicked.Name == "btConfiguration") { UpdateVisibilityConfigurationPanel(); }
         }
 
-        private async Task CreateTwoPlayersMatch()
+        private async Task CreateTwoPlayersMatchAsync()
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow.PlayerToWait = 2;
             mainWindow.IsHost = true;
             await JoinLocalToRoom();
         }
-        private async Task CreateThreePlayersMatch()
+        private async Task CreateThreePlayersMatchAsync()
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow.PlayerToWait = 3;

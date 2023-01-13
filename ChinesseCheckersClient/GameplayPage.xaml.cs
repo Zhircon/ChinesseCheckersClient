@@ -58,7 +58,7 @@ namespace ChinesseCheckersClient
         }
         private string ConvertColorToString(char _color)
         {
-            String colorString;
+            string colorString;
             switch (_color)
             {
                 case FREE:
@@ -133,7 +133,6 @@ namespace ChinesseCheckersClient
                     {
                         var buttonToken = new TokenButton();
                         buttonToken.Position = position;
-                        buttonToken.Content = position.X + "," + position.Y;
                         buttonToken.Click += ButtonToken_Click;
                         buttonToken.HideContent = token;
                         ColoringTokensButtons(token,ref buttonToken);
@@ -179,12 +178,11 @@ namespace ChinesseCheckersClient
                 try
                 {
                     RecoloredPosibleMoves();
-                    await MoveTo(tokenSeleted.HideContent, buttonToken.Position);
+                    await MoveToAsync(tokenSeleted.HideContent, buttonToken.Position);
                     var charWinner = gameBoard.CheckWinColor();
                     if (charWinner != NOTHING)
                     {
-                        Console.WriteLine("Winner:" + charWinner);
-                        await gameplayMgt.DeclareGameOverAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.Nickname, "Win +" + ConvertColorToString(charWinner));
+                        await gameplayMgt.DeclareGameOverAsync(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.Nickname, ChinesseCheckersClient.Properties.Resources.Common_Win + ConvertColorToString(charWinner));
                     }
                     else
                     {
@@ -224,7 +222,7 @@ namespace ChinesseCheckersClient
             }
 
         }
-        public async Task MoveTo(char _charToken, System.Drawing.Point _to)
+        public async Task MoveToAsync(char _charToken, System.Drawing.Point _to)
         {
             var _compatibleTo = new System.Windows.Point();
             var _compatibleFrom = new System.Windows.Point();

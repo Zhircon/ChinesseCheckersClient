@@ -44,10 +44,10 @@ namespace ChinesseCheckersClient
         {
             Button buttonInput = (Button)sender;
             if (buttonInput.Name == "btChangeLanguage") { ChangeLanguage(); }
-            if (buttonInput.Name == "btAccept") { await SaveConfiguration(); }
+            if (buttonInput.Name == "btAccept") { await SaveConfigurationAsync(); }
         }
 
-        private async Task SaveConfiguration()
+        private async Task SaveConfigurationAsync()
         {
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             var playerMgtClient =new  GameService.PlayerMgtClient();

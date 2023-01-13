@@ -55,9 +55,9 @@ namespace ChinesseCheckersClient
 
         private async void btLaunchMatch_Click(object sender, RoutedEventArgs e)
         {
-            await NotifyAllPlayerReady();
+            await NotifyAllPlayerReadyAsync();
         }
-        private async Task NotifyAllPlayerReady()
+        private async Task NotifyAllPlayerReadyAsync()
         {
             mainWindow = (MainWindow)Application.Current.MainWindow;
             var roomMgt = new GameService.RoomMgtClient(new InstanceContext(mainWindow));

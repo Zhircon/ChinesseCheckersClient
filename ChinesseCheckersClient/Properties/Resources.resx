@@ -315,4 +315,7 @@ Must contain digits</value>
   <data name="Common_Fail" xml:space="preserve">
     <value>Fail</value>
   </data>
+  <data name="Common_Win" xml:space="preserve">
+    <value>Win </value>
+  </data>
 </root>

@@ -13,7 +13,7 @@ namespace Test
         private const char NOTHING = 'X';
         private const char FREE = 'O';
 
-        private char[,] boardRedVictory = new char[,]
+        private readonly char[,] boardRedVictory = new char[,]
                 {
                 { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
                 { 'X','X','X','X','X','X','X','X','X','X','R','X','X','X','X','X','X','X','X','X','X' },
@@ -31,7 +31,7 @@ namespace Test
                 { 'X','X','X','X','X','X','X','X','X','X','R','X','X','X','X','X','X','X','X','X','X' },
                 { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X' }
                 };
-        private char[,] boardOrangeVictory= new char[,]
+        private readonly char[,] boardOrangeVictory= new char[,]
         {
                 { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
                 { 'X','X','X','X','X','X','X','X','X','X','O','X','X','X','X','X','X','X','X','X','X' },
@@ -50,7 +50,7 @@ namespace Test
                 { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X' }
         };
 
-        private char[,] boardWhiteVictory = new char[,]
+        private readonly char[,] boardWhiteVictory = new char[,]
         {
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
             { 'X','X','X','X','X','X','X','X','X','X','N','X','X','X','X','X','X','X','X','X','X' },
@@ -68,8 +68,8 @@ namespace Test
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X' },
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X' }
         };
-        private char[,] boardYellowVictory = new char[,]
-{
+        private readonly char[,] boardYellowVictory = new char[,]
+        {
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
             { 'X','X','X','X','X','X','X','X','X','X','N','X','X','X','X','X','X','X','X','X','X' },
             { 'X','X','X','X','X','X','X','X','X','N','X','N','X','X','X','X','X','X','X','X','X' },
@@ -85,9 +85,9 @@ namespace Test
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X' },
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X' },
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X' }
-};
-        private char[,] boardNothingVictory = new char[,]
-{
+        };
+        private readonly char[,] boardNothingVictory = new char[,]
+        {
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
             { 'X','X','X','X','X','X','X','X','X','X','N','X','X','X','X','X','X','X','X','X','X' },
             { 'X','X','X','X','X','X','X','X','X','N','X','N','X','X','X','X','X','X','X','X','X' },
