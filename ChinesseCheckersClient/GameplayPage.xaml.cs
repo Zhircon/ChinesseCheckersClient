@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
 using System.Windows;
+using System.Collections;
 
 namespace ChinesseCheckersClient
 {
@@ -23,23 +24,73 @@ namespace ChinesseCheckersClient
     /// </summary>
     public partial class GameplayPage : Page  , GameService.IChatMgtCallback ,GameService.IGameplayMgtCallback
     {
+
+        private const char RED = 'R';
+        private const char YELLOW = 'M';
+        private const char ORANGE = 'N';
+        private const char WHITE = 'W';
+        private const char NOTHING = 'X';
+        private const char FREE = 'O';
+
         private readonly MainWindow mainWindow;
         private readonly GameService.ChatMgtClient chatMgt;
         private readonly GameplayMgtClient gameplayMgt;
         private readonly GameBoard gameBoard = new GameBoard();
         private List<System.Drawing.Point> lastPosiblesMoves = new List<System.Drawing.Point>();
         private TokenButton tokenSeleted;
+        private char playerColor;
+        private char colorTurn;
         public GameplayPage()
         {
             InitializeComponent();
             mainWindow = (MainWindow)Application.Current.MainWindow;
-            mainWindow.IsInGame = true;
+            mainWindow.IsInGameplay = true;
+            mainWindow.btBack.Visibility = Visibility.Hidden;
             chatMgt = new GameService.ChatMgtClient(new InstanceContext(this));
             gameplayMgt = new GameplayMgtClient(new InstanceContext(this));
             ConfigureGameboard();
             JoinAndUpdateRoom();
+            
             FillListBoxFriendList();
             RepresentGameBoard();
+            GetTurn();
+            AssingColor();
+        }
+        private string ConvertColorToString(char _color)
+        {
+            String colorString;
+            switch (_color)
+            {
+                case FREE:
+                    colorString = "Free";
+                    break;
+                case ORANGE:
+                    colorString = "Orange";
+                    break;
+                case RED:
+                    colorString = "Red";
+                    break;
+                case WHITE:
+                    colorString = "White";
+                    break;
+                case YELLOW:
+                    colorString = "Yellow";
+                    break;
+                default:
+                    colorString = "Not color";
+                    break;
+            }
+            return colorString;
+        }
+        private void GetTurn()
+        {
+            colorTurn = gameplayMgt.GetCurrentTurn(mainWindow.Room.IdRoom);
+            lbTurn.Content = "Turn: " + ConvertColorToString(colorTurn);
+        }
+        private  void AssingColor()
+        {
+            playerColor = gameplayMgt.AssingColor(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
+            lbYourColor.Content = "Your color: "+ ConvertColorToString(playerColor);
         }
         private void ConfigureGameboard()
         {
@@ -83,25 +134,19 @@ namespace ChinesseCheckersClient
         {
             switch (_token)
             {
-                case 'O':
+                case FREE:
                     _buttonToken.Background = new SolidColorBrush(Colors.Gray);
                     break;
-                case 'A':
-                    _buttonToken.Background = new SolidColorBrush(Colors.Blue);
-                    break;
-                case 'N':
+                case ORANGE:
                     _buttonToken.Background = new SolidColorBrush(Colors.Orange);
                     break;
-                case 'R':
+                case RED:
                     _buttonToken.Background = new SolidColorBrush(Colors.Red);
                     break;
-                case 'V':
-                    _buttonToken.Background = new SolidColorBrush(Colors.Green);
-                    break;
-                case 'B':
+                case WHITE:
                     _buttonToken.Background = new SolidColorBrush(Colors.White);
                     break;
-                case 'M':
+                case YELLOW:
                     _buttonToken.Background = new SolidColorBrush(Colors.Yellow);
                     break;
             }
@@ -109,15 +154,18 @@ namespace ChinesseCheckersClient
         private async void ButtonToken_Click(object sender, RoutedEventArgs e)
         {
             var buttonToken = (TokenButton)sender;
-            if (buttonToken.IsPosibleMovement)
+            if (colorTurn != playerColor) { return; }
+            if (buttonToken.IsPosibleMovement && tokenSeleted.HideContent==playerColor)
             {
                 RecoloredPosibleMoves();
                 await MoveTo(tokenSeleted.HideContent, buttonToken.Position);
+                await gameplayMgt.TerminateTurnAsync(mainWindow.Room.IdRoom);
+                Console.WriteLine("winner"+gameBoard.CheckWinColor());
             }
             else
             {
                 tokenSeleted = (TokenButton)sender;
-                if (tokenSeleted.HideContent != 'O')
+                if (tokenSeleted.HideContent != FREE && tokenSeleted.HideContent == playerColor)
                 {
                     RecoloredPosibleMoves();
                     var posiblesMoves = gameBoard.GetAllPosiblesMoves(buttonToken.Position);
@@ -132,7 +180,10 @@ namespace ChinesseCheckersClient
                         element.IsPosibleMovement = true;
                     }
                 }
-
+                else
+                {
+                    RecoloredPosibleMoves();
+                }
             }
 
         }
@@ -264,13 +315,6 @@ namespace ChinesseCheckersClient
             
         }
 
-
-
-        void IGameplayMgtCallback.ChangeTurn(int turn)
-        {
-            throw new NotImplementedException();
-        }
-
         void IGameplayMgtCallback.MoveAllPlayers(char _charToken, System.Windows.Point _from, System.Windows.Point _to)
         {
             System.Drawing.Point _compatibleFrom = new System.Drawing.Point();
@@ -293,6 +337,17 @@ namespace ChinesseCheckersClient
             ColoringTokensButtons(_charToken, ref gridTo);
             ColoringTokensButtons('O', ref gridFrom);
 
+        }
+
+        void IGameplayMgtCallback.ChangeTurn(char _colorTurn)
+        {
+            colorTurn = _colorTurn;
+            lbTurn.Content = "Turn: " + ConvertColorToString(colorTurn);
+        }
+
+        void IGameplayMgtCallback.GameOver(string _playerNicknameDeclare, string _message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

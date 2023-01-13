@@ -46,12 +46,14 @@ namespace ChinesseCheckersClient
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow.PlayerToWait = 2;
+            mainWindow.IsHost = true;
             await JoinLocalToRoom();
         }
         private async Task CreateThreePlayersMatch()
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow.PlayerToWait = 3;
+            mainWindow.IsHost = true;
             await JoinLocalToRoom();
         }
         private async Task JoinLocalToRoom()

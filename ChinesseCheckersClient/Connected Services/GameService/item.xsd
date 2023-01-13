@@ -220,6 +220,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="_idPlayer" type="xs:int" />
+        <xs:element minOccurs="0" name="_isInGameplay" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -322,13 +323,28 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="AssingColor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_idPlayer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssingColorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AssingColorResult" type="q13:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="MoveToken">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_charToken" type="q13:char" />
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q14:Point" />
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q15:Point" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_charToken" type="q14:char" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q15:Point" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q16:Point" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -349,12 +365,40 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCurrentTurn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentTurnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="GetCurrentTurnResult" type="q17:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeclareGameOver">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_idRoom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_playerNicknameDeclare" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeclareGameOverResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="MoveAllPlayers">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_charToken" type="q16:char" />
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q17:Point" />
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q18:Point" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_charToken" type="q18:char" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_from" type="q19:Point" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="_to" type="q20:Point" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -366,11 +410,24 @@
   <xs:element name="ChangeTurn">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="turn" type="xs:int" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_colorTurn" type="q21:char" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ChangeTurnResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GameOver">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_playerNicknameDeclare" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GameOverResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -386,7 +443,7 @@
   <xs:element name="CreateRelationshipResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="CreateRelationshipResult" type="q19:OperationResult" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="CreateRelationshipResult" type="q22:OperationResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -400,7 +457,7 @@
   <xs:element name="GetRelationshipsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DataAccess" minOccurs="0" name="GetRelationshipsResult" nillable="true" type="q20:ArrayOfRelationship" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DataAccess" minOccurs="0" name="GetRelationshipsResult" nillable="true" type="q23:ArrayOfRelationship" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -415,7 +472,7 @@
   <xs:element name="DeclarateBadRelationshipResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="DeclarateBadRelationshipResult" type="q21:OperationResult" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Logic" minOccurs="0" name="DeclarateBadRelationshipResult" type="q24:OperationResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

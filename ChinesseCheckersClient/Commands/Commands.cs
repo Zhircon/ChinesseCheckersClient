@@ -33,7 +33,7 @@ namespace ChinesseCheckersClient
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             if (mainWindow.Room != null)
             {
-                mainWindow.RoomMgt.LeaveRoom(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer);
+                mainWindow.RoomMgt.LeaveRoom(mainWindow.Room.IdRoom, mainWindow.Session.PlayerLoged.IdPlayer,mainWindow.IsInGameplay);
             }
         }
         public static void CloseWindow()

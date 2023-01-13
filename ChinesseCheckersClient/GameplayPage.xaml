@@ -11,7 +11,7 @@
 
     <Viewbox Stretch="Fill" StretchDirection="Both">
         <Canvas Height="680" Width="1280">
-            <Grid x:Name="gridGameBoard" Height="681" Width="879">
+            <Grid x:Name="gridGameBoard" Height="577" Width="709" Canvas.Left="138" Canvas.Top="66">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -57,6 +57,8 @@
             <TextBox x:Name="tbMessage"  Height="25" Canvas.Left="970" TextWrapping="Wrap" Canvas.Top="552" Width="250"/>
             <Button x:Name="btSendMessage" Style="{DynamicResource ButtonSendMessageChatStyle}" Click="Button_Click" Canvas.Left="1234" Canvas.Top="552" Width="36" Height="25"/>
             <ListBox  x:Name="listBoxFriendButtons" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="100" Canvas.Left="970" Canvas.Top="582" Width="300"/>
+            <Label x:Name="lbTurn" FontSize="32" Content="Label" Canvas.Left="42"/>
+            <Label x:Name="lbYourColor" FontSize="32" Content="Label" Canvas.Left="660"/>
         </Canvas>
     </Viewbox>
 </Page>

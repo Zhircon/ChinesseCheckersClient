@@ -274,6 +274,12 @@ namespace ChinesseCheckersClient.GameService {
         private System.Collections.Generic.Dictionary<int, object> ChatCallbacksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private char[] ColorForThreePlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private char[] ColorForTwoPlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.Dictionary<int, object> GameplayCallbacksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -284,6 +290,9 @@ namespace ChinesseCheckersClient.GameService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.Dictionary<int, ChinesseCheckersClient.GameService.Player> PlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<int, char> PlayersColorsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.Dictionary<int, object> RoomCallbacksField;
@@ -310,6 +319,32 @@ namespace ChinesseCheckersClient.GameService {
                 if ((object.ReferenceEquals(this.ChatCallbacksField, value) != true)) {
                     this.ChatCallbacksField = value;
                     this.RaisePropertyChanged("ChatCallbacks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public char[] ColorForThreePlayers {
+            get {
+                return this.ColorForThreePlayersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ColorForThreePlayersField, value) != true)) {
+                    this.ColorForThreePlayersField = value;
+                    this.RaisePropertyChanged("ColorForThreePlayers");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public char[] ColorForTwoPlayers {
+            get {
+                return this.ColorForTwoPlayersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ColorForTwoPlayersField, value) != true)) {
+                    this.ColorForTwoPlayersField = value;
+                    this.RaisePropertyChanged("ColorForTwoPlayers");
                 }
             }
         }
@@ -362,6 +397,19 @@ namespace ChinesseCheckersClient.GameService {
                 if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
                     this.PlayersField = value;
                     this.RaisePropertyChanged("Players");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<int, char> PlayersColors {
+            get {
+                return this.PlayersColorsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayersColorsField, value) != true)) {
+                    this.PlayersColorsField = value;
+                    this.RaisePropertyChanged("PlayersColors");
                 }
             }
         }
@@ -768,10 +816,10 @@ namespace ChinesseCheckersClient.GameService {
         System.Threading.Tasks.Task<int> JoinToRoomAsync(string _idRoom, ChinesseCheckersClient.GameService.Player _player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/LeaveRoom", ReplyAction="http://tempuri.org/IRoomMgt/LeaveRoomResponse")]
-        ChinesseCheckersClient.GameService.OperationResult LeaveRoom(string _idRoom, int _idPlayer);
+        ChinesseCheckersClient.GameService.OperationResult LeaveRoom(string _idRoom, int _idPlayer, bool _isInGameplay);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/LeaveRoom", ReplyAction="http://tempuri.org/IRoomMgt/LeaveRoomResponse")]
-        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> LeaveRoomAsync(string _idRoom, int _idPlayer);
+        System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> LeaveRoomAsync(string _idRoom, int _idPlayer, bool _isInGameplay);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomMgt/IsPlayerInRoom", ReplyAction="http://tempuri.org/IRoomMgt/IsPlayerInRoomResponse")]
         bool IsPlayerInRoom(string _idRoom, int _idPlayer);
@@ -848,12 +896,12 @@ namespace ChinesseCheckersClient.GameService {
             return base.Channel.JoinToRoomAsync(_idRoom, _player);
         }
         
-        public ChinesseCheckersClient.GameService.OperationResult LeaveRoom(string _idRoom, int _idPlayer) {
-            return base.Channel.LeaveRoom(_idRoom, _idPlayer);
+        public ChinesseCheckersClient.GameService.OperationResult LeaveRoom(string _idRoom, int _idPlayer, bool _isInGameplay) {
+            return base.Channel.LeaveRoom(_idRoom, _idPlayer, _isInGameplay);
         }
         
-        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> LeaveRoomAsync(string _idRoom, int _idPlayer) {
-            return base.Channel.LeaveRoomAsync(_idRoom, _idPlayer);
+        public System.Threading.Tasks.Task<ChinesseCheckersClient.GameService.OperationResult> LeaveRoomAsync(string _idRoom, int _idPlayer, bool _isInGameplay) {
+            return base.Channel.LeaveRoomAsync(_idRoom, _idPlayer, _isInGameplay);
         }
         
         public bool IsPlayerInRoom(string _idRoom, int _idPlayer) {
@@ -944,6 +992,12 @@ namespace ChinesseCheckersClient.GameService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/JoinToGameplay", ReplyAction="http://tempuri.org/IGameplayMgt/JoinToGameplayResponse")]
         System.Threading.Tasks.Task JoinToGameplayAsync(string _idRoom, int _idPlayer);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/AssingColor", ReplyAction="http://tempuri.org/IGameplayMgt/AssingColorResponse")]
+        char AssingColor(string _idRoom, int _idPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/AssingColor", ReplyAction="http://tempuri.org/IGameplayMgt/AssingColorResponse")]
+        System.Threading.Tasks.Task<char> AssingColorAsync(string _idRoom, int _idPlayer);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/MoveToken", ReplyAction="http://tempuri.org/IGameplayMgt/MoveTokenResponse")]
         void MoveToken(string _idRoom, char _charToken, System.Windows.Point _from, System.Windows.Point _to);
         
@@ -955,6 +1009,18 @@ namespace ChinesseCheckersClient.GameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/TerminateTurn", ReplyAction="http://tempuri.org/IGameplayMgt/TerminateTurnResponse")]
         System.Threading.Tasks.Task TerminateTurnAsync(string _idRoom);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/GetCurrentTurn", ReplyAction="http://tempuri.org/IGameplayMgt/GetCurrentTurnResponse")]
+        char GetCurrentTurn(string _idRoom);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/GetCurrentTurn", ReplyAction="http://tempuri.org/IGameplayMgt/GetCurrentTurnResponse")]
+        System.Threading.Tasks.Task<char> GetCurrentTurnAsync(string _idRoom);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/DeclareGameOver", ReplyAction="http://tempuri.org/IGameplayMgt/DeclareGameOverResponse")]
+        void DeclareGameOver(string _idRoom, string _playerNicknameDeclare, string _message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/DeclareGameOver", ReplyAction="http://tempuri.org/IGameplayMgt/DeclareGameOverResponse")]
+        System.Threading.Tasks.Task DeclareGameOverAsync(string _idRoom, string _playerNicknameDeclare, string _message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -964,7 +1030,10 @@ namespace ChinesseCheckersClient.GameService {
         void MoveAllPlayers(char _charToken, System.Windows.Point _from, System.Windows.Point _to);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/ChangeTurn", ReplyAction="http://tempuri.org/IGameplayMgt/ChangeTurnResponse")]
-        void ChangeTurn(int turn);
+        void ChangeTurn(char _colorTurn);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameplayMgt/GameOver", ReplyAction="http://tempuri.org/IGameplayMgt/GameOverResponse")]
+        void GameOver(string _playerNicknameDeclare, string _message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1003,6 +1072,14 @@ namespace ChinesseCheckersClient.GameService {
             return base.Channel.JoinToGameplayAsync(_idRoom, _idPlayer);
         }
         
+        public char AssingColor(string _idRoom, int _idPlayer) {
+            return base.Channel.AssingColor(_idRoom, _idPlayer);
+        }
+        
+        public System.Threading.Tasks.Task<char> AssingColorAsync(string _idRoom, int _idPlayer) {
+            return base.Channel.AssingColorAsync(_idRoom, _idPlayer);
+        }
+        
         public void MoveToken(string _idRoom, char _charToken, System.Windows.Point _from, System.Windows.Point _to) {
             base.Channel.MoveToken(_idRoom, _charToken, _from, _to);
         }
@@ -1017,6 +1094,22 @@ namespace ChinesseCheckersClient.GameService {
         
         public System.Threading.Tasks.Task TerminateTurnAsync(string _idRoom) {
             return base.Channel.TerminateTurnAsync(_idRoom);
+        }
+        
+        public char GetCurrentTurn(string _idRoom) {
+            return base.Channel.GetCurrentTurn(_idRoom);
+        }
+        
+        public System.Threading.Tasks.Task<char> GetCurrentTurnAsync(string _idRoom) {
+            return base.Channel.GetCurrentTurnAsync(_idRoom);
+        }
+        
+        public void DeclareGameOver(string _idRoom, string _playerNicknameDeclare, string _message) {
+            base.Channel.DeclareGameOver(_idRoom, _playerNicknameDeclare, _message);
+        }
+        
+        public System.Threading.Tasks.Task DeclareGameOverAsync(string _idRoom, string _playerNicknameDeclare, string _message) {
+            return base.Channel.DeclareGameOverAsync(_idRoom, _playerNicknameDeclare, _message);
         }
     }
     

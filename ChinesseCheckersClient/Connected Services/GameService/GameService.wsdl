@@ -352,6 +352,12 @@
   <wsdl:message name="IGameplayMgt_JoinToGameplay_OutputMessage">
     <wsdl:part name="parameters" element="tns:JoinToGameplayResponse" />
   </wsdl:message>
+  <wsdl:message name="IGameplayMgt_AssingColor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssingColor" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_AssingColor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssingColorResponse" />
+  </wsdl:message>
   <wsdl:message name="IGameplayMgt_MoveToken_InputMessage">
     <wsdl:part name="parameters" element="tns:MoveToken" />
   </wsdl:message>
@@ -364,6 +370,18 @@
   <wsdl:message name="IGameplayMgt_TerminateTurn_OutputMessage">
     <wsdl:part name="parameters" element="tns:TerminateTurnResponse" />
   </wsdl:message>
+  <wsdl:message name="IGameplayMgt_GetCurrentTurn_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTurn" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_GetCurrentTurn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTurnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_DeclareGameOver_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeclareGameOver" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_DeclareGameOver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeclareGameOverResponse" />
+  </wsdl:message>
   <wsdl:message name="IGameplayMgt_MoveAllPlayers_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MoveAllPlayers" />
   </wsdl:message>
@@ -375,6 +393,12 @@
   </wsdl:message>
   <wsdl:message name="IGameplayMgt_ChangeTurn_InputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ChangeTurnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_GameOver_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GameOver" />
+  </wsdl:message>
+  <wsdl:message name="IGameplayMgt_GameOver_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GameOverResponse" />
   </wsdl:message>
   <wsdl:message name="IRelationshipMgt_CreateRelationship_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateRelationship" />
@@ -497,6 +521,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/JoinToGameplay" message="tns:IGameplayMgt_JoinToGameplay_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/JoinToGameplayResponse" message="tns:IGameplayMgt_JoinToGameplay_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AssingColor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/AssingColor" message="tns:IGameplayMgt_AssingColor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/AssingColorResponse" message="tns:IGameplayMgt_AssingColor_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="MoveToken">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/MoveToken" message="tns:IGameplayMgt_MoveToken_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/MoveTokenResponse" message="tns:IGameplayMgt_MoveToken_OutputMessage" />
@@ -505,6 +533,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/TerminateTurn" message="tns:IGameplayMgt_TerminateTurn_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/TerminateTurnResponse" message="tns:IGameplayMgt_TerminateTurn_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCurrentTurn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/GetCurrentTurn" message="tns:IGameplayMgt_GetCurrentTurn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/GetCurrentTurnResponse" message="tns:IGameplayMgt_GetCurrentTurn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeclareGameOver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/DeclareGameOver" message="tns:IGameplayMgt_DeclareGameOver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/DeclareGameOverResponse" message="tns:IGameplayMgt_DeclareGameOver_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="MoveAllPlayers">
       <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/MoveAllPlayers" message="tns:IGameplayMgt_MoveAllPlayers_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/MoveAllPlayersResponse" message="tns:IGameplayMgt_MoveAllPlayers_InputCallbackMessage" />
@@ -512,6 +548,10 @@
     <wsdl:operation name="ChangeTurn">
       <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/ChangeTurn" message="tns:IGameplayMgt_ChangeTurn_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/ChangeTurnResponse" message="tns:IGameplayMgt_ChangeTurn_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GameOver">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameplayMgt/GameOver" message="tns:IGameplayMgt_GameOver_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameplayMgt/GameOverResponse" message="tns:IGameplayMgt_GameOver_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IRelationshipMgt">
@@ -758,6 +798,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AssingColor">
+      <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/AssingColor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="MoveToken">
       <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/MoveToken" style="document" />
       <wsdl:input>
@@ -776,6 +825,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCurrentTurn">
+      <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/GetCurrentTurn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeclareGameOver">
+      <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/DeclareGameOver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="MoveAllPlayers">
       <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/MoveAllPlayers" style="document" />
       <wsdl:input>
@@ -787,6 +854,15 @@
     </wsdl:operation>
     <wsdl:operation name="ChangeTurn">
       <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/ChangeTurn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GameOver">
+      <soap12:operation soapAction="http://tempuri.org/IGameplayMgt/GameOver" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
