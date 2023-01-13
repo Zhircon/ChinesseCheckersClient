@@ -9,8 +9,10 @@ namespace ChinesseCheckersClient
 {
     class GameBoard
     {
-        private const int HEIGHT = 15;
-        private const int WIDTH = 21;
+        private readonly List<Point> baseOrange;
+        private readonly List<Point> baseYellow;
+        private readonly List<Point> baseWhite;
+        private readonly List<Point> baseRed;
 
         private const char RED = 'R';
         private const char YELLOW ='M';
@@ -20,10 +22,7 @@ namespace ChinesseCheckersClient
         private const char FREE = 'O';
         
         private bool isTriangular;
-        private List<Point> baseOrange;
-        private List<Point> baseYellow;
-        private List<Point> baseWhite;
-        private List<Point> baseRed;
+
         private char[,] gameBoard = new char[,]{
             { 'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
             { 'X','X','X','X','X','X','X','X','X','X','N','X','X','X','X','X','X','X','X','X','X' },
@@ -140,7 +139,7 @@ namespace ChinesseCheckersClient
             bool isOcupped = true;
             foreach(Point element in baseOrange)
             {
-                if (gameBoard[element.Y, element.X] != FREE) isOcupped = false; 
+                if (gameBoard[element.Y, element.X] != FREE) { isOcupped = false; } 
             }
             return isOcupped;
         }
@@ -149,7 +148,7 @@ namespace ChinesseCheckersClient
             bool isOcupped = true;
             foreach (Point element in baseRed)
             {
-                if (gameBoard[element.Y, element.X] != YELLOW) isOcupped = false;
+                if (gameBoard[element.Y, element.X] != YELLOW) { isOcupped = false; }
             }
             return isOcupped;
         }
@@ -158,7 +157,7 @@ namespace ChinesseCheckersClient
             bool isOcupped = true;
             foreach (Point element in baseRed)
             {
-                if (gameBoard[element.Y, element.X] != RED) isOcupped = false;
+                if (gameBoard[element.Y, element.X] != RED) { isOcupped = false; }
             }
             return isOcupped;
         }
@@ -167,7 +166,7 @@ namespace ChinesseCheckersClient
             bool isOcupped = true;
             foreach (Point element in baseWhite)
             {
-                if (gameBoard[element.Y, element.X] != WHITE) isOcupped = false;
+                if (gameBoard[element.Y, element.X] != WHITE) { isOcupped = false; }
             }
             return isOcupped;
         }
@@ -178,18 +177,6 @@ namespace ChinesseCheckersClient
         public void SetPosition(char _char, Point _to)
         {
             gameBoard[(int)_to.Y,(int)_to.X] = _char;
-        }
-        public void DrawGameboard()
-        {
-            for (int row = 0; row < 15; row++)
-            {
-                for (int column = 0; column < 21; column++)
-                {
-                    if (gameBoard[row, column] == NOTHING) { Console.Write(" "); }
-                    else { Console.Write(gameBoard[row, column]); }
-                }
-                Console.WriteLine();
-            }
         }
 
         public void Move(Point _from, Point _to)
