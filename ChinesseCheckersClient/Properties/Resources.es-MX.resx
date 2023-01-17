@@ -319,6 +319,15 @@ que fue mandado a su correo</value>
     <value>Guardando</value>
   </data>
   <data name="Common_Win" xml:space="preserve">
-    <value>Gana</value>
+    <value>Gana </value>
+  </data>
+  <data name="Common_OfflineRegister" xml:space="preserve">
+    <value>Registro offline</value>
+  </data>
+  <data name="Common_OfflineCode0000" xml:space="preserve">
+    <value>Codigo offline: 0000</value>
+  </data>
+  <data name="Common_EmailAlreadyExitsAssing" xml:space="preserve">
+    <value>Email ya registrado</value>
   </data>
 </root>

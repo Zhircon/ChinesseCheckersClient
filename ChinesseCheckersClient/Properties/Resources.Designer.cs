@@ -160,6 +160,15 @@ namespace ChinesseCheckersClient.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Email already exits assing.
+        /// </summary>
+        public static string Common_EmailAlreadyExitsAssing {
+            get {
+                return ResourceManager.GetString("Common_EmailAlreadyExitsAssing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Must be active.
         /// </summary>
         public static string Common_EmailPolicie {
@@ -354,6 +363,24 @@ namespace ChinesseCheckersClient.Properties {
         public static string Common_NotFoundRoom {
             get {
                 return ResourceManager.GetString("Common_NotFoundRoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Offline code: 0000.
+        /// </summary>
+        public static string Common_OfflineCode0000 {
+            get {
+                return ResourceManager.GetString("Common_OfflineCode0000", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Offline register.
+        /// </summary>
+        public static string Common_OfflineRegister {
+            get {
+                return ResourceManager.GetString("Common_OfflineRegister", resourceCulture);
             }
         }
         

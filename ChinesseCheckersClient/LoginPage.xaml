@@ -53,6 +53,7 @@
 
             <Label x:Name="lbStatus" Content="{x:Static properties:Resources.Common_Welcome}" HorizontalContentAlignment="Center"  Canvas.Left="404" Canvas.Top="313" Width="381"/>
             <local:PoliciesPanel x:Name="policiesPanel" Canvas.Left="945" Canvas.Top="296" Visibility="Hidden" ></local:PoliciesPanel>
+            <Label x:Name="lbOfflineCode" Content="{x:Static properties:Resources.Common_OfflineCode0000}" Canvas.Left="80" Canvas.Top="576"/>
             <!--#StatusEnd-->
         </Canvas>
     </Viewbox>

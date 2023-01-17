@@ -50,6 +50,7 @@ namespace ChinesseCheckersClient
             gameTimer.Tick += GameLoop; //with each iteration of gameloop increment timer 
             gameTimer.Interval = TimeSpan.FromMilliseconds(16); //Set up framerate
             gameTimer.Start(); //Start gameloop logic
+            lbOfflineCode.Visibility = Visibility.Hidden;
             rCheckEmail.Fill = infoLogoSprite;
             rCheckNickname.Fill = infoLogoSprite;
             rCheckPassword.Fill = infoLogoSprite;
@@ -221,7 +222,12 @@ namespace ChinesseCheckersClient
             rCheckOperation.Visibility = Visibility.Visible;
             var emailMgt = new GameService.EmailMgtClient();
             string code = await emailMgt.SendVerificationCodeAsync(email);
-            Console.WriteLine(code);
+            if (code == "00000")
+            {
+                code = "0000";
+                lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_OfflineRegister;
+                lbOfflineCode.Visibility=Visibility.Visible;
+            }
             var verificationCodePage = new VerificationCodePage(code);
             verificationCodePage.Owner = Application.Current.MainWindow;
             verificationCodePage.ShowDialog();
@@ -237,6 +243,11 @@ namespace ChinesseCheckersClient
                         lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_OperationSuccessful;
                         rCheckOperation.Visibility = Visibility.Hidden;
                         ClearTextBoxes();
+                    }
+                    else if (operationResult == GameService.OperationResult.UniqueValueFound)
+                    {
+                        lbStatus.Content = ChinesseCheckersClient.Properties.Resources.Common_EmailAlreadyExitsAssing;
+                        rCheckOperation.Visibility = Visibility.Hidden;
                     }
                     else
                     {

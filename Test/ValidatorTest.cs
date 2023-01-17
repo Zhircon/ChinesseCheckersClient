@@ -97,7 +97,6 @@ namespace Test
             string inputOne = "saludos";
             bool obtainedResultOne = ChinesseCheckersClient.Validator.IsSubjectValid(inputOne);
             Assert.AreEqual(expectedResult, obtainedResultOne);
-
         }
         [TestMethod]
         public void InvalidSubject()

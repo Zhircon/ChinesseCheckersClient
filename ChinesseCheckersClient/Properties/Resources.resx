@@ -318,4 +318,13 @@ Must contain digits</value>
   <data name="Common_Win" xml:space="preserve">
     <value>Win </value>
   </data>
+  <data name="Common_OfflineRegister" xml:space="preserve">
+    <value>Offline register</value>
+  </data>
+  <data name="Common_OfflineCode0000" xml:space="preserve">
+    <value>Offline code: 0000</value>
+  </data>
+  <data name="Common_EmailAlreadyExitsAssing" xml:space="preserve">
+    <value>Email already exits assing</value>
+  </data>
 </root>

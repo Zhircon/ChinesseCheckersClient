@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ChinesseCheckersServer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:complexType name="Room">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Logic" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Logic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.35.191:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://192.168.35.191:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataAccess" />
+  <xs:simpleType name="OperationResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sucessfull" />
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Failed" />
+      <xs:enumeration value="ConnectionLost">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">100</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UniqueValueFound">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">200</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OperationResult" nillable="true" type="tns:OperationResult" />
+  <xs:complexType name="Session">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChatCallbacks" nillable="true" type="q1:ArrayOfKeyValueOfintanyType" />
-      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ColorForThreePlayers" nillable="true" type="q2:ArrayOfchar" />
-      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ColorForTwoPlayers" nillable="true" type="q3:ArrayOfchar" />
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GameplayCallbacks" nillable="true" type="q4:ArrayOfKeyValueOfintanyType" />
-      <xs:element minOccurs="0" name="IdRoom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NumberOfAllowedPlayers" type="xs:int" />
-      <xs:element minOccurs="0" name="NumberOfAllowedPlayersOriginal" type="xs:int" />
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Players" nillable="true" type="q5:ArrayOfKeyValueOfintPlayerTDzOzkk0" />
-      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PlayersColors" nillable="true" type="q6:ArrayOfKeyValueOfintchar" />
-      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RoomCallbacks" nillable="true" type="q7:ArrayOfKeyValueOfintanyType" />
-      <xs:element minOccurs="0" name="Turn" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataAccess" minOccurs="0" name="PlayerConfiguration" nillable="true" type="q1:Configuration" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataAccess" minOccurs="0" name="PlayerLoged" nillable="true" type="q2:Player" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Room" nillable="true" type="tns:Room" />
+  <xs:element name="Session" nillable="true" type="tns:Session" />
 </xs:schema>

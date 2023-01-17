@@ -290,19 +290,19 @@
     <None Include="Connected Services\GameService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\GameService\item11.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\GameService\item12.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\GameService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\GameService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\GameService\item31.xsd">
+    <None Include="Connected Services\GameService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameService\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameService\item6.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -354,9 +354,6 @@
     <WCFMetadataStorage Include="Connected Services\GameService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\GameService\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\GameService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -373,6 +370,7 @@
     <Resource Include="Assets\Images\ServerLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\GameService\item.disco" />
     <Resource Include="Styles\Disabled\ButtonSendMessageChatDisabled.png" />
     <Resource Include="Styles\Pressed\ButtonLoginPagePressed.png" />
     <Resource Include="Styles\Static\ButtonLoginPageStatic.png" />

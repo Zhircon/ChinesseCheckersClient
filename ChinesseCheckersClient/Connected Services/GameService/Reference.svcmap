@@ -19,18 +19,18 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.35.191:8080" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="29b3afdd-9852-4fbe-8029-d10524b34433" SourceId="1" SourceUrl="http://localhost:8080/?disco" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="a9397079-be14-42a5-b070-75f984311192" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd1" />
-    <MetadataFile FileName="GameService.wsdl" MetadataType="Wsdl" ID="152bb95c-b7f5-4b90-b6f8-9a959cf8127a" SourceId="1" SourceUrl="http://localhost:8080/?wsdl" />
-    <MetadataFile FileName="item11.xsd" MetadataType="Schema" ID="85b063d7-f539-445a-888c-4b8ea618473c" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd2" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="466baac6-6716-40fb-8f91-3e84442e1180" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd4" />
-    <MetadataFile FileName="item31.xsd" MetadataType="Schema" ID="8f2b7ad7-3be0-4bcf-ad76-27c9e56b7de8" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd5" />
-    <MetadataFile FileName="item12.xsd" MetadataType="Schema" ID="6748ecc9-6c13-4efd-885f-ccc95c2dfdc4" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd3" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="595c5978-8540-4c4a-bb3f-0e73c57adbcc" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd6" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="5061141a-fc30-45e0-8b83-ba242d2cf12d" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd0" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="7278a6c0-792a-4c6c-8c5f-0adcbcb9cf05" SourceId="1" SourceUrl="http://192.168.35.191:8080/?xsd=xsd4" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="110f4055-239c-404c-b91a-2f6221831eca" SourceId="1" SourceUrl="http://192.168.35.191:8080/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="3c06c6af-33c1-4478-ab57-66f424694654" SourceId="1" SourceUrl="http://192.168.35.191:8080/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="2d14c6da-28c8-4c60-9bee-7e6366ea5654" SourceId="1" SourceUrl="http://192.168.35.191:8080/?xsd=xsd5" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="b73e3392-ac25-434b-aafc-658d4ef3e733" SourceId="1" SourceUrl="http://192.168.35.191:8080/?xsd=xsd2" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="cf559af5-7dc2-4510-87d1-3a7a8a26a813" SourceId="1" SourceUrl="http://192.168.35.191:8080/?xsd=xsd6" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="ec570721-9619-442c-b7a6-7bb67cf0b5a8" SourceId="1" SourceUrl="http://192.168.35.191:8080/?xsd=xsd0" />
+    <MetadataFile FileName="item6.xsd" MetadataType="Schema" ID="fe2411c9-b309-4525-9b9e-8688c09a1f17" SourceId="1" SourceUrl="http://192.168.35.191:8080/?xsd=xsd3" />
+    <MetadataFile FileName="GameService.wsdl" MetadataType="Wsdl" ID="e286b5ac-aa5d-4cb5-9d6f-fcd4821a988d" SourceId="1" SourceUrl="http://192.168.35.191:8080/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

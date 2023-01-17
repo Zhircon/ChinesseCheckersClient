@@ -28,6 +28,9 @@ namespace ChinesseCheckersClient.GameService {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConnectionLost = 100,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UniqueValueFound = 200,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
